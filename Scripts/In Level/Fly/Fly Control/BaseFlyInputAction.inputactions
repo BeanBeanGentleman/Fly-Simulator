@@ -1,0 +1,134 @@
+{
+    "name": "BaseFlyInputAction",
+    "maps": [
+        {
+            "name": "FlyControl",
+            "id": "943a402f-c70f-464c-837b-eb8a025cfbb8",
+            "actions": [
+                {
+                    "name": "Accelerate",
+                    "type": "Button",
+                    "id": "8ba6874d-f865-49a7-b6c5-bc68526ef648",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold"
+                },
+                {
+                    "name": "AirBrake",
+                    "type": "Button",
+                    "id": "65fa8cb9-1f5d-4d53-b03c-958a87c46dec",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold"
+                },
+                {
+                    "name": "RollLeft",
+                    "type": "Button",
+                    "id": "78476010-6735-438a-9a67-8a8d7c25fcce",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold"
+                },
+                {
+                    "name": "RollRight",
+                    "type": "Button",
+                    "id": "e7eb457e-5640-47ee-84af-6f016c70d1b7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold"
+                },
+                {
+                    "name": "YawLeft",
+                    "type": "Button",
+                    "id": "f212a0b4-bcc9-42e3-91f6-b3d3f2ff1e2d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold"
+                },
+                {
+                    "name": "YawRight",
+                    "type": "Button",
+                    "id": "0174e467-90ef-49b9-93d9-eb69c10dab17",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "09c0e09b-cab9-4793-96a0-8e393dffcb66",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Accelerate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "67205c49-0cab-4c55-bcac-892e9e592b9d",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AirBrake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9f7576f9-1fa8-4f46-9920-9673a4cfeff5",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RollLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ec1d270-7373-40a1-a4c9-07d853fda27a",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RollRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c59fc378-9123-4319-b9f1-527426a66d99",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "YawLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b82e6a5a-8501-46f1-8e6a-b69a8c261605",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "YawRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "ControlScheme1",
+            "bindingGroup": "ControlScheme1",
+            "devices": []
+        }
+    ]
+}
