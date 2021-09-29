@@ -10,7 +10,7 @@ namespace Genral
     public class FlyValueContainer
     {
         public float BaseVal;
-        protected Dictionary<GUID, Modifier> Modifiers;
+        public Dictionary<GUID, Modifier> Modifiers;
         
         /// <summary>
         /// Initialize the container
