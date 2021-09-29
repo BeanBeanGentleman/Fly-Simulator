@@ -10,7 +10,7 @@ namespace Control
 {
     public abstract class BaseAbilityController : MonoBehaviour
     {
-        public GUID guid;
+        public Guid guid;
         public int Activation = 1;
         public AutoResetCounter ActivationTime;
         public AutoResetCounter CDTime;
@@ -28,7 +28,7 @@ namespace Control
 
         protected virtual void Start()
         {
-            guid = GUID.Generate();
+            guid = Guid.NewGuid();
             if (thisFlyController == null)
             {
                 thisFlyController = this.gameObject.GetComponent<BaseFlyController>();
