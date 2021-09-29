@@ -10,7 +10,7 @@ namespace Genral
     public class FlyValueContainer
     {
         public float BaseVal;
-        public Dictionary<GUID, Modifier> Modifiers;
+        public Dictionary<Guid, Modifier> Modifiers;
         
         /// <summary>
         /// Initialize the container
@@ -19,7 +19,7 @@ namespace Genral
         public FlyValueContainer(float theBaseVal)
         {
             BaseVal = theBaseVal;
-            Modifiers = new Dictionary<GUID, Modifier>();
+            Modifiers = new Dictionary<Guid, Modifier>();
         }
         
         
@@ -39,13 +39,13 @@ namespace Genral
             return result;
         }
 
-        public void SetNoBonusModifier(GUID theGuid)
+        public void SetNoBonusModifier(Guid theGuid)
         {
             if (this.Modifiers.ContainsKey(theGuid)) this.Modifiers[theGuid] = Modifier.NoBonusModifier;
             else this.Modifiers.Add(theGuid, Modifier.NoBonusModifier);
         }
         
-        public void SetModifier(GUID theGuid, Modifier theModifier)
+        public void SetModifier(Guid theGuid, Modifier theModifier)
         {
             if (this.Modifiers.ContainsKey(theGuid)) this.Modifiers[theGuid] = theModifier;
             else this.Modifiers.Add(theGuid, theModifier);

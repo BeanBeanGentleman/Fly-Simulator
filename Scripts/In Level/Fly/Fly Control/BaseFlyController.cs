@@ -30,6 +30,7 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
     public FlyValueContainer Agility = new FlyValueContainer(0.3f);
     public FlyValueContainer AirDragVal = new FlyValueContainer(3);
     public FlyValueContainer IngestSpeed = new FlyValueContainer(0.3f);
+    public FlyValueContainer NoiseLevel = new FlyValueContainer(1f);
 
     public Modifier ForwardMoreAccel = new Modifier(false, 2, "0");
     public Modifier BackwardAccel = new Modifier(false, -2, "0");
@@ -52,13 +53,13 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
     public float DeadZoneYaw = 0.2f;
     public float DeadZonePitch = 0.2f;
 
-    private GUID myGuid;
+    private Guid myGuid;
 
     public bool Ingesting { get; set; }
     
     private void Start()
     {
-        myGuid = GUID.Generate();
+        myGuid = Guid.NewGuid();
         ForwardAccel.SetNoBonusModifier(myGuid);
         Agility.SetNoBonusModifier(myGuid);
         AirDragVal.SetNoBonusModifier(myGuid);
@@ -92,8 +93,8 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
         YawingSpeed = 0;
         PitchingSpeed = 0;
         
-        Buzz.pitch = ForwardAccel.FinalVal() / ForwardMoreAccel.Value;
-        Buzz.volume = Buzz.pitch;
+        Buzz.pitch = NoiseLevel.FinalVal() * (ForwardAccel.FinalVal() / ForwardMoreAccel.Value);
+        Buzz.volume = NoiseLevel.FinalVal() * Buzz.pitch;
 
     }
 
