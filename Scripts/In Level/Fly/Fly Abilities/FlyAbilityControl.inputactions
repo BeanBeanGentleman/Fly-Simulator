@@ -1,0 +1,93 @@
+{
+    "name": "FlyAbilityControl",
+    "maps": [
+        {
+            "name": "ManeuverabilityAbility",
+            "id": "fc75bceb-0e3b-4d4b-a4be-c1f14bc5c576",
+            "actions": [
+                {
+                    "name": "Use",
+                    "type": "Button",
+                    "id": "d98ca7dd-71ff-4669-834d-8583b2271fc5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "047292d3-c4a5-4e7c-812b-33a45ede1318",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "AbilityControlScheme",
+                    "action": "Use",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "SurviabilityAbility",
+            "id": "586e6c2e-0108-4511-abea-0ef95fc194d8",
+            "actions": [
+                {
+                    "name": "Use",
+                    "type": "Button",
+                    "id": "65c55826-4f6a-40a9-9c6b-33c2765e09cd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "70f4545d-6c02-4382-8f14-e2f8f6241138",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "AbilityControlScheme",
+                    "action": "Use",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UltimateAbility",
+            "id": "4e66072f-ddd2-499b-b585-9198530cc971",
+            "actions": [
+                {
+                    "name": "Use",
+                    "type": "Button",
+                    "id": "3c5c533a-fae4-455b-b550-3fd09fc383fd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7bef6218-963b-4667-b307-a9c439daec20",
+                    "path": "<Keyboard>/v",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "AbilityControlScheme",
+                    "action": "Use",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "AbilityControlScheme",
+            "bindingGroup": "AbilityControlScheme",
+            "devices": []
+        }
+    ]
+}

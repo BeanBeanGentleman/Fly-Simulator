@@ -32,6 +32,12 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
         // ForwardAccel.SetModifier(myGuid, ForwardMoreAccel);
         Accelerate += 1;
     }
+
+    public void OnIngest(InputAction.CallbackContext context)
+    {
+        Ingest += 1;
+    }
+
     public void OnAirBrake(InputAction.CallbackContext ctx)
     {
         AirBrake += 1;

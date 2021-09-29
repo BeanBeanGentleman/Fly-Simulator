@@ -65,6 +65,14 @@ public class @FlyInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Ingest"",
+                    ""type"": ""Button"",
+                    ""id"": ""7787d6f5-c482-4394-8478-f3085f48b36e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -133,6 +141,17 @@ public class @FlyInput : IInputActionCollection, IDisposable
                     ""action"": ""YawRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8aa83928-ea87-4fde-afe4-4d2bee6cd99e"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""ControlSchemeFly"",
+                    ""action"": ""Ingest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -153,6 +172,7 @@ public class @FlyInput : IInputActionCollection, IDisposable
         m_NormalFly_RollLeft = m_NormalFly.FindAction("RollLeft", throwIfNotFound: true);
         m_NormalFly_AirBrake = m_NormalFly.FindAction("AirBrake", throwIfNotFound: true);
         m_NormalFly_Accelerate = m_NormalFly.FindAction("Accelerate", throwIfNotFound: true);
+        m_NormalFly_Ingest = m_NormalFly.FindAction("Ingest", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -208,6 +228,7 @@ public class @FlyInput : IInputActionCollection, IDisposable
     private readonly InputAction m_NormalFly_RollLeft;
     private readonly InputAction m_NormalFly_AirBrake;
     private readonly InputAction m_NormalFly_Accelerate;
+    private readonly InputAction m_NormalFly_Ingest;
     public struct NormalFlyActions
     {
         private @FlyInput m_Wrapper;
@@ -218,6 +239,7 @@ public class @FlyInput : IInputActionCollection, IDisposable
         public InputAction @RollLeft => m_Wrapper.m_NormalFly_RollLeft;
         public InputAction @AirBrake => m_Wrapper.m_NormalFly_AirBrake;
         public InputAction @Accelerate => m_Wrapper.m_NormalFly_Accelerate;
+        public InputAction @Ingest => m_Wrapper.m_NormalFly_Ingest;
         public InputActionMap Get() { return m_Wrapper.m_NormalFly; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -245,6 +267,9 @@ public class @FlyInput : IInputActionCollection, IDisposable
                 @Accelerate.started -= m_Wrapper.m_NormalFlyActionsCallbackInterface.OnAccelerate;
                 @Accelerate.performed -= m_Wrapper.m_NormalFlyActionsCallbackInterface.OnAccelerate;
                 @Accelerate.canceled -= m_Wrapper.m_NormalFlyActionsCallbackInterface.OnAccelerate;
+                @Ingest.started -= m_Wrapper.m_NormalFlyActionsCallbackInterface.OnIngest;
+                @Ingest.performed -= m_Wrapper.m_NormalFlyActionsCallbackInterface.OnIngest;
+                @Ingest.canceled -= m_Wrapper.m_NormalFlyActionsCallbackInterface.OnIngest;
             }
             m_Wrapper.m_NormalFlyActionsCallbackInterface = instance;
             if (instance != null)
@@ -267,6 +292,9 @@ public class @FlyInput : IInputActionCollection, IDisposable
                 @Accelerate.started += instance.OnAccelerate;
                 @Accelerate.performed += instance.OnAccelerate;
                 @Accelerate.canceled += instance.OnAccelerate;
+                @Ingest.started += instance.OnIngest;
+                @Ingest.performed += instance.OnIngest;
+                @Ingest.canceled += instance.OnIngest;
             }
         }
     }
@@ -288,5 +316,6 @@ public class @FlyInput : IInputActionCollection, IDisposable
         void OnRollLeft(InputAction.CallbackContext context);
         void OnAirBrake(InputAction.CallbackContext context);
         void OnAccelerate(InputAction.CallbackContext context);
+        void OnIngest(InputAction.CallbackContext context);
     }
 }

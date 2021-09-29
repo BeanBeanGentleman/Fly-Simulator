@@ -52,6 +52,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Ingest",
+                    "type": "Button",
+                    "id": "7787d6f5-c482-4394-8478-f3085f48b36e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -118,6 +126,17 @@
                     "processors": "",
                     "groups": "ControlSchemeFly",
                     "action": "YawRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8aa83928-ea87-4fde-afe4-4d2bee6cd99e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ControlSchemeFly",
+                    "action": "Ingest",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
