@@ -1,17 +1,29 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Control
 {
-    public abstract class BaseSurvivabilityBuff : BaseAbilityController
+    public abstract class BaseSurvivabilityBuff : BaseAbilityController, FlyAbilityControl.ISurviabilityAbilityActions
     {
-        protected override float Active()
+        private FlyAbilityControl _FlyInputActions;
+        public void Awake()
         {
-            throw new System.NotImplementedException();
+            _FlyInputActions = new FlyAbilityControl();
+            _FlyInputActions.SurviabilityAbility.SetCallbacks(this);
+        }
+    
+        public void OnEnable()
+        {
+            _FlyInputActions.SurviabilityAbility.Enable();
         }
 
-        protected override float Deactive()
+        public void OnDisable()
         {
-            throw new System.NotImplementedException();
+            _FlyInputActions.SurviabilityAbility.Disable();
+        }
+        public virtual void OnUse(InputAction.CallbackContext context)
+        {
+            Activation += 1;
         }
     }
 }

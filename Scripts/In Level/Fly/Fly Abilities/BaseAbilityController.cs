@@ -10,12 +10,12 @@ namespace Control
 {
     public abstract class BaseAbilityController : MonoBehaviour
     {
-        public readonly GUID guid = new GUID();
-        public List<InputAction> ActivationActions;
+        public GUID guid;
+        public int Activation = 1;
         public AutoResetCounter ActivationTime;
         public AutoResetCounter CDTime;
-        public List<float> BuffValue;
-        public List<float> DebuffValue;
+        public List<Modifier> BuffValue;
+        public List<Modifier> DebuffValue;
 
         public FlyValueContainer ActivationTimeModifier;
         public FlyValueContainer CDTimeModifier;
@@ -24,8 +24,11 @@ namespace Control
 
         protected bool Activated = false;
 
+        protected bool OnceDeactivated = false;
+
         protected virtual void Start()
         {
+            guid = GUID.Generate();
             if (thisFlyController == null)
             {
                 thisFlyController = this.gameObject.GetComponent<BaseFlyController>();
@@ -39,33 +42,63 @@ namespace Control
 
         protected virtual void Update()
         {
-            bool pressed = false;
-            foreach (InputAction action in ActivationActions)
-            {
-                pressed = pressed || (action.ReadValue<float>() > 0.75f);
-            }
+            bool pressed = Activation%3==0;
+            // foreach (int action in Activations)
+            // {
+            //     pressed = pressed || (action%3==0);
+            // }
 
             Activated = CDTime.IsZeroReached(Time.deltaTime, false) && pressed;
-
-            _ = Activated ? Active() : Deactive();
-
-            if (Activated)
-            {
-                if (ActivationTime.IsZeroReached(Time.deltaTime, false))
-                {
-                    CDTime.MaxmizeTemp(); // Will force stop activation
-                    Deactive();
-                }
-            }
             
+
+            // _ = Activated ? _active() : _deactive();
+            //
+            // if (Activated)
+            // {
+            //     if (ActivationTime.IsZeroReached(Time.deltaTime, false))
+            //     {
+            //         CDTime.MaxmizeTemp(); // Will force stop activation
+            //         Deactive();
+            //     }
+            // }
+            //
         }
 
         protected virtual void FixedUpdate()
         {
-            _ = Activated ? Active() : Deactive();
+            _ = Activated ? _active(Time.fixedDeltaTime) : _deactive(); // Will have the ability automatically stop if released
         }
 
-        protected abstract float Active();
-        protected abstract float Deactive();
+        protected object _active(float TimeDelta)
+        {
+            if (ActivationTime.Temp < 0)
+            {
+                ActivationTime.MaxmizeTemp();
+                OnceDeactivated = false;
+            }
+            Active();
+            if(ActivationTime.IsZeroReached(TimeDelta, false, true)) // Will force stop activation
+            {
+                _deactive();
+            }
+
+            return null;
+        }
+        
+        protected object _deactive()
+        {
+            ActivationTime.Temp = -1;
+            if (!OnceDeactivated)
+            {
+                CDTime.MaxmizeTemp();
+                OnceDeactivated = true;
+            }
+
+            Deactive();
+            return null;
+        }
+
+        protected abstract void Active();
+        protected abstract void Deactive();
     }
 }

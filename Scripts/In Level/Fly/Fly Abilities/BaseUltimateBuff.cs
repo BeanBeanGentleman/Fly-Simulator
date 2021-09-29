@@ -1,17 +1,30 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Control
 {
-    public abstract class BaseUltimateBuff : BaseAbilityController
+    public abstract class BaseUltimateBuff : BaseAbilityController, FlyAbilityControl.IUltimateAbilityActions
     {
-        protected override float Active()
+        private FlyAbilityControl _FlyInputActions;
+        public void Awake()
         {
-            throw new System.NotImplementedException();
+            _FlyInputActions = new FlyAbilityControl();
+            _FlyInputActions.UltimateAbility.SetCallbacks(this);
+        }
+    
+        public void OnEnable()
+        {
+            _FlyInputActions.UltimateAbility.Enable();
         }
 
-        protected override float Deactive()
+        public void OnDisable()
         {
-            throw new System.NotImplementedException();
+            _FlyInputActions.UltimateAbility.Disable();
+        }
+
+        public virtual void OnUse(InputAction.CallbackContext context)
+        {
+            Activation += 1;
         }
     }
 }

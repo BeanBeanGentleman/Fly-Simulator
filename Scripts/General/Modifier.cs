@@ -1,6 +1,9 @@
-﻿namespace Genral
+﻿using System;
+
+namespace Genral
 {
-    public struct Modifier
+    [Serializable]
+    public class Modifier
     {
         public bool IsMultiply;
         public float Value;
