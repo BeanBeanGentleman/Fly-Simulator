@@ -7,6 +7,9 @@ namespace In_Level.Level_Item_Behaviours.Trap
 {
     public class BaseWebifier : MonoBehaviour
     {
+        /// <summary>
+        /// The webifier modifier. This will be used for adding drag to the fly.
+        /// </summary>
         public Modifier Webifier = new Modifier(false, 1000f, "a");
         public Guid thisGuid;
 

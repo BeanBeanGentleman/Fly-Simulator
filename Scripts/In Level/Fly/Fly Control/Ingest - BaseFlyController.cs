@@ -13,7 +13,12 @@ using Vector3 = UnityEngine.Vector3;
 public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActions
 {
     public Dictionary<IngestTypes, float> IngestedValues = new Dictionary<IngestTypes, float>();
-
+    
+    /// <summary>
+    /// For Ingestable Scripts to call
+    /// </summary>
+    /// <param name="ingestType">The type of stuff ingested</param>
+    /// <param name="ingestAmount">The amount ingested</param>
     public virtual void IngestIn(IngestTypes ingestType, float ingestAmount)
     {
         if (!IngestedValues.ContainsKey(ingestType))
