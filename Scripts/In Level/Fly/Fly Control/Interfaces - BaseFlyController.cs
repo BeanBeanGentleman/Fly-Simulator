@@ -12,6 +12,14 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
 {
     private FlyInput _FlyInputActions;
     
+    private int Accelerate = 1;
+    private int AirBrake = 1;
+    private int RollLeft = 1;
+    private int RollRight = 1;
+    private int YawLeft = 1;
+    private int YawRight = 1;
+    private int Ingest = 1;
+    
     public void Awake()
     {
         _FlyInputActions = new FlyInput();

@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 5779968146687596947}
   - component: {fileID: 1487780917392196852}
   - component: {fileID: 8896561752555511201}
+  - component: {fileID: 4010046416405747108}
   m_Layer: 0
   m_Name: Fly
   m_TagString: Untagged
@@ -185,9 +186,15 @@ MonoBehaviour:
     BaseVal: 3
   IngestSpeed:
     BaseVal: 0.3
+  NoiseLevel:
+    BaseVal: 1
   ForwardMoreAccel:
     IsMultiply: 0
     Value: 2
+    Order: 0
+  BackwardAccel:
+    IsMultiply: 0
+    Value: -2
     Order: 0
   AirbrakeDragBonus:
     IsMultiply: 0
@@ -325,6 +332,35 @@ MonoBehaviour:
   - IsMultiply: 0
     Value: 0.03
     Order: a
+  ActivationTimeModifier:
+    BaseVal: 0
+  CDTimeModifier:
+    BaseVal: 0
+  thisFlyController: {fileID: 5779968146687596947}
+--- !u!114 &4010046416405747108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487780917392196848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1919df06624c8188f4bd73cf768bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Activation: 1
+  ActivationTime:
+    Temp: 5
+    Max: 5
+  CDTime:
+    Temp: 7
+    Max: 7
+  BuffValue:
+  - IsMultiply: 1
+    Value: 0.5
+    Order: a
+  DebuffValue: []
   ActivationTimeModifier:
     BaseVal: 0
   CDTimeModifier:

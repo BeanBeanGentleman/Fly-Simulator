@@ -6,6 +6,10 @@ using UnityEngine.InputSystem.Controls;
 
 namespace Control
 {
+    /// <summary>
+    /// This is for the After Burner ability for the normal fly.
+    /// This ability will greatly improve the speed of the fly at the cost of greatly reduced agility.
+    /// </summary>
     public class AfterBurnerBuff : BaseManeuverabilityBuff
     {
         protected override void Active()

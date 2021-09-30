@@ -6,11 +6,14 @@ using UnityEngine;
 
 namespace Genral
 {
+    /// <summary>
+    /// This is Container for fly attributes. Values can and should be modified by Modifiers. Use FinalVal() to get the modified values.
+    /// </summary>
     [Serializable]
     public class FlyValueContainer
     {
-        public float BaseVal;
-        public Dictionary<GUID, Modifier> Modifiers;
+        public readonly float BaseVal;
+        public Dictionary<Guid, Modifier> Modifiers;
         
         /// <summary>
         /// Initialize the container
@@ -19,7 +22,7 @@ namespace Genral
         public FlyValueContainer(float theBaseVal)
         {
             BaseVal = theBaseVal;
-            Modifiers = new Dictionary<GUID, Modifier>();
+            Modifiers = new Dictionary<Guid, Modifier>();
         }
         
         
@@ -38,14 +41,21 @@ namespace Genral
 
             return result;
         }
-
-        public void SetNoBonusModifier(GUID theGuid)
+        /// <summary>
+        /// Make the modifier nullified in terms of effect
+        /// </summary>
+        /// <param name="theGuid">The corresponding Guid for the modifier</param>
+        public void SetNoBonusModifier(Guid theGuid)
         {
             if (this.Modifiers.ContainsKey(theGuid)) this.Modifiers[theGuid] = Modifier.NoBonusModifier;
             else this.Modifiers.Add(theGuid, Modifier.NoBonusModifier);
         }
-        
-        public void SetModifier(GUID theGuid, Modifier theModifier)
+        /// <summary>
+        /// Set the modifier
+        /// </summary>
+        /// <param name="theGuid">The corresponding Guid for the modifier</param>
+        /// <param name="theModifier">The Modifier</param>
+        public void SetModifier(Guid theGuid, Modifier theModifier)
         {
             if (this.Modifiers.ContainsKey(theGuid)) this.Modifiers[theGuid] = theModifier;
             else this.Modifiers.Add(theGuid, theModifier);
