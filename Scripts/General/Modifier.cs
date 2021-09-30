@@ -14,7 +14,7 @@ namespace Genral
         public bool IsMultiply;
         public float Value;
         /// <summary>
-        /// The order this will be applied. Based on string order and modifiers will be applied from 0-9-a-z-A-Z
+        /// The order this will be applied. Based on string order and modifiers will be applied from 0-9-A-Z-a-z
         /// </summary>
         public string Order;
         
