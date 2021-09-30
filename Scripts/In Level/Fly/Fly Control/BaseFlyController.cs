@@ -8,15 +8,12 @@ using UnityEngine.InputSystem.Controls;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
+/// <summary>
+/// This is the controller script of the fly, handling HP, Energy and Flight control(also include ingesting), but not Camera Control.
+/// </summary>
 public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActions
 {
-    private int Accelerate = 1;
-    private int AirBrake = 1;
-    private int RollLeft = 1;
-    private int RollRight = 1;
-    private int YawLeft = 1;
-    private int YawRight = 1;
-    private int Ingest = 1;
+
     
 
     
@@ -25,23 +22,51 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
 
     public Rigidbody thisRigidbody;
 
-
-    public FlyValueContainer ForwardAccel = new FlyValueContainer(2);
+    /// <summary>
+    /// The force strength for pushing the fly forward. (Backward if < 0)
+    /// </summary>
+    public FlyValueContainer ForwardAccel = new FlyValueContainer(0);
+    /// <summary>
+    /// The agility for fly to maneuver. The less value the harder to turn.
+    /// </summary>
     public FlyValueContainer Agility = new FlyValueContainer(0.3f);
+    /// <summary>
+    /// The air drag the fly will suffer from. 
+    /// </summary>
     public FlyValueContainer AirDragVal = new FlyValueContainer(3);
+    /// <summary>
+    /// The speed of ingestion per second.
+    /// </summary>
     public FlyValueContainer IngestSpeed = new FlyValueContainer(0.3f);
+    /// <summary>
+    /// The noise multiplier toward the fly's buzz. Also affect the effective range of the noise.
+    /// </summary>
     public FlyValueContainer NoiseLevel = new FlyValueContainer(1f);
-
+    
+    /// <summary>
+    /// The modifer for when W is pressed or the right joystick pushed forward.
+    /// </summary>
     public Modifier ForwardMoreAccel = new Modifier(false, 2, "0");
+    /// <summary>
+    /// The modifer for when S is pressed or the right joystick pushed backward.
+    /// </summary>
     public Modifier BackwardAccel = new Modifier(false, -2, "0");
+    /// <summary>
+    /// The modifer for when S is pressed or the right joystick pushed backward. For Air Drag.
+    /// </summary>
     public Modifier AirbrakeDragBonus = new Modifier(false, 15, "0");
 
     public AudioSource Buzz;
     public AudioSource IngestSound;
+    /// <summary>
+    /// The apparel of the fly
+    /// </summary>
     public GameObject Looking;
-
+    /// <summary>
+    /// The arrificial gravity that will applied to the fly.
+    /// </summary>
     public float ArtificialGravity = 0.98f;
-
+    
     public float RollingSpeed = 0;
     public float YawingSpeed = 0;
     public float PitchingSpeed = 0;
@@ -49,8 +74,14 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
     private float RollMultiplier = 0.05f;
     private float YawMultiplier = 0.2f;
     private float PitchMultiplier = 0.1f;
-
+    
+    /// <summary>
+    /// The deadzone for controlling yaw
+    /// </summary>
     public float DeadZoneYaw = 0.2f;
+    /// <summary>
+    /// The deadzone for controlling pitch
+    /// </summary>
     public float DeadZonePitch = 0.2f;
 
     private Guid myGuid;
@@ -151,6 +182,14 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
     }
     void CancelAirBrake(InputAction.CallbackContext ctx){
         AirDragVal.SetNoBonusModifier(myGuid);
+    }
+    /// <summary>
+    /// For the fly taking damage
+    /// </summary>
+    /// <param name="Val">The damage that the fly will take. This should be positive if the fly is losing hp.</param>
+    public void TakeDamage(float Val)
+    {
+        
     }
 
     private void OnCollisionEnter(Collision other)

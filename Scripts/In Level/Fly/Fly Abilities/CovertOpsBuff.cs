@@ -2,6 +2,10 @@
 
 namespace Control
 {
+    /// <summary>
+    /// This is for covert ops ability for the normal fly.
+    /// This will greatly reduce the noise level of the fly.
+    /// </summary>
     public class CovertOpsBuff : BaseSurvivabilityBuff
     {
         protected override void Active()

@@ -8,7 +8,13 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
     [RequireComponent(typeof(Collider))]
     public class BaseIngestable : MonoBehaviour
     {
+        /// <summary>
+        /// The amount of food
+        /// </summary>
         public AutoResetCounter FoodAmount = new AutoResetCounter(10);
+        /// <summary>
+        /// The type of food
+        /// </summary>
         public IngestTypes MyType = IngestTypes.CarboHydrate;
 
         private void Start()
@@ -32,7 +38,9 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
                 }
             }
         }
-        
+        /// <summary>
+        /// Call this when the food is depleted
+        /// </summary>
         public virtual void ElimateThis()
         {
             Destroy(this.gameObject);
