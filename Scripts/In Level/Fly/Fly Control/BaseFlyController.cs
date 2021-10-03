@@ -25,23 +25,23 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
     /// <summary>
     /// The force strength for pushing the fly forward. (Backward if < 0)
     /// </summary>
-    public FlyValueContainer ForwardAccel = new FlyValueContainer(0);
+    public ValueContainer ForwardAccel = new ValueContainer(0);
     /// <summary>
     /// The agility for fly to maneuver. The less value the harder to turn.
     /// </summary>
-    public FlyValueContainer Agility = new FlyValueContainer(0.3f);
+    public ValueContainer Agility = new ValueContainer(0.3f);
     /// <summary>
     /// The air drag the fly will suffer from. 
     /// </summary>
-    public FlyValueContainer AirDragVal = new FlyValueContainer(3);
+    public ValueContainer AirDragVal = new ValueContainer(3);
     /// <summary>
     /// The speed of ingestion per second.
     /// </summary>
-    public FlyValueContainer IngestSpeed = new FlyValueContainer(0.3f);
+    public ValueContainer IngestSpeed = new ValueContainer(0.3f);
     /// <summary>
     /// The noise multiplier toward the fly's buzz. Also affect the effective range of the noise.
     /// </summary>
-    public FlyValueContainer NoiseLevel = new FlyValueContainer(1f);
+    public ValueContainer NoiseLevel = new ValueContainer(1f);
     
     /// <summary>
     /// The modifer for when W is pressed or the right joystick pushed forward.
@@ -65,13 +65,13 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
     /// <summary>
     /// The arrificial gravity that will applied to the fly.
     /// </summary>
-    public float ArtificialGravity = 0.98f;
+    public float ArtificialGravity = 0.3f;
     
     public float RollingSpeed = 0;
     public float YawingSpeed = 0;
     public float PitchingSpeed = 0;
 
-    private float RollMultiplier = 0.05f;
+    private float RollMultiplier = 0;
     private float YawMultiplier = 0.2f;
     private float PitchMultiplier = 0.1f;
     
@@ -103,6 +103,7 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
     {
         thisRigidbody.drag = AirDragVal.FinalVal();
         thisRigidbody.AddForce(ForwardAccel.FinalVal() * this.transform.forward);
+        thisRigidbody.AddForce(Vector3.down * ArtificialGravity);
         Vector2 MouseActualPos = Mouse.current.position.ReadValue();
         MouseActualPos = Camera.main.ScreenToViewportPoint(MouseActualPos) - (Vector3.one * 0.5f);
 
@@ -132,11 +133,9 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
     
     private void Update()
     {
-        if (Accelerate%3==0) ForwardAccel.SetModifier(myGuid, ForwardMoreAccel);
+        if (Accelerate) ForwardAccel.SetModifier(myGuid, ForwardMoreAccel);
 
-
-
-        if (AirBrake % 3 == 0)
+        if (AirBrake)
         {
             AirDragVal.SetModifier(myGuid, AirbrakeDragBonus);
             ForwardAccel.SetModifier(myGuid, BackwardAccel);
@@ -146,33 +145,33 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
             AirDragVal.SetNoBonusModifier(myGuid);
         }
         
-        if((AirBrake % 3 != 0) && (Accelerate % 3 != 0))ForwardAccel.SetNoBonusModifier(myGuid);
+        if((!AirBrake) && (!Accelerate))ForwardAccel.SetNoBonusModifier(myGuid);
 
-        if (RollLeft%3==0)
+        if (RollLeft)
         {
             RollingSpeed = 1;
         }
-        else if (RollRight % 3 == 0)
+        else if (RollRight)
         {
             RollingSpeed = -1;
         }
         else
             RollingSpeed = 0;
         
-        if (YawLeft%3==0)
+        if (YawLeft)
         {
             YawingSpeed = -1;
         }
-        else if (YawRight%3==0)
+        else if (YawRight)
         {
             YawingSpeed = 1;
         }
         else
             YawingSpeed = 0;
 
-        var InjestPressed = Ingest % 3 == 0;
-        this.Ingesting = InjestPressed;
-        IngestSound.volume = InjestPressed?1:0;
+        var injestPressed = Ingest;
+        this.Ingesting = injestPressed;
+        IngestSound.volume = injestPressed?1:0;
 
     }
     

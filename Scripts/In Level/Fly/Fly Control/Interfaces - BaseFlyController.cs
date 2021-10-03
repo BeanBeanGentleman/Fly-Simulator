@@ -12,13 +12,13 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
 {
     private FlyInput _FlyInputActions;
     
-    private int Accelerate = 1;
-    private int AirBrake = 1;
-    private int RollLeft = 1;
-    private int RollRight = 1;
-    private int YawLeft = 1;
-    private int YawRight = 1;
-    private int Ingest = 1;
+    private bool Accelerate = false;
+    private bool AirBrake = false;
+    private bool RollLeft = false;
+    private bool RollRight = false;
+    private bool YawLeft = false;
+    private bool YawRight = false;
+    private bool Ingest = false;
     
     public void Awake()
     {
@@ -38,38 +38,38 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
     
     public void OnAccelerate(InputAction.CallbackContext ctx){
         // ForwardAccel.SetModifier(myGuid, ForwardMoreAccel);
-        Accelerate += 1;
+        Accelerate = ctx.phase == InputActionPhase.Performed;
     }
 
-    public void OnIngest(InputAction.CallbackContext context)
+    public void OnIngest(InputAction.CallbackContext ctx)
     {
-        Ingest += 1;
+        Ingest = ctx.phase == InputActionPhase.Performed;
     }
 
     public void OnAirBrake(InputAction.CallbackContext ctx)
     {
-        AirBrake += 1;
+        AirBrake = ctx.phase == InputActionPhase.Performed;
         // AirDragVal.SetModifier(myGuid, AirbrakeDragBonus);
     }
     public void OnRollLeft(InputAction.CallbackContext ctx)
     {
-        RollLeft += 1;
+        RollLeft = ctx.phase == InputActionPhase.Performed;
         // RollingSpeed = 1;
     }
     public void OnRollRight(InputAction.CallbackContext ctx)
     {
-        RollRight += 1;
+        RollRight = ctx.phase == InputActionPhase.Performed;
         // RollingSpeed = -1;
     }
     public void OnYawLeft(InputAction.CallbackContext ctx)
     {
-        YawLeft += 1;
+        YawLeft = ctx.phase == InputActionPhase.Performed;
         // YawingSpeed = 1;
     }
 
     public void OnYawRight(InputAction.CallbackContext ctx)
     {
-        YawRight += 1;
+        YawRight = ctx.phase == InputActionPhase.Performed;
         // YawingSpeed = -1;
     }
 

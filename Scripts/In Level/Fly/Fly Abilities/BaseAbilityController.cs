@@ -17,8 +17,8 @@ namespace Control
         public List<Modifier> BuffValue;
         public List<Modifier> DebuffValue;
 
-        public FlyValueContainer ActivationTimeModifier;
-        public FlyValueContainer CDTimeModifier;
+        public ValueContainer ActivationTimeModifier;
+        public ValueContainer CDTimeModifier;
 
         public BaseFlyController thisFlyController;
 

@@ -10,7 +10,7 @@ namespace Genral
     /// This is Container for fly attributes. Values can and should be modified by Modifiers. Use FinalVal() to get the modified values.
     /// </summary>
     [Serializable]
-    public class FlyValueContainer
+    public class ValueContainer
     {
         public readonly float BaseVal;
         public Dictionary<Guid, Modifier> Modifiers;
@@ -19,7 +19,7 @@ namespace Genral
         /// Initialize the container
         /// </summary>
         /// <param name="theBaseVal">The base value of the value container</param>
-        public FlyValueContainer(float theBaseVal)
+        public ValueContainer(float theBaseVal)
         {
             BaseVal = theBaseVal;
             Modifiers = new Dictionary<Guid, Modifier>();
@@ -27,7 +27,7 @@ namespace Genral
         
         
         /// <summary>
-        /// Get the final value modified by modifiers. Modifiers will go through by order 0-9-a-z.
+        /// Get the final value modified by modifiers. Modifiers will go through by order 0-9-A-Z-a-z.
         /// </summary>
         /// <returns>The final value</returns>
         public float FinalVal()
