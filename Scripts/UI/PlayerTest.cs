@@ -43,7 +43,7 @@ public class PlayerTest: MonoBehaviour
     {
         while (total >= 0)
         {
-            TakeDamage(10);
+            TakeDamage(1);
             yield return new WaitForSeconds(1);
             total--;
         }
