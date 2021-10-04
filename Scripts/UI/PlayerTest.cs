@@ -25,6 +25,10 @@ public class PlayerTest: MonoBehaviour
    void TakeDamage(int damage) 
     { 
         currentHealth -= damage; 
+        if (currentHealth < 0){
+            currentHealth = 0;
+            Debug.Log("game over");
+        }
         healthBar.setValue(currentHealth); 
     }
     void Heal(int heal){
