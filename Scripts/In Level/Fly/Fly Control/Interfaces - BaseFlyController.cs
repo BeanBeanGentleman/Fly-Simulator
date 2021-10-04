@@ -8,69 +8,140 @@ using UnityEngine.InputSystem.Controls;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActions
+public partial class BaseFlyController : MonoBehaviour, FlyControl.IFlightActions, FlyControl.IClimbActions
 {
-    private FlyInput _FlyInputActions;
+    private FlyControl _FlyControlActions;
+
+    private float _foreBack = 0;
+    private float _leftRight = 0;
+    private Vector2 _alignment = new Vector2();
+
+    private bool _takeOff;
+    private bool _landDown;
+    private bool _manualSwitchTargetL;
+    private bool _manualSwitchTargetR;
+    private bool _manualSwitchToggle;
+    private bool _useFreeCam;
+    private bool _ingest = false;
+    private bool _airBreak = false;
     
-    private bool Accelerate = false;
-    private bool AirBrake = false;
-    private bool RollLeft = false;
-    private bool RollRight = false;
-    private bool YawLeft = false;
-    private bool YawRight = false;
-    private bool Ingest = false;
+    private float _climbForeBack = 0;
+    private float _climbLeftRight = 0;
+    private Vector2 _view = new Vector2();
+    
+    
     
     public void Awake()
     {
-        _FlyInputActions = new FlyInput();
-        _FlyInputActions.NormalFly.SetCallbacks(this);
+        _FlyControlActions = new FlyControl();
+        _FlyControlActions.Flight.SetCallbacks(this);
+        _FlyControlActions.Climb.SetCallbacks(this);
     }
     
     public void OnEnable()
     {
-        _FlyInputActions.NormalFly.Enable();
+        _FlyControlActions.Flight.Enable();
+        _FlyControlActions.Climb.Enable();
     }
 
     public void OnDisable()
     {
-        _FlyInputActions.NormalFly.Disable();
-    }
-    
-    public void OnAccelerate(InputAction.CallbackContext ctx){
-        // ForwardAccel.SetModifier(myGuid, ForwardMoreAccel);
-        Accelerate = ctx.phase == InputActionPhase.Performed;
+        _FlyControlActions.Flight.Disable();
+        _FlyControlActions.Climb.Disable();
     }
 
-    public void OnIngest(InputAction.CallbackContext ctx)
+    void FlyControl.IFlightActions.OnIngest(InputAction.CallbackContext context)
     {
-        Ingest = ctx.phase == InputActionPhase.Performed;
+        _ingest = context.phase == InputActionPhase.Performed;
     }
 
-    public void OnAirBrake(InputAction.CallbackContext ctx)
+    public virtual void OnView(InputAction.CallbackContext context)
     {
-        AirBrake = ctx.phase == InputActionPhase.Performed;
-        // AirDragVal.SetModifier(myGuid, AirbrakeDragBonus);
-    }
-    public void OnRollLeft(InputAction.CallbackContext ctx)
-    {
-        RollLeft = ctx.phase == InputActionPhase.Performed;
-        // RollingSpeed = 1;
-    }
-    public void OnRollRight(InputAction.CallbackContext ctx)
-    {
-        RollRight = ctx.phase == InputActionPhase.Performed;
-        // RollingSpeed = -1;
-    }
-    public void OnYawLeft(InputAction.CallbackContext ctx)
-    {
-        YawLeft = ctx.phase == InputActionPhase.Performed;
-        // YawingSpeed = 1;
+        _view = context.ReadValue<Vector2>();
     }
 
-    public void OnYawRight(InputAction.CallbackContext ctx)
+    public virtual void OnClimbLR(InputAction.CallbackContext context)
     {
-        YawRight = ctx.phase == InputActionPhase.Performed;
-        // YawingSpeed = -1;
+        _climbLeftRight = context.ReadValue<float>();
     }
 
+    public virtual void OnClimbFB(InputAction.CallbackContext context)
+    {
+        _climbForeBack = context.ReadValue<float>();
+    }
+
+    public virtual void OnTakeOff(InputAction.CallbackContext context)
+    {
+        _takeOff = context.phase == InputActionPhase.Performed;
+    }
+
+    void FlyControl.IClimbActions.OnLandDown(InputAction.CallbackContext context)
+    {
+        _landDown = context.phase == InputActionPhase.Performed;
+    }
+
+    void FlyControl.IClimbActions.OnUseFreeCam(InputAction.CallbackContext context)
+    {
+        _useFreeCam = context.phase == InputActionPhase.Performed;
+    }
+
+    public void OnAirBreak(InputAction.CallbackContext context)
+    {
+        _airBreak = context.phase == InputActionPhase.Performed;
+    }
+
+    void FlyControl.IClimbActions.OnManualSelectSwitch(InputAction.CallbackContext context)
+    {
+        _manualSwitchToggle = context.phase == InputActionPhase.Started;
+    }
+
+    public virtual void OnFlightFB(InputAction.CallbackContext context)
+    {
+        _foreBack = context.ReadValue<float>();
+    }
+
+    public virtual void OnFlightLR(InputAction.CallbackContext context)
+    {
+        _leftRight = context.ReadValue<float>();
+    }
+
+    public virtual void OnAlignment(InputAction.CallbackContext context)
+    {
+        _alignment = context.ReadValue<Vector2>();
+    }
+
+    public virtual void OnTakeoff(InputAction.CallbackContext context)
+    {
+        _takeOff = context.phase == InputActionPhase.Performed;
+    }
+
+    void FlyControl.IClimbActions.OnIngest(InputAction.CallbackContext context)
+    {
+        _ingest = context.phase == InputActionPhase.Performed;
+    }
+
+    void FlyControl.IFlightActions.OnLandDown(InputAction.CallbackContext context)
+    {
+        _landDown = context.phase == InputActionPhase.Performed;
+    }
+
+    public virtual void OnManualSelectSwitchL(InputAction.CallbackContext context)
+    {
+        _manualSwitchTargetL = context.phase == InputActionPhase.Performed;
+    }
+
+    public virtual void OnManualSelectSwitchR(InputAction.CallbackContext context)
+    {
+        _manualSwitchTargetR = context.phase == InputActionPhase.Performed;
+    }
+
+    void FlyControl.IFlightActions.OnManualSelectSwitch(InputAction.CallbackContext context)
+    {
+        _manualSwitchToggle = context.phase == InputActionPhase.Started;
+    }
+
+    void FlyControl.IFlightActions.OnUseFreeCam(InputAction.CallbackContext context)
+    {
+        _useFreeCam = context.phase == InputActionPhase.Performed;
+    }
 }

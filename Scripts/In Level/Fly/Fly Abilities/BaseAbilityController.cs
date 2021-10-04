@@ -11,7 +11,7 @@ namespace Control
     public abstract class BaseAbilityController : MonoBehaviour
     {
         public Guid guid;
-        public int Activation = 1;
+        public bool Activation = false;
         public AutoResetCounter ActivationTime;
         public AutoResetCounter CDTime;
         public List<Modifier> BuffValue;
@@ -42,7 +42,7 @@ namespace Control
 
         protected virtual void Update()
         {
-            bool pressed = Activation%3==0;
+            bool pressed = Activation;
             // foreach (int action in Activations)
             // {
             //     pressed = pressed || (action%3==0);

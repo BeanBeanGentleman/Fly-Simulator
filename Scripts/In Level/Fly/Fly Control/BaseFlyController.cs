@@ -5,27 +5,25 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.Serialization;
+using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
 /// <summary>
 /// This is the controller script of the fly, handling HP, Energy and Flight control(also include ingesting), but not Camera Control.
 /// </summary>
-public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActions
+public partial class BaseFlyController : MonoBehaviour
 {
-
-    
-
-    
     // public InputAction MousePos;
     
 
     public Rigidbody thisRigidbody;
-
+    public CameraController cc;
     /// <summary>
-    /// The force strength for pushing the fly forward. (Backward if < 0)
+    /// The force strength for pushing the fly at the given direction.
     /// </summary>
-    public ValueContainer ForwardAccel = new ValueContainer(0);
+    [FormerlySerializedAs("ForwardAccel")] public ValueContainer movementAccel = new ValueContainer(0);
     /// <summary>
     /// The agility for fly to maneuver. The less value the harder to turn.
     /// </summary>
@@ -44,18 +42,18 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
     public ValueContainer NoiseLevel = new ValueContainer(1f);
     
     /// <summary>
-    /// The modifer for when W is pressed or the right joystick pushed forward.
+    /// The modifer for acceleration for left stick.
     /// </summary>
-    public Modifier ForwardMoreAccel = new Modifier(false, 2, "0");
+    public Modifier AccelStrength = new Modifier(false, 2, "0");
     /// <summary>
-    /// The modifer for when S is pressed or the right joystick pushed backward.
+    /// The maximum modifier for acceleration for left stick.
     /// </summary>
-    public Modifier BackwardAccel = new Modifier(false, -2, "0");
+    public float AccelStrengthMax = 2;
+
     /// <summary>
-    /// The modifer for when S is pressed or the right joystick pushed backward. For Air Drag.
+    /// The modifer for when left stick is pressed. For Air Drag.
     /// </summary>
     public Modifier AirbrakeDragBonus = new Modifier(false, 15, "0");
-
     public AudioSource Buzz;
     public AudioSource IngestSound;
     /// <summary>
@@ -71,9 +69,12 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
     public float YawingSpeed = 0;
     public float PitchingSpeed = 0;
 
+    public Vector3 CurrentMovingDirection = Vector3.zero;
+
     private float RollMultiplier = 0;
     private float YawMultiplier = 0.2f;
     private float PitchMultiplier = 0.1f;
+    
     
     /// <summary>
     /// The deadzone for controlling yaw
@@ -87,34 +88,46 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
     private Guid myGuid;
 
     public bool Ingesting { get; set; }
+
+    public bool IsClimbing;
+    public bool AutoAlignEnabled = true;
     
     private void Start()
     {
         myGuid = Guid.NewGuid();
-        ForwardAccel.SetNoBonusModifier(myGuid);
+        movementAccel.SetNoBonusModifier(myGuid);
         Agility.SetNoBonusModifier(myGuid);
         AirDragVal.SetNoBonusModifier(myGuid);
         IngestSpeed.SetNoBonusModifier(myGuid);
         
         
     }
-
     protected void FixedUpdate()
     {
+        _ = IsClimbing ? ClimbAction() : FlightAction();
+
+    }
+
+    int ClimbAction()
+    {
+        return 0;
+    }
+
+    int FlightAction()
+    {        
         thisRigidbody.drag = AirDragVal.FinalVal();
-        thisRigidbody.AddForce(ForwardAccel.FinalVal() * this.transform.forward);
+        thisRigidbody.AddRelativeForce(movementAccel.FinalVal() * CurrentMovingDirection);
         thisRigidbody.AddForce(Vector3.down * ArtificialGravity);
-        Vector2 MouseActualPos = Mouse.current.position.ReadValue();
-        MouseActualPos = Camera.main.ScreenToViewportPoint(MouseActualPos) - (Vector3.one * 0.5f);
+        // Vector2 MouseActualPos = Mouse.current.position.ReadValue();
+        // MouseActualPos = Camera.main.ScreenToViewportPoint(MouseActualPos) - (Vector3.one * 0.5f);
 
-        float Yaw = Mathf.Clamp(MouseActualPos.x + YawingSpeed, -1, 1);
+        Vector2 KnownAlignment = _useFreeCam ? Vector2.zero : _alignment;
+        float Yaw = Mathf.Clamp(KnownAlignment.x, -1, 1);
         Yaw = Mathf.Abs(Yaw) < DeadZoneYaw ? 0 : Yaw;
-
-        float Roll = RollingSpeed;
-
-        float Pitch = Mathf.Clamp(MouseActualPos.y + PitchingSpeed, -1, 1);
+        
+        float Pitch = Mathf.Clamp(KnownAlignment.y, -1, 1);
         Pitch = Mathf.Abs(Pitch) < DeadZonePitch ? 0 : Pitch;
-
+    
         thisRigidbody.AddRelativeTorque(
             Agility.FinalVal() * Pitch * -PitchMultiplier,
             Agility.FinalVal() * Yaw * YawMultiplier,
@@ -125,59 +138,165 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
         YawingSpeed = 0;
         PitchingSpeed = 0;
         
-        Buzz.pitch = NoiseLevel.FinalVal() * (ForwardAccel.FinalVal() / ForwardMoreAccel.Value);
+        Buzz.pitch = NoiseLevel.FinalVal() * (movementAccel.FinalVal() / AccelStrengthMax);
         Buzz.volume = NoiseLevel.FinalVal() * Buzz.pitch;
+        
+        foreach (var hit in Physics.RaycastAll(thisRigidbody.transform.position,
+            this.transform.up * -1,
+            1))
+        {
+            if (hit.collider.CompareTag("Climbable"))
+            {
+                Quaternion nextRot = Quaternion.LookRotation(Vector3.Cross(hit.normal,
+                        Vector3.Cross(thisRigidbody.transform.forward,
+                            hit.normal)),
+                    hit.normal);
+                thisRigidbody.rotation = Quaternion.Lerp(thisRigidbody.rotation, nextRot, 1);
+            }
+        }
 
+        return 0;
     }
 
-    
     private void Update()
     {
-        if (Accelerate) ForwardAccel.SetModifier(myGuid, ForwardMoreAccel);
+        _ = IsClimbing ? Climb() : Flight();
+    }
 
-        if (AirBrake)
+    int Climb()
+    {
+        
+        return 0;
+    }
+
+    int Flight()
+    {
+        float UpDown = _takeOff ? 1 : (_landDown ? -1 : 0);
+        Vector3 AccelDirection = new Vector3(_leftRight, UpDown, _foreBack);
+        CurrentMovingDirection = AccelDirection;
+        AccelStrength.Value = Mathf.Clamp01(AccelDirection.magnitude) * AccelStrengthMax;
+        movementAccel.SetModifier(myGuid, AccelStrength);
+
+        if (_airBreak)
         {
             AirDragVal.SetModifier(myGuid, AirbrakeDragBonus);
-            ForwardAccel.SetModifier(myGuid, BackwardAccel);
         }
         else
         {
             AirDragVal.SetNoBonusModifier(myGuid);
         }
-        
-        if((!AirBrake) && (!Accelerate))ForwardAccel.SetNoBonusModifier(myGuid);
 
-        if (RollLeft)
+        if (_manualSwitchToggle) AutoAlignEnabled = !AutoAlignEnabled;
+
+        if (AutoAlignEnabled)
         {
-            RollingSpeed = 1;
+            if (_manualSwitchTargetL)
+            {
+                // Target Switch
+            }
+            else if (_manualSwitchTargetR)
+            {
+                // Target Switch
+            }
         }
-        else if (RollRight)
+
+        if (_useFreeCam)
         {
-            RollingSpeed = -1;
+            cc.Freecam = true;
+            cc.FreecamLookingEulerOffset = new Vector3(-_alignment.y, _alignment.x,  0) * 180;
         }
         else
-            RollingSpeed = 0;
+        {
+            cc.Freecam = false;
+        }
         
-        if (YawLeft)
-        {
-            YawingSpeed = -1;
-        }
-        else if (YawRight)
-        {
-            YawingSpeed = 1;
-        }
-        else
-            YawingSpeed = 0;
-
-        var injestPressed = Ingest;
+        
+        
+        var injestPressed = _ingest;
         this.Ingesting = injestPressed;
         IngestSound.volume = injestPressed?1:0;
+        
+        
+        return 0;
+    }
+    
+    // protected void DeprecatedFixedUpdate()
+    // {
+    //     thisRigidbody.drag = AirDragVal.FinalVal();
+    //     thisRigidbody.AddForce(movementAccel.FinalVal() * this.transform.forward);
+    //     thisRigidbody.AddForce(Vector3.down * ArtificialGravity);
+    //     Vector2 MouseActualPos = Mouse.current.position.ReadValue();
+    //     MouseActualPos = Camera.main.ScreenToViewportPoint(MouseActualPos) - (Vector3.one * 0.5f);
+    //
+    //     float Yaw = Mathf.Clamp(MouseActualPos.x + YawingSpeed, -1, 1);
+    //     Yaw = Mathf.Abs(Yaw) < DeadZoneYaw ? 0 : Yaw;
+    //
+    //     float Roll = RollingSpeed;
+    //
+    //     float Pitch = Mathf.Clamp(MouseActualPos.y + PitchingSpeed, -1, 1);
+    //     Pitch = Mathf.Abs(Pitch) < DeadZonePitch ? 0 : Pitch;
+    //
+    //     thisRigidbody.AddRelativeTorque(
+    //         Agility.FinalVal() * Pitch * -PitchMultiplier,
+    //         Agility.FinalVal() * Yaw * YawMultiplier,
+    //         RollingSpeed * RollMultiplier,
+    //         ForceMode.Force);
+    //     thisRigidbody.angularVelocity *= 0.2f;
+    //     RollingSpeed = 0;
+    //     YawingSpeed = 0;
+    //     PitchingSpeed = 0;
+    //     
+    //     Buzz.pitch = NoiseLevel.FinalVal() * (movementAccel.FinalVal() / AccelStrength.Value);
+    //     Buzz.volume = NoiseLevel.FinalVal() * Buzz.pitch;
+    //
+    // }
+    private void DeprecatedUpdate()
+    {
+        // if (Accelerate) movementAccel.SetModifier(myGuid, AccelStrength);
+        //
+        // if (AirBrake)
+        // {
+        //     AirDragVal.SetModifier(myGuid, AirbrakeDragBonus);
+        //     movementAccel.SetModifier(myGuid, BackwardAccel);
+        // }
+        // else
+        // {
+        //     AirDragVal.SetNoBonusModifier(myGuid);
+        // }
+        //
+        // if((!AirBrake) && (!Accelerate))movementAccel.SetNoBonusModifier(myGuid);
+        //
+        // if (RollLeft)
+        // {
+        //     RollingSpeed = 1;
+        // }
+        // else if (RollRight)
+        // {
+        //     RollingSpeed = -1;
+        // }
+        // else
+        //     RollingSpeed = 0;
+        //
+        // if (YawLeft)
+        // {
+        //     YawingSpeed = -1;
+        // }
+        // else if (YawRight)
+        // {
+        //     YawingSpeed = 1;
+        // }
+        // else
+        //     YawingSpeed = 0;
+        //
+        // var injestPressed = Ingest;
+        // this.Ingesting = injestPressed;
+        // IngestSound.volume = injestPressed?1:0;
 
     }
     
     
     void CancelAccelerate(InputAction.CallbackContext ctx){
-        ForwardAccel.SetNoBonusModifier(myGuid);
+        movementAccel.SetNoBonusModifier(myGuid);
     }
     void CancelAirBrake(InputAction.CallbackContext ctx){
         AirDragVal.SetNoBonusModifier(myGuid);

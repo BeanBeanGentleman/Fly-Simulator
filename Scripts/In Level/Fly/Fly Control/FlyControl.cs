@@ -97,6 +97,14 @@ public class @FlyControl : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""AirBreak"",
+                    ""type"": ""Button"",
+                    ""id"": ""23b59cd4-ebdf-4450-a44a-353e4beb9d15"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -207,6 +215,17 @@ public class @FlyControl : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""ControllerSchemeMouseLike"",
                     ""action"": ""ManualSelectSwitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7f456fb5-6fe1-4e82-9fd9-9e5b0aa83480"",
+                    ""path"": ""<XInputController>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""ControllerSchemeMouseLike"",
+                    ""action"": ""AirBreak"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -393,6 +412,7 @@ public class @FlyControl : IInputActionCollection, IDisposable
         m_Flight_ManualSelectSwitchR = m_Flight.FindAction("ManualSelectSwitchR", throwIfNotFound: true);
         m_Flight_ManualSelectSwitch = m_Flight.FindAction("ManualSelectSwitch", throwIfNotFound: true);
         m_Flight_UseFreeCam = m_Flight.FindAction("UseFreeCam", throwIfNotFound: true);
+        m_Flight_AirBreak = m_Flight.FindAction("AirBreak", throwIfNotFound: true);
         // Climb
         m_Climb = asset.FindActionMap("Climb", throwIfNotFound: true);
         m_Climb_Ingest = m_Climb.FindAction("Ingest", throwIfNotFound: true);
@@ -462,6 +482,7 @@ public class @FlyControl : IInputActionCollection, IDisposable
     private readonly InputAction m_Flight_ManualSelectSwitchR;
     private readonly InputAction m_Flight_ManualSelectSwitch;
     private readonly InputAction m_Flight_UseFreeCam;
+    private readonly InputAction m_Flight_AirBreak;
     public struct FlightActions
     {
         private @FlyControl m_Wrapper;
@@ -476,6 +497,7 @@ public class @FlyControl : IInputActionCollection, IDisposable
         public InputAction @ManualSelectSwitchR => m_Wrapper.m_Flight_ManualSelectSwitchR;
         public InputAction @ManualSelectSwitch => m_Wrapper.m_Flight_ManualSelectSwitch;
         public InputAction @UseFreeCam => m_Wrapper.m_Flight_UseFreeCam;
+        public InputAction @AirBreak => m_Wrapper.m_Flight_AirBreak;
         public InputActionMap Get() { return m_Wrapper.m_Flight; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -515,6 +537,9 @@ public class @FlyControl : IInputActionCollection, IDisposable
                 @UseFreeCam.started -= m_Wrapper.m_FlightActionsCallbackInterface.OnUseFreeCam;
                 @UseFreeCam.performed -= m_Wrapper.m_FlightActionsCallbackInterface.OnUseFreeCam;
                 @UseFreeCam.canceled -= m_Wrapper.m_FlightActionsCallbackInterface.OnUseFreeCam;
+                @AirBreak.started -= m_Wrapper.m_FlightActionsCallbackInterface.OnAirBreak;
+                @AirBreak.performed -= m_Wrapper.m_FlightActionsCallbackInterface.OnAirBreak;
+                @AirBreak.canceled -= m_Wrapper.m_FlightActionsCallbackInterface.OnAirBreak;
             }
             m_Wrapper.m_FlightActionsCallbackInterface = instance;
             if (instance != null)
@@ -549,6 +574,9 @@ public class @FlyControl : IInputActionCollection, IDisposable
                 @UseFreeCam.started += instance.OnUseFreeCam;
                 @UseFreeCam.performed += instance.OnUseFreeCam;
                 @UseFreeCam.canceled += instance.OnUseFreeCam;
+                @AirBreak.started += instance.OnAirBreak;
+                @AirBreak.performed += instance.OnAirBreak;
+                @AirBreak.canceled += instance.OnAirBreak;
             }
         }
     }
@@ -663,6 +691,7 @@ public class @FlyControl : IInputActionCollection, IDisposable
         void OnManualSelectSwitchR(InputAction.CallbackContext context);
         void OnManualSelectSwitch(InputAction.CallbackContext context);
         void OnUseFreeCam(InputAction.CallbackContext context);
+        void OnAirBreak(InputAction.CallbackContext context);
     }
     public interface IClimbActions
     {

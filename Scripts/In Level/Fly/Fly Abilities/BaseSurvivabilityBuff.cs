@@ -23,7 +23,7 @@ namespace Control
         }
         public virtual void OnUse(InputAction.CallbackContext context)
         {
-            Activation += 1;
+            Activation = context.phase == InputActionPhase.Performed;
         }
     }
 }

@@ -10,7 +10,7 @@ using UnityEngine.InputSystem.Controls;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActions
+public partial class BaseFlyController : MonoBehaviour
 {
     public Dictionary<IngestTypes, float> IngestedValues = new Dictionary<IngestTypes, float>();
     

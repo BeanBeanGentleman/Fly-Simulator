@@ -84,6 +84,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "AirBreak",
+                    "type": "Button",
+                    "id": "23b59cd4-ebdf-4450-a44a-353e4beb9d15",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -194,6 +202,17 @@
                     "processors": "",
                     "groups": "ControllerSchemeMouseLike",
                     "action": "ManualSelectSwitch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7f456fb5-6fe1-4e82-9fd9-9e5b0aa83480",
+                    "path": "<XInputController>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ControllerSchemeMouseLike",
+                    "action": "AirBreak",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
