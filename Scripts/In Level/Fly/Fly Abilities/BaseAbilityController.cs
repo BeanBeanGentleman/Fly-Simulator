@@ -11,7 +11,7 @@ namespace Control
     public abstract class BaseAbilityController : MonoBehaviour
     {
         public Guid guid;
-        public bool Activation = false;
+        public bool ShouldAct = false;
         public AutoResetCounter ActivationTime;
         public AutoResetCounter CDTime;
         public List<Modifier> BuffValue;
@@ -42,26 +42,8 @@ namespace Control
 
         protected virtual void Update()
         {
-            bool pressed = Activation;
-            // foreach (int action in Activations)
-            // {
-            //     pressed = pressed || (action%3==0);
-            // }
-
-            Activated = CDTime.IsZeroReached(Time.deltaTime, false) && pressed;
-            
-
-            // _ = Activated ? _active() : _deactive();
-            //
-            // if (Activated)
-            // {
-            //     if (ActivationTime.IsZeroReached(Time.deltaTime, false))
-            //     {
-            //         CDTime.MaxmizeTemp(); // Will force stop activation
-            //         Deactive();
-            //     }
-            // }
-            //
+            Activated = CDTime.IsZeroReached(Time.deltaTime, false) && ShouldAct;
+            ShouldAct = (Activated) && ShouldAct;
         }
 
         protected virtual void FixedUpdate()

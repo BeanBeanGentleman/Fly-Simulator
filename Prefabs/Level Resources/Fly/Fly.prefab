@@ -186,6 +186,10 @@ MonoBehaviour:
     Value: 2
     Order: 0
   AccelStrengthMax: 2
+  OnClimbingExtraDrag:
+    IsMultiply: 0
+    Value: 5
+    Order: 0
   AirbrakeDragBonus:
     IsMultiply: 0
     Value: 15
@@ -193,7 +197,7 @@ MonoBehaviour:
   Buzz: {fileID: 1487780917392196852}
   IngestSound: {fileID: 1487780918709185470}
   Looking: {fileID: 7973088202993933027}
-  ArtificialGravity: 0
+  ArtificialGravity: 0.3
   RollingSpeed: 0
   YawingSpeed: 0
   PitchingSpeed: 0
@@ -201,7 +205,15 @@ MonoBehaviour:
   DeadZoneYaw: 0.2
   DeadZonePitch: 0.2
   IsClimbing: 0
+  ClimbCounter:
+    Temp: 0
+    Max: 5
   AutoAlignEnabled: 1
+  lr: {fileID: 0}
+  CamFollower: {fileID: 1487780917969726249}
+  CamFolwOrigPos: {x: 0, y: 0.31, z: -1.05}
+  CamFolwClimbPos: {x: 0, y: 0.8, z: -1.2}
+  CamFolwClimbEul: {x: -45, y: 0, z: 0}
 --- !u!82 &1487780917392196852
 AudioSource:
   m_ObjectHideFlags: 0
@@ -310,7 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12cd1b440a61f1644bdffe4082a9e0ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Activation: 1
+  ShouldAct: 0
   ActivationTime:
     Temp: 3
     Max: 3
@@ -338,7 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1919df06624c8188f4bd73cf768bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Activation: 1
+  ShouldAct: 0
   ActivationTime:
     Temp: 5
     Max: 5
