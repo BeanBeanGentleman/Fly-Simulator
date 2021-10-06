@@ -12,6 +12,9 @@ using Vector3 = UnityEngine.Vector3;
 
 public partial class BaseFlyController : MonoBehaviour
 {
+    /// <summary>
+    /// Store the ingestion info
+    /// </summary>
     public Dictionary<IngestTypes, float> IngestedValues = new Dictionary<IngestTypes, float>();
     
     /// <summary>
