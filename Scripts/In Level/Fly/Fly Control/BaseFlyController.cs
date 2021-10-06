@@ -162,6 +162,8 @@ public partial class BaseFlyController : MonoBehaviour
     {
         cc.CamLookingEulerOffset = new Vector3(-_alignment.y, _alignment.x,  0) * 180;
         _ = IsClimbing ? Climb() : Flight();
+        
+        if(_takeOff) TakeDamage(0.1f);
     }
 
 
@@ -314,7 +316,8 @@ public partial class BaseFlyController : MonoBehaviour
     /// <param name="Val">The damage that the fly will take. This should be positive if the fly is losing hp.</param>
     public void TakeDamage(float Val)
     {
-        
+        var a = FindObjectOfType<HealthBar>();
+        a.setValue(a.hp_bar.value - Val );
     }
 
     private void OnCollisionEnter(Collision other)

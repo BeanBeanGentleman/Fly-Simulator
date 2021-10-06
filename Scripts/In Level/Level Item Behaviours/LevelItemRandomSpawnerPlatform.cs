@@ -76,7 +76,6 @@ namespace In_Level.Level_Item_Behaviours
                 RayStartPosition.extents.z * Random.Range(-1f, 1f)
             );
             Vector3 vec = RayStartPosition.center + random;
-            print(vec);
             return RayStartPosition.Contains(vec) ? vec : RandomPointInBound();
         }
     }
