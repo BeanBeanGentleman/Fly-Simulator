@@ -3254,6 +3254,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6905790322577075732, guid: 9d0fc6c483fc7d94cbfbcd227e41a7be, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905790322577075732, guid: 9d0fc6c483fc7d94cbfbcd227e41a7be, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7859100851273917009, guid: 9d0fc6c483fc7d94cbfbcd227e41a7be, type: 3}
       propertyPath: m_Name
       value: CubeBasket
