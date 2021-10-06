@@ -3,7 +3,7 @@
 namespace Genral
 {
     /// <summary>
-    /// Modifier for FlyValueContainer
+    /// Modifier for ValueContainer
     /// </summary>
     [Serializable]
     public class Modifier
