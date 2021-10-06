@@ -649,6 +649,7 @@ GameObject:
   - component: {fileID: 52397717}
   - component: {fileID: 52397716}
   - component: {fileID: 52397715}
+  - component: {fileID: 52397718}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Climbable
@@ -732,6 +733,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52397713}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &52397718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52397713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f301a1598d4b22bd7eeb0ff1d190a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnableObject: {fileID: 5538839562972101400, guid: f772a11ae1e15944198618f40b9520a3, type: 3}
+  SpawnDirection: {x: 0, y: -1, z: 0}
+  RayStartPosition:
+    m_Center: {x: 56.5, y: 20, z: 67.77}
+    m_Extent: {x: 30, y: 15, z: 30}
+  SpawnCount: 15
 --- !u!1 &60396431
 GameObject:
   m_ObjectHideFlags: 0
