@@ -95,7 +95,6 @@ public partial class BaseFlyController
                     break;
                 }
             }
-            DownHasHit = false;
             List<RaycastHit> regularSphereScan = RegularSphereScan(this.transform.position, 15, 15, 0.25f);
             List<float> normalsX = new List<float>();
             List<float> normalsY = new List<float>();
