@@ -106,6 +106,7 @@ public partial class BaseFlyController : MonoBehaviour
         Agility.SetNoBonusModifier(myGuid);
         AirDragVal.SetNoBonusModifier(myGuid);
         IngestSpeed.SetNoBonusModifier(myGuid);
+        TakeDamage(0f);
 
 
     }
@@ -162,8 +163,6 @@ public partial class BaseFlyController : MonoBehaviour
     {
         cc.CamLookingEulerOffset = new Vector3(-_alignment.y, _alignment.x,  0) * 180;
         _ = IsClimbing ? Climb() : Flight();
-        
-        if(_takeOff) TakeDamage(0.1f);
     }
 
 

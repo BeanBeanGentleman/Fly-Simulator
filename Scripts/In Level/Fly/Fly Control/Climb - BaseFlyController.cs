@@ -37,7 +37,7 @@ public partial class BaseFlyController
             cc.Freecam = false;
         }
         CamFollower.transform.localPosition = CamFolwClimbPos;
-        CamFollower.transform.localEulerAngles = CamFolwClimbEul;
+        CamFollower.transform.localEulerAngles = CamFolwClimbEul + Vector3.right * (_view.y * -30);
         var injestPressed = _ingest;
         this.Ingesting = injestPressed;
         IngestSound.volume = injestPressed?1:0;
@@ -83,7 +83,7 @@ public partial class BaseFlyController
             bool DownHasHit = false;
             foreach (var hit in Physics.RaycastAll(thisRigidbody.transform.position,
                 this.transform.up * -1,
-                0.25f))
+                1))
             {
                 if (hit.collider.CompareTag("Climbable"))
                 {
@@ -95,7 +95,7 @@ public partial class BaseFlyController
                     break;
                 }
             }
-            List<RaycastHit> regularSphereScan = RegularSphereScan(this.transform.position, 15, 15, 0.25f);
+            List<RaycastHit> regularSphereScan = RegularSphereScan(this.transform.position, 15, 15, 1f);
             List<float> normalsX = new List<float>();
             List<float> normalsY = new List<float>();
             List<float> normalsZ = new List<float>();
@@ -116,11 +116,16 @@ public partial class BaseFlyController
                             Vector3.Cross(thisRigidbody.transform.forward,
                                 avg)),
                         avg);
-                    thisRigidbody.AddForce(avg * -ArtificialGravity);
+                    thisRigidbody.AddForce(avg.normalized * -ArtificialGravity * 3);
                 }
 
             }
-            // DebugShowingLines(lr, regularSphereScan);
+
+            if (_manualSwitchTargetL)
+            {
+                DebugShowingLines(lr, regularSphereScan);
+                
+            }
         }
         this.transform.rotation = Quaternion.Lerp(thisRigidbody.rotation, nextRot, 0.14f);
         
