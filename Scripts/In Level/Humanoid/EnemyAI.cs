@@ -38,8 +38,8 @@ public class EnemyAI : MonoBehaviour
         rig = GetComponent<Rigidbody>();
         player = GameObject.Find("Fly").transform;
         agent = GetComponent<NavMeshAgent>();
-        sightRange = 0;
-        attackRange = 0;
+        sightRange = 50;
+        attackRange = 20;
         rig.freezeRotation = true;
     }
 
@@ -96,11 +96,16 @@ public class EnemyAI : MonoBehaviour
     {
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
-        anim.SetTrigger("Attack");
         anim.ResetTrigger("Walk");
-
-        //transform.LookAt(player);
-
+        if (!anim.GetBool("Attack"))
+        {
+            anim.SetTrigger("Attack");
+        }
+        else
+        {
+            int attack_type = Random.Range(0, 2);
+            anim.SetInteger("Attack_type", attack_type);
+        }
         if (!alreadyAttacked)
         {
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
