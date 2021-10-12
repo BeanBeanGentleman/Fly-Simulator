@@ -95,6 +95,10 @@ public class EnemyAI : MonoBehaviour
     private void AttackPlayer()
     {
         //Make sure enemy doesn't move
+        Vector3 targetPostition = new Vector3(player.position.x,
+                                       transform.position.y,
+                                       player.position.z);
+        transform.LookAt(targetPostition);
         agent.SetDestination(transform.position);
         anim.ResetTrigger("Walk");
         if (!anim.GetBool("Attack"))
