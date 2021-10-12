@@ -1,87 +1,222 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 using Genral;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.Serialization;
+using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 
-public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActions
+/// <summary>
+/// This is the controller script of the fly, handling HP, Energy and Flight control(also include ingesting), but not Camera Control.
+/// </summary>
+public partial class BaseFlyController : MonoBehaviour
 {
-    private int Accelerate = 1;
-    private int AirBrake = 1;
-    private int RollLeft = 1;
-    private int RollRight = 1;
-    private int YawLeft = 1;
-    private int YawRight = 1;
-    private int Ingest = 1;
-    
-
-    
     // public InputAction MousePos;
     
 
     public Rigidbody thisRigidbody;
+    public CameraController cc;
+    /// <summary>
+    /// The force strength for pushing the fly at the given direction.
+    /// </summary>
+    [FormerlySerializedAs("ForwardAccel")] public ValueContainer movementAccel = new ValueContainer(0);
+    /// <summary>
+    /// The agility for fly to maneuver. The less value the harder to turn.
+    /// </summary>
+    public ValueContainer Agility = new ValueContainer(0.3f);
+    /// <summary>
+    /// The air drag the fly will suffer from. 
+    /// </summary>
+    public ValueContainer AirDragVal = new ValueContainer(3);
+    /// <summary>
+    /// The speed of ingestion per second.
+    /// </summary>
+    public ValueContainer IngestSpeed = new ValueContainer(0.3f);
+    /// <summary>
+    /// The noise multiplier toward the fly's buzz. Also affect the effective range of the noise.
+    /// </summary>
+    public ValueContainer NoiseLevel = new ValueContainer(1f);
+    
+    /// <summary>
+    /// The modifer for acceleration for left stick.
+    /// </summary>
+    public Modifier AccelStrength = new Modifier(false, 2, "0");
+    /// <summary>
+    /// The maximum modifier for acceleration for left stick.
+    /// </summary>
+    public float AccelStrengthMax = 2;
+    /// <summary>
+    /// The extra drag for when climbing on a surface. Better for 
+    /// </summary>
+    public Modifier OnClimbingExtraDrag = new Modifier(false, 5, "0");
 
-
-    public FlyValueContainer ForwardAccel = new FlyValueContainer(2);
-    public FlyValueContainer Agility = new FlyValueContainer(0.3f);
-    public FlyValueContainer AirDragVal = new FlyValueContainer(3);
-    public FlyValueContainer IngestSpeed = new FlyValueContainer(0.3f);
-
-    public Modifier ForwardMoreAccel = new Modifier(false, 2, "0");
-    public Modifier BackwardAccel = new Modifier(false, -2, "0");
+    /// <summary>
+    /// The modifer for when left stick is pressed. For Air Drag.
+    /// </summary>
     public Modifier AirbrakeDragBonus = new Modifier(false, 15, "0");
-
     public AudioSource Buzz;
     public AudioSource IngestSound;
+    /// <summary>
+    /// The apparel of the fly
+    /// </summary>
     public GameObject Looking;
-
-    public float ArtificialGravity = 0.98f;
-
+    /// <summary>
+    /// The arrificial gravity that will applied to the fly.
+    /// </summary>
+    public float ArtificialGravity = 0.3f;
+    
     public float RollingSpeed = 0;
     public float YawingSpeed = 0;
     public float PitchingSpeed = 0;
 
-    private float RollMultiplier = 0.05f;
+    public Vector3 CurrentMovingDirection = Vector3.zero;
+
+    private float RollMultiplier = 0;
     private float YawMultiplier = 0.2f;
     private float PitchMultiplier = 0.1f;
-
+    
+    
+    /// <summary>
+    /// The deadzone for controlling yaw
+    /// </summary>
     public float DeadZoneYaw = 0.2f;
+    /// <summary>
+    /// The deadzone for controlling pitch
+    /// </summary>
     public float DeadZonePitch = 0.2f;
 
-    private GUID myGuid;
+    private Guid myGuid;
 
     public bool Ingesting { get; set; }
+
+    public bool IsClimbing;
+    public AutoResetCounter ClimbCounter = new AutoResetCounter(5);
+    public bool AutoAlignEnabled = true;
     
     private void Start()
     {
-        myGuid = GUID.Generate();
-        ForwardAccel.SetNoBonusModifier(myGuid);
+        myGuid = Guid.NewGuid();
+        movementAccel.SetNoBonusModifier(myGuid);
         Agility.SetNoBonusModifier(myGuid);
         AirDragVal.SetNoBonusModifier(myGuid);
         IngestSpeed.SetNoBonusModifier(myGuid);
-        
-        
-    }
 
+
+    }
     protected void FixedUpdate()
     {
+        _ = IsClimbing ? ClimbAction() : FlightAction();
+        if (ClimbCounter.IsZeroReached(1, false)) IsClimbing = false;
+
+    }
+
+    int ClimbAction()
+    {
+        
+        AirDragVal.SetModifier(myGuid, OnClimbingExtraDrag);
         thisRigidbody.drag = AirDragVal.FinalVal();
-        thisRigidbody.AddForce(ForwardAccel.FinalVal() * this.transform.forward);
-        Vector2 MouseActualPos = Mouse.current.position.ReadValue();
-        MouseActualPos = Camera.main.ScreenToViewportPoint(MouseActualPos) - (Vector3.one * 0.5f);
-
-        float Yaw = Mathf.Clamp(MouseActualPos.x + YawingSpeed, -1, 1);
+        
+        Vector2 KnownAlignment = _useFreeCam ? Vector2.zero : _alignment;
+        float Yaw = Mathf.Clamp(KnownAlignment.x, -1, 1);
         Yaw = Mathf.Abs(Yaw) < DeadZoneYaw ? 0 : Yaw;
-
-        float Roll = RollingSpeed;
-
-        float Pitch = Mathf.Clamp(MouseActualPos.y + PitchingSpeed, -1, 1);
+        
+        float Pitch = Mathf.Clamp(KnownAlignment.y, -1, 1);
         Pitch = Mathf.Abs(Pitch) < DeadZonePitch ? 0 : Pitch;
 
+        thisRigidbody.AddRelativeTorque(
+            0,
+            Agility.FinalVal() * Yaw * YawMultiplier,
+            RollingSpeed * RollMultiplier);
+        thisRigidbody.angularVelocity *= 0.2f;
+        RollingSpeed = 0;
+        YawingSpeed = 0;
+        PitchingSpeed = 0;
+        
+        Buzz.pitch = 0;
+        Buzz.volume = 0;
+
+
+        Quaternion nextRot = this.transform.rotation;
+        if (_useFreeCam)
+        {
+            nextRot = Quaternion.LookRotation(Vector3.Cross(Vector3.up,
+                    Vector3.Cross(thisRigidbody.transform.forward,
+                        Vector3.up)),
+                Vector3.up);
+        }
+        else
+        {
+            bool DownHasHit = false;
+            foreach (var hit in Physics.RaycastAll(thisRigidbody.transform.position,
+                this.transform.up * -1,
+                0.25f))
+            {
+                if (hit.collider.CompareTag("Climbable"))
+                {
+                    nextRot = Quaternion.LookRotation(Vector3.Cross(hit.normal,
+                            Vector3.Cross(thisRigidbody.transform.forward,
+                                hit.normal)),
+                        hit.normal);
+                    DownHasHit = true;
+                    break;
+                }
+            }
+            DownHasHit = false;
+            List<RaycastHit> regularSphereScan = RegularSphereScan(this.transform.position, 15, 15, 0.25f);
+            List<float> normalsX = new List<float>();
+            List<float> normalsY = new List<float>();
+            List<float> normalsZ = new List<float>();
+            if (!DownHasHit)
+            {
+                foreach (var hit in regularSphereScan)
+                {
+                    normalsX.Add(hit.normal.x);
+                    normalsY.Add(hit.normal.y);
+                    normalsZ.Add(hit.normal.z);
+                    ClimbCounter.MaxmizeTemp();
+                }
+
+                Vector3 avg = new Vector3(normalsX.Sum(), normalsY.Sum(), normalsZ.Sum())/normalsX.Count;
+                if (normalsX.Count > 0)
+                {
+                    nextRot = Quaternion.LookRotation(Vector3.Cross(avg,
+                            Vector3.Cross(thisRigidbody.transform.forward,
+                                avg)),
+                        avg);
+                    thisRigidbody.AddForce(avg * -ArtificialGravity);
+                }
+
+            }
+            // DebugShowingLines(lr, regularSphereScan);
+        }
+        this.transform.rotation = Quaternion.Lerp(thisRigidbody.rotation, nextRot, 0.14f);
+        
+        thisRigidbody.AddRelativeForce(movementAccel.FinalVal() * CurrentMovingDirection);
+        return 0;
+    }
+
+    int FlightAction()
+    {   
+        AirDragVal.SetNoBonusModifier(myGuid);
+        thisRigidbody.drag = AirDragVal.FinalVal();
+        thisRigidbody.AddRelativeForce(movementAccel.FinalVal() * CurrentMovingDirection);
+        thisRigidbody.AddForce(Vector3.down * ArtificialGravity);
+        // Vector2 MouseActualPos = Mouse.current.position.ReadValue();
+        // MouseActualPos = Camera.main.ScreenToViewportPoint(MouseActualPos) - (Vector3.one * 0.5f);
+
+        Vector2 KnownAlignment = _useFreeCam ? Vector2.zero : _alignment;
+        float Yaw = Mathf.Clamp(KnownAlignment.x, -1, 1);
+        Yaw = Mathf.Abs(Yaw) < DeadZoneYaw ? 0 : Yaw;
+        
+        float Pitch = Mathf.Clamp(KnownAlignment.y, -1, 1);
+        Pitch = Mathf.Abs(Pitch) < DeadZonePitch ? 0 : Pitch;
+    
         thisRigidbody.AddRelativeTorque(
             Agility.FinalVal() * Pitch * -PitchMultiplier,
             Agility.FinalVal() * Yaw * YawMultiplier,
@@ -92,64 +227,202 @@ public partial class BaseFlyController : MonoBehaviour, FlyInput.INormalFlyActio
         YawingSpeed = 0;
         PitchingSpeed = 0;
         
-        Buzz.pitch = ForwardAccel.FinalVal() / ForwardMoreAccel.Value;
-        Buzz.volume = Buzz.pitch;
+        Buzz.pitch = NoiseLevel.FinalVal() * (movementAccel.FinalVal() / AccelStrengthMax);
+        Buzz.volume = NoiseLevel.FinalVal() * Buzz.pitch;
 
+        Quaternion nextRot = this.transform.rotation;
+        if (_useFreeCam)
+        {
+            nextRot = Quaternion.LookRotation(Vector3.Cross(Vector3.up,
+                    Vector3.Cross(thisRigidbody.transform.forward,
+                        Vector3.up)),
+                Vector3.up);
+        }
+        this.transform.rotation = Quaternion.Lerp(thisRigidbody.rotation, nextRot, 0.08f);
+
+        return 0;
     }
 
-    
     private void Update()
     {
-        if (Accelerate%3==0) ForwardAccel.SetModifier(myGuid, ForwardMoreAccel);
+        cc.CamLookingEulerOffset = new Vector3(-_alignment.y, _alignment.x,  0) * 180;
+        _ = IsClimbing ? Climb() : Flight();
+    }
 
+    int Climb()
+    {
+        float UpDown = _takeOff ? 1 : (_landDown ? -1 : 0);
+        Vector3 AccelDirection = new Vector3(_climbLeftRight, UpDown, _climbForeBack);
+        CurrentMovingDirection = AccelDirection;
+        AccelStrength.Value = Mathf.Clamp01(AccelDirection.magnitude) * AccelStrengthMax;
+        movementAccel.SetModifier(myGuid, AccelStrength);
+        if (_manualSwitchToggle) AutoAlignEnabled = !AutoAlignEnabled;
+        if (_useFreeCam)
+        {
+            cc.Freecam = true;
+            cc.CamLookingEulerOffset = new Vector3(-_alignment.y, _alignment.x,  0) * 180;
+        }
+        else
+        {
+            cc.Freecam = false;
+        }
+        CamFollower.transform.localPosition = CamFolwClimbPos;
+        CamFollower.transform.localEulerAngles = CamFolwClimbEul;
+        var injestPressed = _ingest;
+        this.Ingesting = injestPressed;
+        IngestSound.volume = injestPressed?1:0;
+        return 0;
+    }
 
+    int Flight()
+    {
+        float UpDown = _takeOff ? 1 : (_landDown ? -1 : 0);
+        UpDown += Mathf.Clamp01(_alignment.y);
+        Vector3 AccelDirection = new Vector3(_leftRight, UpDown, _foreBack);
+        CurrentMovingDirection = AccelDirection;
+        AccelStrength.Value = Mathf.Clamp01(AccelDirection.magnitude) * AccelStrengthMax;
+        movementAccel.SetModifier(myGuid, AccelStrength);
 
-        if (AirBrake % 3 == 0)
+        if (_airBreak)
         {
             AirDragVal.SetModifier(myGuid, AirbrakeDragBonus);
-            ForwardAccel.SetModifier(myGuid, BackwardAccel);
         }
         else
         {
             AirDragVal.SetNoBonusModifier(myGuid);
         }
-        
-        if((AirBrake % 3 != 0) && (Accelerate % 3 != 0))ForwardAccel.SetNoBonusModifier(myGuid);
 
-        if (RollLeft%3==0)
+        if (_manualSwitchToggle) AutoAlignEnabled = !AutoAlignEnabled;
+
+        if (AutoAlignEnabled)
         {
-            RollingSpeed = 1;
+            if (_manualSwitchTargetL)
+            {
+                // Target Switch
+            }
+            else if (_manualSwitchTargetR)
+            {
+                // Target Switch
+            }
         }
-        else if (RollRight % 3 == 0)
+
+        if (_useFreeCam)
         {
-            RollingSpeed = -1;
+            cc.Freecam = true;
         }
         else
-            RollingSpeed = 0;
-        
-        if (YawLeft%3==0)
         {
-            YawingSpeed = -1;
+            cc.Freecam = false;
         }
-        else if (YawRight%3==0)
-        {
-            YawingSpeed = 1;
-        }
-        else
-            YawingSpeed = 0;
 
-        var InjestPressed = Ingest % 3 == 0;
-        this.Ingesting = InjestPressed;
-        IngestSound.volume = InjestPressed?1:0;
+        if (_landDown)
+        {
+            if (RegularSphereScan(this.transform.position, 15, 15, 2f).Count > 0)
+            {
+                ClimbCounter.MaxmizeTemp();
+                IsClimbing = true;
+            }
+        }
+        
+        
+        var injestPressed = _ingest;
+        this.Ingesting = injestPressed;
+        IngestSound.volume = injestPressed?1:0;
+        
+        CamFollower.transform.localPosition = CamFolwOrigPos;
+        CamFollower.transform.localEulerAngles = Vector3.zero;
+        
+        return 0;
+    }
+    
+    // protected void DeprecatedFixedUpdate()
+    // {
+    //     thisRigidbody.drag = AirDragVal.FinalVal();
+    //     thisRigidbody.AddForce(movementAccel.FinalVal() * this.transform.forward);
+    //     thisRigidbody.AddForce(Vector3.down * ArtificialGravity);
+    //     Vector2 MouseActualPos = Mouse.current.position.ReadValue();
+    //     MouseActualPos = Camera.main.ScreenToViewportPoint(MouseActualPos) - (Vector3.one * 0.5f);
+    //
+    //     float Yaw = Mathf.Clamp(MouseActualPos.x + YawingSpeed, -1, 1);
+    //     Yaw = Mathf.Abs(Yaw) < DeadZoneYaw ? 0 : Yaw;
+    //
+    //     float Roll = RollingSpeed;
+    //
+    //     float Pitch = Mathf.Clamp(MouseActualPos.y + PitchingSpeed, -1, 1);
+    //     Pitch = Mathf.Abs(Pitch) < DeadZonePitch ? 0 : Pitch;
+    //
+    //     thisRigidbody.AddRelativeTorque(
+    //         Agility.FinalVal() * Pitch * -PitchMultiplier,
+    //         Agility.FinalVal() * Yaw * YawMultiplier,
+    //         RollingSpeed * RollMultiplier,
+    //         ForceMode.Force);
+    //     thisRigidbody.angularVelocity *= 0.2f;
+    //     RollingSpeed = 0;
+    //     YawingSpeed = 0;
+    //     PitchingSpeed = 0;
+    //     
+    //     Buzz.pitch = NoiseLevel.FinalVal() * (movementAccel.FinalVal() / AccelStrength.Value);
+    //     Buzz.volume = NoiseLevel.FinalVal() * Buzz.pitch;
+    //
+    // }
+    private void DeprecatedUpdate()
+    {
+        // if (Accelerate) movementAccel.SetModifier(myGuid, AccelStrength);
+        //
+        // if (AirBrake)
+        // {
+        //     AirDragVal.SetModifier(myGuid, AirbrakeDragBonus);
+        //     movementAccel.SetModifier(myGuid, BackwardAccel);
+        // }
+        // else
+        // {
+        //     AirDragVal.SetNoBonusModifier(myGuid);
+        // }
+        //
+        // if((!AirBrake) && (!Accelerate))movementAccel.SetNoBonusModifier(myGuid);
+        //
+        // if (RollLeft)
+        // {
+        //     RollingSpeed = 1;
+        // }
+        // else if (RollRight)
+        // {
+        //     RollingSpeed = -1;
+        // }
+        // else
+        //     RollingSpeed = 0;
+        //
+        // if (YawLeft)
+        // {
+        //     YawingSpeed = -1;
+        // }
+        // else if (YawRight)
+        // {
+        //     YawingSpeed = 1;
+        // }
+        // else
+        //     YawingSpeed = 0;
+        //
+        // var injestPressed = Ingest;
+        // this.Ingesting = injestPressed;
+        // IngestSound.volume = injestPressed?1:0;
 
     }
     
     
     void CancelAccelerate(InputAction.CallbackContext ctx){
-        ForwardAccel.SetNoBonusModifier(myGuid);
+        movementAccel.SetNoBonusModifier(myGuid);
     }
     void CancelAirBrake(InputAction.CallbackContext ctx){
         AirDragVal.SetNoBonusModifier(myGuid);
+    }
+    /// <summary>
+    /// For the fly taking damage
+    /// </summary>
+    /// <param name="Val">The damage that the fly will take. This should be positive if the fly is losing hp.</param>
+    public void TakeDamage(float Val)
+    {
+        
     }
 
     private void OnCollisionEnter(Collision other)

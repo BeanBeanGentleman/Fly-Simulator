@@ -25,6 +25,17 @@
                     "action": "Use",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4c8f9b13-928d-482b-928e-c518c66c17c2",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -52,6 +63,17 @@
                     "action": "Use",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "da5d6be1-45c6-4e88-8839-b78fa26c79ba",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -76,6 +98,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "AbilityControlScheme",
+                    "action": "Use",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f0702a32-f968-4956-8e13-e97921ce9bd1",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Use",
                     "isComposite": false,
                     "isPartOfComposite": false
