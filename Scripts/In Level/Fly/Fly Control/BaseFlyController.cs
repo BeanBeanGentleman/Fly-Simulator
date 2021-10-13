@@ -106,6 +106,7 @@ public partial class BaseFlyController : MonoBehaviour
         Agility.SetNoBonusModifier(myGuid);
         AirDragVal.SetNoBonusModifier(myGuid);
         IngestSpeed.SetNoBonusModifier(myGuid);
+        TakeDamage(0f);
 
 
     }
@@ -114,91 +115,6 @@ public partial class BaseFlyController : MonoBehaviour
         _ = IsClimbing ? ClimbAction() : FlightAction();
         if (ClimbCounter.IsZeroReached(1, false)) IsClimbing = false;
 
-    }
-
-    int ClimbAction()
-    {
-        
-        AirDragVal.SetModifier(myGuid, OnClimbingExtraDrag);
-        thisRigidbody.drag = AirDragVal.FinalVal();
-        
-        Vector2 KnownAlignment = _useFreeCam ? Vector2.zero : _alignment;
-        float Yaw = Mathf.Clamp(KnownAlignment.x, -1, 1);
-        Yaw = Mathf.Abs(Yaw) < DeadZoneYaw ? 0 : Yaw;
-        
-        float Pitch = Mathf.Clamp(KnownAlignment.y, -1, 1);
-        Pitch = Mathf.Abs(Pitch) < DeadZonePitch ? 0 : Pitch;
-
-        thisRigidbody.AddRelativeTorque(
-            0,
-            Agility.FinalVal() * Yaw * YawMultiplier,
-            RollingSpeed * RollMultiplier);
-        thisRigidbody.angularVelocity *= 0.2f;
-        RollingSpeed = 0;
-        YawingSpeed = 0;
-        PitchingSpeed = 0;
-        
-        Buzz.pitch = 0;
-        Buzz.volume = 0;
-
-
-        Quaternion nextRot = this.transform.rotation;
-        if (_useFreeCam)
-        {
-            nextRot = Quaternion.LookRotation(Vector3.Cross(Vector3.up,
-                    Vector3.Cross(thisRigidbody.transform.forward,
-                        Vector3.up)),
-                Vector3.up);
-        }
-        else
-        {
-            bool DownHasHit = false;
-            foreach (var hit in Physics.RaycastAll(thisRigidbody.transform.position,
-                this.transform.up * -1,
-                0.25f))
-            {
-                if (hit.collider.CompareTag("Climbable"))
-                {
-                    nextRot = Quaternion.LookRotation(Vector3.Cross(hit.normal,
-                            Vector3.Cross(thisRigidbody.transform.forward,
-                                hit.normal)),
-                        hit.normal);
-                    DownHasHit = true;
-                    break;
-                }
-            }
-            DownHasHit = false;
-            List<RaycastHit> regularSphereScan = RegularSphereScan(this.transform.position, 15, 15, 0.25f);
-            List<float> normalsX = new List<float>();
-            List<float> normalsY = new List<float>();
-            List<float> normalsZ = new List<float>();
-            if (!DownHasHit)
-            {
-                foreach (var hit in regularSphereScan)
-                {
-                    normalsX.Add(hit.normal.x);
-                    normalsY.Add(hit.normal.y);
-                    normalsZ.Add(hit.normal.z);
-                    ClimbCounter.MaxmizeTemp();
-                }
-
-                Vector3 avg = new Vector3(normalsX.Sum(), normalsY.Sum(), normalsZ.Sum())/normalsX.Count;
-                if (normalsX.Count > 0)
-                {
-                    nextRot = Quaternion.LookRotation(Vector3.Cross(avg,
-                            Vector3.Cross(thisRigidbody.transform.forward,
-                                avg)),
-                        avg);
-                    thisRigidbody.AddForce(avg * -ArtificialGravity);
-                }
-
-            }
-            // DebugShowingLines(lr, regularSphereScan);
-        }
-        this.transform.rotation = Quaternion.Lerp(thisRigidbody.rotation, nextRot, 0.14f);
-        
-        thisRigidbody.AddRelativeForce(movementAccel.FinalVal() * CurrentMovingDirection);
-        return 0;
     }
 
     int FlightAction()
@@ -249,30 +165,7 @@ public partial class BaseFlyController : MonoBehaviour
         _ = IsClimbing ? Climb() : Flight();
     }
 
-    int Climb()
-    {
-        float UpDown = _takeOff ? 1 : (_landDown ? -1 : 0);
-        Vector3 AccelDirection = new Vector3(_climbLeftRight, UpDown, _climbForeBack);
-        CurrentMovingDirection = AccelDirection;
-        AccelStrength.Value = Mathf.Clamp01(AccelDirection.magnitude) * AccelStrengthMax;
-        movementAccel.SetModifier(myGuid, AccelStrength);
-        if (_manualSwitchToggle) AutoAlignEnabled = !AutoAlignEnabled;
-        if (_useFreeCam)
-        {
-            cc.Freecam = true;
-            cc.CamLookingEulerOffset = new Vector3(-_alignment.y, _alignment.x,  0) * 180;
-        }
-        else
-        {
-            cc.Freecam = false;
-        }
-        CamFollower.transform.localPosition = CamFolwClimbPos;
-        CamFollower.transform.localEulerAngles = CamFolwClimbEul;
-        var injestPressed = _ingest;
-        this.Ingesting = injestPressed;
-        IngestSound.volume = injestPressed?1:0;
-        return 0;
-    }
+
 
     int Flight()
     {
@@ -422,7 +315,8 @@ public partial class BaseFlyController : MonoBehaviour
     /// <param name="Val">The damage that the fly will take. This should be positive if the fly is losing hp.</param>
     public void TakeDamage(float Val)
     {
-        
+        var a = FindObjectOfType<HealthBar>();
+        a.setValue(a.hp_bar.value - Val );
     }
 
     private void OnCollisionEnter(Collision other)

@@ -5,6 +5,7 @@ public class MainMenuController : MonoBehaviour
 {
     [SerializeField] public string sceneName;
 
+    public bool NotYet = true;
     public void Exit()
     {
         Application.Quit();
@@ -12,6 +13,13 @@ public class MainMenuController : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneManager.LoadScene(sceneName);
+        if (NotYet)
+        {
+            
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }
