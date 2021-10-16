@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 6387990755498271635}
   m_Layer: 0
   m_Name: Fly
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,6 +216,8 @@ MonoBehaviour:
   CamFolwOrigPos: {x: 0, y: 0.31, z: -1.05}
   CamFolwClimbPos: {x: 0, y: 1.3, z: -1.2}
   CamFolwClimbEul: {x: 30, y: 0, z: 0}
+  RayLength: 1
+  DrawDebug: 0
 --- !u!82 &1487780917392196852
 AudioSource:
   m_ObjectHideFlags: 0
@@ -325,20 +327,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShouldAct: 0
-  ActivationTime:
-    Temp: 3
-    Max: 3
-  CDTime:
-    Temp: 0
-    Max: 6
   BuffValue:
   - IsMultiply: 0
-    Value: 4
+    Value: 6
     Order: a
   DebuffValue:
   - IsMultiply: 1
-    Value: 0.03
+    Value: 0.1
     Order: a
+  BaseActivationTime: 3
+  BaseCDTime: 6
   thisFlyController: {fileID: 5779968146687596947}
 --- !u!114 &4010046416405747108
 MonoBehaviour:
@@ -353,17 +351,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShouldAct: 0
-  ActivationTime:
-    Temp: 5
-    Max: 5
-  CDTime:
-    Temp: 7
-    Max: 7
   BuffValue:
   - IsMultiply: 1
     Value: 0.5
     Order: a
   DebuffValue: []
+  BaseActivationTime: 10
+  BaseCDTime: 15
   thisFlyController: {fileID: 5779968146687596947}
 --- !u!136 &9168476913150612604
 CapsuleCollider:

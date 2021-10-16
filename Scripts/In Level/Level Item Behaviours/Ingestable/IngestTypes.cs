@@ -4,7 +4,7 @@
     {
         Fat,
         Protein,
-        CarboHydrate,
+        CarbonHydrate,
         Water,
         VitaminA,
         VitaminB,

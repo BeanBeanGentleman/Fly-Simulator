@@ -15,7 +15,7 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
         /// <summary>
         /// The type of food
         /// </summary>
-        public IngestTypes MyType = IngestTypes.CarboHydrate;
+        public IngestTypes MyType = IngestTypes.CarbonHydrate;
 
         protected virtual void Start()
         {

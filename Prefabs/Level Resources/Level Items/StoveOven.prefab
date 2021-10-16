@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 4014779174129848780}
   - component: {fileID: 7231775187439329026}
   - component: {fileID: 3141010037425247347}
-  - component: {fileID: 6733469756049114864}
+  - component: {fileID: 7206708189788409520}
   m_Layer: 0
   m_Name: Damage Zone
   m_TagString: Untagged
@@ -124,7 +124,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6733469756049114864
+--- !u!114 &7206708189788409520
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 516503535924696026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 148d76961b984cf9ac5e155102dee538, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ed45a150cea4d56b5cafaab394a6fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DamageOverTimeMultiplier:
