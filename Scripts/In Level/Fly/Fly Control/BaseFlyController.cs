@@ -108,7 +108,6 @@ public partial class BaseFlyController : MonoBehaviour
         IngestSpeed.SetNoBonusModifier(myGuid);
         TakeDamage(0f);
 
-
     }
     protected void FixedUpdate()
     {
@@ -210,7 +209,7 @@ public partial class BaseFlyController : MonoBehaviour
 
         if (_landDown)
         {
-            if (RegularSphereScan(this.transform.position, 15, 15, 2f).Count > 0)
+            if (RegularSphereScan(this.transform.position, 15, 15, RayLength).Count > 0)
             {
                 ClimbCounter.MaxmizeTemp();
                 IsClimbing = true;

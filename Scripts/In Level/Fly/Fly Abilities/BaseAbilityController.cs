@@ -12,13 +12,19 @@ namespace Control
     {
         public Guid guid;
         public bool ShouldAct = false;
-        public AutoResetCounter ActivationTime;
-        public AutoResetCounter CDTime;
+        private AutoResetCounter ActivationTime;
+        private AutoResetCounter CDTime;
         public List<Modifier> BuffValue;
         public List<Modifier> DebuffValue;
 
-        public ValueContainer ActivationTimeModifier;
-        public ValueContainer CDTimeModifier;
+        public float BaseActivationTime = 3;
+        [HideInInspector]
+        public ValueContainer ActivationTimeVal;
+        
+        
+        public float BaseCDTime = 6;
+        [HideInInspector]
+        public ValueContainer CDTimeVal;
 
         public BaseFlyController thisFlyController;
 
@@ -38,10 +44,17 @@ namespace Control
                     Destroy(this);
                 }
             }
+
+            ActivationTimeVal = new ValueContainer(BaseActivationTime);
+            CDTimeVal = new ValueContainer(BaseCDTime);
+            ActivationTime = new AutoResetCounter(ActivationTimeVal.FinalVal());
+            CDTime = new AutoResetCounter(CDTimeVal.FinalVal());
         }
 
         protected virtual void Update()
         {
+            CDTime.Max = CDTimeVal.FinalVal();
+            ActivationTime.Max = ActivationTimeVal.FinalVal();
             Activated = CDTime.IsZeroReached(Time.deltaTime, false) && ShouldAct;
             ShouldAct = (Activated) && ShouldAct;
         }

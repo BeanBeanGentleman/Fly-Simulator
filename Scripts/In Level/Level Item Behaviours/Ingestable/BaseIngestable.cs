@@ -9,16 +9,34 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
     public class BaseIngestable : MonoBehaviour
     {
         /// <summary>
-        /// The amount of food
+        /// The base resource max amount.
         /// </summary>
-        public AutoResetCounter FoodAmount = new AutoResetCounter(10);
+        public float BaseResourceMaxAmount = 10f;
+        /// <summary>
+        /// The value container of the resource max amount.  
+        /// </summary>
+        public ValueContainer ResourceMaxAmount;
+        /// <summary>
+        /// The amount left in this ingestable resource.
+        /// </summary>
+        public AutoResetCounter FoodAmount;
         /// <summary>
         /// The type of food
         /// </summary>
-        public IngestTypes MyType = IngestTypes.CarboHydrate;
+        public IngestTypes MyType = IngestTypes.CarbonHydrate;
+        /// <summary>
+        /// The very parent. Used for removal under challenges.
+        /// </summary>
+        public GameObject ParentGameObject;
+        /// <summary>
+        /// The rating of how this ingestable resource is exposed and easy to acquire. 
+        /// </summary>
+        public int ExposureLevel;
 
         protected virtual void Start()
         {
+            ResourceMaxAmount = new ValueContainer(BaseResourceMaxAmount);
+            FoodAmount = new AutoResetCounter(ResourceMaxAmount.FinalVal());
             FoodAmount.MaxmizeTemp();
         }
 
@@ -44,6 +62,25 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
         public virtual void ElimateThis()
         {
             Destroy(this.gameObject);
+        }
+
+        public virtual void RemoveParent()
+        {
+            if (this.ParentGameObject != null)
+            {
+                DestroyImmediate(this.ParentGameObject);
+            }
+            else
+            {
+                DestroyImmediate(this.gameObject);
+            }
+        }
+
+        public virtual void UpdateMaxAmount(Guid guid, Modifier modify)
+        {
+            ResourceMaxAmount.SetModifier(guid, modify);
+            FoodAmount.Max = ResourceMaxAmount.FinalVal();
+            FoodAmount.MaxmizeTemp();
         }
     }
 }

@@ -43,6 +43,10 @@ namespace In_Level.Fly.Fly_Debuff
             {
                 IceyImage.color = new Color(1, 1, 1, Mathf.Min(IceyImage.color.a + (Time.fixedDeltaTime / 2), TimeLeftFactor));
             }
+            else
+            {
+                print("NUL");
+            }
         }
 
         protected override void OnDestroy()

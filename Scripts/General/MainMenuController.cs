@@ -3,23 +3,21 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    [SerializeField] public string sceneName;
-
     public bool NotYet = true;
-    public void Exit()
+    public Animator CanvasAnimator;
+    
+    private static readonly int UseApart = Animator.StringToHash("Use Apart");
+    public void ExitOrGetUp()
     {
-        Application.Quit();
-    }
-
-    public void LoadScene()
-    {
-        if (NotYet)
+        if (!CanvasAnimator.GetCurrentAnimatorStateInfo(0).IsName("CANV DEFAULT"))
         {
-            
+            BroadcastMessage("ReturnToMainMenu");
+            CanvasAnimator.SetBool(UseApart, false);
         }
         else
         {
-            SceneManager.LoadScene(sceneName);
+            Application.Quit();
         }
     }
+    
 }

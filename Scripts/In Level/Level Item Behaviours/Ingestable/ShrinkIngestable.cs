@@ -41,7 +41,7 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
 
         public override void ElimateThis()
         {
-            Destroy(this);
+            Destroy(this); // Not the gameobject! Such that the shrunk object still exist.
         }
     }
 }
