@@ -106,6 +106,7 @@ public partial class BaseFlyController : MonoBehaviour
         Agility.SetNoBonusModifier(myGuid);
         AirDragVal.SetNoBonusModifier(myGuid);
         IngestSpeed.SetNoBonusModifier(myGuid);
+        TakeDamage(0f);
 
 
     }
@@ -314,7 +315,8 @@ public partial class BaseFlyController : MonoBehaviour
     /// <param name="Val">The damage that the fly will take. This should be positive if the fly is losing hp.</param>
     public void TakeDamage(float Val)
     {
-        
+        var a = FindObjectOfType<HealthBar>();
+        a.setValue(a.hp_bar.value - Val );
     }
 
     private void OnCollisionEnter(Collision other)

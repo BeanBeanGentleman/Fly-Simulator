@@ -13,6 +13,7 @@ namespace Genral
     public class ValueContainer
     {
         public readonly float BaseVal;
+        [SerializeField]
         public Dictionary<Guid, Modifier> Modifiers;
         
         /// <summary>

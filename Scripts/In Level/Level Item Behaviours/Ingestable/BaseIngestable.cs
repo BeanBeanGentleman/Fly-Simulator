@@ -17,12 +17,12 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
         /// </summary>
         public IngestTypes MyType = IngestTypes.CarboHydrate;
 
-        private void Start()
+        protected virtual void Start()
         {
             FoodAmount.MaxmizeTemp();
         }
 
-        private void OnCollisionStay(Collision other)
+        protected virtual void OnCollisionStay(Collision other)
         {
             BaseFlyController BFC;
             if (other.gameObject.TryGetComponent<BaseFlyController>(out BFC))
