@@ -1,4 +1,6 @@
-﻿using Genral;
+﻿using System;
+using Genral;
+using In_Level.Level_Item_Behaviours.Ingestable;
 using UnityEngine;
 
 namespace ChallangesModifiers.Resource_Challenges
@@ -10,7 +12,7 @@ namespace ChallangesModifiers.Resource_Challenges
         [SerializeField]
         private string _description = "Food resources offer less Fat, Protein or CarbonHydrate. ";
         [SerializeField]
-        private Modifier _difficultyModifier = new Modifier(true, 1.3f, "y");
+        private Modifier _difficultyModifier = new Modifier(ModifyOption.Multiplicative, 1.3f, "y");
         
         public override string Name
         {
@@ -32,8 +34,16 @@ namespace ChallangesModifiers.Resource_Challenges
 
         public override void OnLevelLoaded()
         {
-            Debug.LogWarning("Low Calorie has not been implemented!");
-            // TODO: Make Energetic food less valuable
+            Modifier AmountModifier = new Modifier(ModifyOption.Multiplicative, 1.5f, "z");
+            var guid = Guid.NewGuid();
+            foreach (BaseIngestable ingestable in FindObjectsOfType<BaseIngestable>())
+            {
+                if (ingestable.MyType == IngestTypes.Fat || ingestable.MyType == IngestTypes.Protein || ingestable.MyType == IngestTypes.CarbonHydrate)
+                {
+                    ingestable.UpdateMaxAmount(guid, AmountModifier);
+                }
+            }
+            
         }
     }
 }

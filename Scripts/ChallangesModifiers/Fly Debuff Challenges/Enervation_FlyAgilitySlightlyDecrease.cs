@@ -1,11 +1,11 @@
 ﻿using System;
-using Control;
 using Genral;
 using UnityEngine;
+using UnityEngine.UI;
 
-namespace ChallangesModifiers.Fly_Debuff_Challanges
+namespace ChallangesModifiers.Fly_Debuff_Challenges
 {
-    public class FlySurvivabilityCD : BaseChallenge
+    public class Enervation_FlyAgilitySlightlyDecrease : BaseChallenge
     {
         // public string Name = "Enervation";
         // public string Description = "The agility and moving acceleration of the fly will reduce.";
@@ -13,11 +13,11 @@ namespace ChallangesModifiers.Fly_Debuff_Challanges
         
         
         [SerializeField]
-        private string _name = "Harsh Survival";
+        private string _name = "Enervation";
         [SerializeField]
-        private string _description = "The survivability ability of the fly will suffer greater cool down duration.";
+        private string _description = "The agility and moving acceleration of the fly will slightly reduce.";
         [SerializeField]
-        private Modifier _difficultyModifier = new Modifier(true, 1.2f, "h");
+        private Modifier _difficultyModifier = new Modifier(true, 1.3f, "z");
         
         public override string Name
         {
@@ -39,12 +39,10 @@ namespace ChallangesModifiers.Fly_Debuff_Challanges
 
         public override void OnLevelLoaded()
         {
-            Modifier CDModifier = new Modifier(true, 1.5f, "z");
+            Modifier AgilityModifier = new Modifier(true, 0.7f, "z");
             var guid = Guid.NewGuid();
-            foreach (var buf in GameObject.FindObjectsOfType<BaseSurvivabilityBuff>())
-            {
-                buf.CDTimeVal.SetModifier(guid, CDModifier);
-            }
+            GameObject.FindObjectOfType<BaseFlyController>().movementAccel.SetModifier(guid, AgilityModifier);
+            GameObject.FindObjectOfType<BaseFlyController>().Agility.SetModifier(guid, AgilityModifier);
         }
     }
 }

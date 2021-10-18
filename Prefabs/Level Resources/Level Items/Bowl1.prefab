@@ -129,6 +129,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325921855826364
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,6 +382,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325921866625384
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,6 +513,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325921870057342
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,6 +644,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325921873238396
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,6 +775,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325921976495021
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,6 +906,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922004592582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,6 +1037,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922016342026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,6 +1168,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922041112113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,6 +1299,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922042837447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,6 +1430,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922149736045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,6 +1561,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922151229855
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,6 +1692,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922167040091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1799,6 +1823,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922218312755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1928,6 +1954,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922236115340
 GameObject:
   m_ObjectHideFlags: 0
@@ -2057,6 +2085,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922273374873
 GameObject:
   m_ObjectHideFlags: 0
@@ -2186,6 +2216,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922321408338
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,6 +2347,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922329263685
 GameObject:
   m_ObjectHideFlags: 0
@@ -2444,6 +2478,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922343919611
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,6 +2609,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922346690320
 GameObject:
   m_ObjectHideFlags: 0
@@ -2702,6 +2740,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922349718473
 GameObject:
   m_ObjectHideFlags: 0
@@ -2831,6 +2871,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922371616352
 GameObject:
   m_ObjectHideFlags: 0
@@ -2960,6 +3002,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922383825265
 GameObject:
   m_ObjectHideFlags: 0
@@ -3089,6 +3133,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922426594724
 GameObject:
   m_ObjectHideFlags: 0
@@ -3218,6 +3264,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922435014255
 GameObject:
   m_ObjectHideFlags: 0
@@ -3347,6 +3395,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922446974963
 GameObject:
   m_ObjectHideFlags: 0
@@ -3476,6 +3526,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922477644780
 GameObject:
   m_ObjectHideFlags: 0
@@ -3605,6 +3657,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922563908253
 GameObject:
   m_ObjectHideFlags: 0
@@ -3734,6 +3788,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922568306893
 GameObject:
   m_ObjectHideFlags: 0
@@ -3863,6 +3919,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922591479481
 GameObject:
   m_ObjectHideFlags: 0
@@ -3992,6 +4050,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922609470214
 GameObject:
   m_ObjectHideFlags: 0
@@ -4121,6 +4181,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922615639779
 GameObject:
   m_ObjectHideFlags: 0
@@ -4250,6 +4312,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922739495680
 GameObject:
   m_ObjectHideFlags: 0
@@ -4379,6 +4443,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922747756724
 GameObject:
   m_ObjectHideFlags: 0
@@ -4508,6 +4574,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922752951605
 GameObject:
   m_ObjectHideFlags: 0
@@ -4637,6 +4705,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922760870361
 GameObject:
   m_ObjectHideFlags: 0
@@ -4766,6 +4836,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922762210549
 GameObject:
   m_ObjectHideFlags: 0
@@ -4895,6 +4967,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922938581278
 GameObject:
   m_ObjectHideFlags: 0
@@ -5024,6 +5098,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922945243123
 GameObject:
   m_ObjectHideFlags: 0
@@ -5153,6 +5229,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325922987254682
 GameObject:
   m_ObjectHideFlags: 0
@@ -5282,6 +5360,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923007478856
 GameObject:
   m_ObjectHideFlags: 0
@@ -5411,6 +5491,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923087162707
 GameObject:
   m_ObjectHideFlags: 0
@@ -5540,6 +5622,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923160945273
 GameObject:
   m_ObjectHideFlags: 0
@@ -5669,6 +5753,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923166251587
 GameObject:
   m_ObjectHideFlags: 0
@@ -5798,6 +5884,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923170382437
 GameObject:
   m_ObjectHideFlags: 0
@@ -5927,6 +6015,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923191624400
 GameObject:
   m_ObjectHideFlags: 0
@@ -6056,6 +6146,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923193698626
 GameObject:
   m_ObjectHideFlags: 0
@@ -6185,6 +6277,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923333154974
 GameObject:
   m_ObjectHideFlags: 0
@@ -6314,6 +6408,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923355861262
 GameObject:
   m_ObjectHideFlags: 0
@@ -6443,6 +6539,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923446200356
 GameObject:
   m_ObjectHideFlags: 0
@@ -6572,6 +6670,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923541260801
 GameObject:
   m_ObjectHideFlags: 0
@@ -6701,6 +6801,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923545924736
 GameObject:
   m_ObjectHideFlags: 0
@@ -6830,6 +6932,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923556233705
 GameObject:
   m_ObjectHideFlags: 0
@@ -6959,6 +7063,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923566689786
 GameObject:
   m_ObjectHideFlags: 0
@@ -7088,6 +7194,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923616936762
 GameObject:
   m_ObjectHideFlags: 0
@@ -7217,6 +7325,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923641591137
 GameObject:
   m_ObjectHideFlags: 0
@@ -7346,6 +7456,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923645541046
 GameObject:
   m_ObjectHideFlags: 0
@@ -7475,6 +7587,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923673466545
 GameObject:
   m_ObjectHideFlags: 0
@@ -7604,6 +7718,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923706870392
 GameObject:
   m_ObjectHideFlags: 0
@@ -7733,6 +7849,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923835051965
 GameObject:
   m_ObjectHideFlags: 0
@@ -7862,6 +7980,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923838618403
 GameObject:
   m_ObjectHideFlags: 0
@@ -7991,6 +8111,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923866443033
 GameObject:
   m_ObjectHideFlags: 0
@@ -8120,6 +8242,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923870497734
 GameObject:
   m_ObjectHideFlags: 0
@@ -8249,6 +8373,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1 &4667325923879633167
 GameObject:
   m_ObjectHideFlags: 0
@@ -8378,6 +8504,8 @@ MonoBehaviour:
     Temp: 0.25
     Max: 0.25
   MyType: 0
+  ParentGameObject: {fileID: 4667325921855826364}
+  ExposureLevel: 0
 --- !u!1001 &7756478196989536332
 PrefabInstance:
   m_ObjectHideFlags: 0

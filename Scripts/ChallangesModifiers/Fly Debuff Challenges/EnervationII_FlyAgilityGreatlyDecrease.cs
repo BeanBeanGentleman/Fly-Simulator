@@ -3,7 +3,7 @@ using Genral;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ChallangesModifiers.Fly_Debuff_Challanges
+namespace ChallangesModifiers.Fly_Debuff_Challenges
 {
     public class EnervationII_FlyAgilityGreatlyDecrease : BaseChallenge
     {

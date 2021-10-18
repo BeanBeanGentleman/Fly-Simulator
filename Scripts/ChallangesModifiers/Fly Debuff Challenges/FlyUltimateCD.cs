@@ -1,23 +1,23 @@
 ﻿using System;
+using Control;
 using Genral;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace ChallangesModifiers.Fly_Debuff_Challanges
+namespace ChallangesModifiers.Fly_Debuff_Challenges
 {
-    public class Enervation_FlyAgilitySlightlyDecrease : BaseChallenge
+    public class FlyUltimateCD : BaseChallenge
     {
         // public string Name = "Enervation";
         // public string Description = "The agility and moving acceleration of the fly will reduce.";
-        // public Modifier DifficultyModifier = new Modifier(true, 1.3f, "z");
+        // public Modifier DifficultyModifier = new Modifier(ModifyOption.Multiplicative, 1.3f, "z");
         
         
         [SerializeField]
-        private string _name = "Enervation";
+        private string _name = "Deep Infiltration";
         [SerializeField]
-        private string _description = "The agility and moving acceleration of the fly will slightly reduce.";
+        private string _description = "The ultimate ability of the fly will suffer greater cool down duration.";
         [SerializeField]
-        private Modifier _difficultyModifier = new Modifier(true, 1.3f, "z");
+        private Modifier _difficultyModifier = new Modifier(ModifyOption.Multiplicative, 1.2f, "h");
         
         public override string Name
         {
@@ -39,10 +39,12 @@ namespace ChallangesModifiers.Fly_Debuff_Challanges
 
         public override void OnLevelLoaded()
         {
-            Modifier AgilityModifier = new Modifier(true, 0.7f, "z");
+            Modifier CDModifier = new Modifier(ModifyOption.Multiplicative, 1.5f, "z");
             var guid = Guid.NewGuid();
-            GameObject.FindObjectOfType<BaseFlyController>().movementAccel.SetModifier(guid, AgilityModifier);
-            GameObject.FindObjectOfType<BaseFlyController>().Agility.SetModifier(guid, AgilityModifier);
+            foreach (var buf in GameObject.FindObjectsOfType<BaseUltimateBuff>())
+            {
+                buf.CDTimeVal.SetModifier(guid, CDModifier);
+            }
         }
     }
 }

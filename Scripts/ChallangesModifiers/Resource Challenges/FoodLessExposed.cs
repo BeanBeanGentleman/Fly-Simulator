@@ -1,5 +1,6 @@
 ﻿using System;
 using Genral;
+using In_Level.Level_Item_Behaviours.Ingestable;
 using In_Level.Level_Item_Behaviours.StaticThreat;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ namespace ChallangesModifiers.Resource_Challenges
         [SerializeField]
         private string _description = "Less food resources exposed outside. ";
         [SerializeField]
-        private Modifier _difficultyModifier = new Modifier(true, 1.3f, "y");
+        private Modifier _difficultyModifier = new Modifier(ModifyOption.Multiplicative, 1.3f, "y");
         
         public override string Name
         {
@@ -34,8 +35,13 @@ namespace ChallangesModifiers.Resource_Challenges
 
         public override void OnLevelLoaded()
         {
-            Debug.LogWarning("Place Back has not been implemented!");
-            // TODO: Remove foods that has exposure rating smaller than 1, or just move them into storage?
+            foreach (BaseIngestable ingestable in FindObjectsOfType<BaseIngestable>())
+            {
+                if (ingestable.ExposureLevel > 8)
+                {
+                    ingestable.RemoveParent();
+                }
+            }
         }
     }
 }

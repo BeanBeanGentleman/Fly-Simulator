@@ -4,7 +4,7 @@ using In_Level.Level_Item_Behaviours.StaticThreat;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ChallangesModifiers.Thread_Challanges
+namespace ChallangesModifiers.Threat_Challanges
 {
     public class Overcooked_StoveOvenDamageIncrease : BaseChallenge
     {
@@ -35,7 +35,7 @@ namespace ChallangesModifiers.Thread_Challanges
 
         public override void OnLevelLoaded()
         {
-            Modifier DMGModifier = new Modifier(true, 1.3f, "z");
+            Modifier DMGModifier = new Modifier(ModifyOption.Multiplicative, 1.3f, "z");
             var guid = Guid.NewGuid();
             foreach (StoveOvenHeatZone zoone in FindObjectsOfType<StoveOvenHeatZone>())
             {
