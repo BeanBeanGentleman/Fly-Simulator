@@ -54,6 +54,13 @@ public class EnemyAI : MonoBehaviour
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
     }
+
+    public bool is_in_sight_range()
+    {
+        return playerInSightRange;
+    }
+
+
     private void Patroling()
     {
        if (navPt.Length == 0)
