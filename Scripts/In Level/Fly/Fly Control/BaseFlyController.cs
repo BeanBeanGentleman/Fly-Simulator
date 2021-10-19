@@ -106,6 +106,8 @@ public partial class BaseFlyController : MonoBehaviour
         Agility.SetNoBonusModifier(myGuid);
         AirDragVal.SetNoBonusModifier(myGuid);
         IngestSpeed.SetNoBonusModifier(myGuid);
+        MaxHP = new ValueContainer(BaseFlyMaxHP);
+        HPCounter = new AutoResetCounter(MaxHP.FinalVal(), true);
         TakeDamage(0f);
 
     }
@@ -308,15 +310,7 @@ public partial class BaseFlyController : MonoBehaviour
     void CancelAirBrake(InputAction.CallbackContext ctx){
         AirDragVal.SetNoBonusModifier(myGuid);
     }
-    /// <summary>
-    /// For the fly taking damage
-    /// </summary>
-    /// <param name="Val">The damage that the fly will take. This should be positive if the fly is losing hp.</param>
-    public void TakeDamage(float Val)
-    {
-        var a = FindObjectOfType<HealthBar>();
-        a.setValue(a.hp_bar.value - Val );
-    }
+
 
     private void OnCollisionEnter(Collision other)
     {

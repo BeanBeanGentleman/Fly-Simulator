@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Genral;
+using In_Level.UI;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -31,6 +32,8 @@ namespace Control
         protected bool Activated = false;
 
         protected bool OnceDeactivated = false;
+
+        public BaseAbilityProgressIndicator Indicator;
 
         protected virtual void Start()
         {
@@ -95,5 +98,13 @@ namespace Control
 
         protected abstract void Active();
         protected abstract void Deactive();
+
+        protected virtual void UpdateAbilityIndicator()
+        {
+            if (Indicator == null) return;
+            Indicator.progress = this.ActivationTime.Temp;
+            Indicator.CDProgress = this.CDTime.Temp;
+            Indicator.activating = this.Activated; //TODO: Need inspection on this. 
+        }
     }
 }
