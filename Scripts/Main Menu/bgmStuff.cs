@@ -15,6 +15,10 @@ public class bgmStuff : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Time.fixedTime >= 1 && !one.isPlaying)
+        {
+            one.Play();
+        }
         if (sww)
         {
             one.volume *= 0.95f;

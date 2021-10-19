@@ -13,6 +13,7 @@ namespace Genral
     public class ValueContainer
     {
         public readonly float BaseVal;
+        [SerializeField]
         public Dictionary<Guid, Modifier> Modifiers;
         
         /// <summary>
@@ -59,6 +60,13 @@ namespace Genral
         {
             if (this.Modifiers.ContainsKey(theGuid)) this.Modifiers[theGuid] = theModifier;
             else this.Modifiers.Add(theGuid, theModifier);
+        }
+        /// <summary>
+        /// Clear all modifiers
+        /// </summary>
+        public void ClearModifiers()
+        {
+            this.Modifiers.Clear();
         }
     }
 }

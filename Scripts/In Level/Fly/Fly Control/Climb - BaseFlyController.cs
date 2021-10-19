@@ -18,6 +18,11 @@ public partial class BaseFlyController
     public Vector3 CamFolwOrigPos;
     public Vector3 CamFolwClimbPos;
     public Vector3 CamFolwClimbEul;
+
+    public float RayLength = 1;
+    
+    
+    public bool DrawDebug = false;
     
     int Climb()
     {
@@ -26,6 +31,10 @@ public partial class BaseFlyController
         CurrentMovingDirection = AccelDirection;
         AccelStrength.Value = Mathf.Clamp01(AccelDirection.magnitude) * AccelStrengthMax;
         movementAccel.SetModifier(myGuid, AccelStrength);
+        if (_takeOff)
+        {
+            IsClimbing = false;
+        }
         if (_manualSwitchToggle) AutoAlignEnabled = !AutoAlignEnabled;
         if (_useFreeCam)
         {
@@ -37,14 +46,14 @@ public partial class BaseFlyController
             cc.Freecam = false;
         }
         CamFollower.transform.localPosition = CamFolwClimbPos;
-        CamFollower.transform.localEulerAngles = CamFolwClimbEul;
+        CamFollower.transform.localEulerAngles = CamFolwClimbEul + Vector3.right * (_view.y * -30);
         var injestPressed = _ingest;
         this.Ingesting = injestPressed;
         IngestSound.volume = injestPressed?1:0;
         return 0;
     }
     
-        int ClimbAction()
+    int ClimbAction()
     {
         
         AirDragVal.SetModifier(myGuid, OnClimbingExtraDrag);
@@ -81,9 +90,10 @@ public partial class BaseFlyController
         else
         {
             bool DownHasHit = false;
+            Vector3 avg = this.transform.up * -1;
             foreach (var hit in Physics.RaycastAll(thisRigidbody.transform.position,
                 this.transform.up * -1,
-                0.25f))
+                RayLength))
             {
                 if (hit.collider.CompareTag("Climbable"))
                 {
@@ -95,7 +105,7 @@ public partial class BaseFlyController
                     break;
                 }
             }
-            List<RaycastHit> regularSphereScan = RegularSphereScan(this.transform.position, 15, 15, 0.25f);
+            List<RaycastHit> regularSphereScan = RegularSphereScan(this.transform.position, 15, 15, RayLength);
             List<float> normalsX = new List<float>();
             List<float> normalsY = new List<float>();
             List<float> normalsZ = new List<float>();
@@ -109,18 +119,27 @@ public partial class BaseFlyController
                     ClimbCounter.MaxmizeTemp();
                 }
 
-                Vector3 avg = new Vector3(normalsX.Sum(), normalsY.Sum(), normalsZ.Sum())/normalsX.Count;
+                avg = -new Vector3(normalsX.Sum(), normalsY.Sum(), normalsZ.Sum())/normalsX.Count;
                 if (normalsX.Count > 0)
                 {
                     nextRot = Quaternion.LookRotation(Vector3.Cross(avg,
                             Vector3.Cross(thisRigidbody.transform.forward,
                                 avg)),
                         avg);
-                    thisRigidbody.AddForce(avg * -ArtificialGravity);
                 }
 
             }
-            // DebugShowingLines(lr, regularSphereScan);
+
+            thisRigidbody.AddForce(avg.normalized * ArtificialGravity * 2);
+            if (DrawDebug)
+            {
+                DebugShowingLines(lr, regularSphereScan);
+            }
+
+            if (_manualSwitchTargetL)
+            {
+                DrawDebug = !DrawDebug;
+            }
         }
         this.transform.rotation = Quaternion.Lerp(thisRigidbody.rotation, nextRot, 0.14f);
         

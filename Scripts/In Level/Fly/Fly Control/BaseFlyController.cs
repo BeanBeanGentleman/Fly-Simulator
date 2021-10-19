@@ -106,7 +106,9 @@ public partial class BaseFlyController : MonoBehaviour
         Agility.SetNoBonusModifier(myGuid);
         AirDragVal.SetNoBonusModifier(myGuid);
         IngestSpeed.SetNoBonusModifier(myGuid);
-
+        MaxHP = new ValueContainer(BaseFlyMaxHP);
+        HPCounter = new AutoResetCounter(MaxHP.FinalVal(), true);
+        TakeDamage(0f);
 
     }
     protected void FixedUpdate()
@@ -162,8 +164,6 @@ public partial class BaseFlyController : MonoBehaviour
     {
         cc.CamLookingEulerOffset = new Vector3(-_alignment.y, _alignment.x,  0) * 180;
         _ = IsClimbing ? Climb() : Flight();
-        
-        if(_takeOff) TakeDamage(0.1f);
     }
 
 
@@ -211,7 +211,7 @@ public partial class BaseFlyController : MonoBehaviour
 
         if (_landDown)
         {
-            if (RegularSphereScan(this.transform.position, 15, 15, 2f).Count > 0)
+            if (RegularSphereScan(this.transform.position, 15, 15, RayLength).Count > 0)
             {
                 ClimbCounter.MaxmizeTemp();
                 IsClimbing = true;
@@ -310,15 +310,7 @@ public partial class BaseFlyController : MonoBehaviour
     void CancelAirBrake(InputAction.CallbackContext ctx){
         AirDragVal.SetNoBonusModifier(myGuid);
     }
-    /// <summary>
-    /// For the fly taking damage
-    /// </summary>
-    /// <param name="Val">The damage that the fly will take. This should be positive if the fly is losing hp.</param>
-    public void TakeDamage(float Val)
-    {
-        var a = FindObjectOfType<HealthBar>();
-        a.setValue(a.hp_bar.value - Val );
-    }
+
 
     private void OnCollisionEnter(Collision other)
     {
