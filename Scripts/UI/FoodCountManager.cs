@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FoodCountManager : MonoBehaviour
 {   
@@ -51,6 +52,7 @@ public class FoodCountManager : MonoBehaviour
         if ((cheese_count + banana_count + apple_count) == 0)
         {
             // TODO, DISPLAY WINNING SCREEN
+            SceneManager.LoadScene("Win");
         }
 
 
