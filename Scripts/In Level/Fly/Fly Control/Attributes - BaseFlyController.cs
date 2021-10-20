@@ -29,7 +29,7 @@ public partial class BaseFlyController : MonoBehaviour
         if (D_HPBar == null)
         {
             var a = FindObjectOfType<HealthBar>();
-            a.setValue(a.hp_bar.value - Val );
+            a.setValue(a.hp_bar.value - Val);
         }
         else
         {
