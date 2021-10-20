@@ -143,9 +143,11 @@ public partial class BaseFlyController : MonoBehaviour
         RollingSpeed = 0;
         YawingSpeed = 0;
         PitchingSpeed = 0;
-        
-        Buzz.pitch = NoiseLevel.FinalVal() * (movementAccel.FinalVal() / AccelStrengthMax);
-        Buzz.volume = NoiseLevel.FinalVal() * Buzz.pitch;
+
+        /* Buzz.pitch = NoiseLevel.FinalVal() * (movementAccel.FinalVal() / AccelStrengthMax);
+        Buzz.volume = NoiseLevel.FinalVal() * Buzz.pitch; */
+        Buzz.volume = 1;
+        Buzz.pitch = 1;
 
         Quaternion nextRot = this.transform.rotation;
         if (_useFreeCam)

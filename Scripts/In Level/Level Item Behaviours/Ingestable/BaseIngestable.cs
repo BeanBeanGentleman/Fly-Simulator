@@ -11,11 +11,16 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
         /// <summary>
         /// The base resource max amount.
         /// </summary>
-        public float BaseResourceMaxAmount = 10f;
+        private float BaseResourceMaxAmount = 0.5f;
         /// <summary>
         /// The value container of the resource max amount.  
         /// </summary>
         public ValueContainer ResourceMaxAmount;
+
+        public FoodCountManager food_manager;
+
+        public GameObject ParentGameObject;
+
         /// <summary>
         /// The amount left in this ingestable resource.
         /// </summary>
@@ -27,7 +32,6 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
         /// <summary>
         /// The very parent. Used for removal under challenges.
         /// </summary>
-        public GameObject ParentGameObject;
         /// <summary>
         /// The rating of how this ingestable resource is exposed and easy to acquire. 
         /// </summary>
@@ -40,7 +44,7 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
             FoodAmount.MaxmizeTemp();
         }
 
-        protected virtual void OnCollisionStay(Collision other)
+        protected virtual void OnCollisionEnter(Collision other)
         {
             BaseFlyController BFC;
             if (other.gameObject.TryGetComponent<BaseFlyController>(out BFC))
@@ -48,10 +52,7 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
                 if (BFC.Ingesting)
                 {
                     float AmountLeft = FoodAmount.Temp;
-                    if (FoodAmount.IsZeroReached(BFC.IngestSpeed.FinalVal() * Time.fixedDeltaTime))
-                    {
-                        ElimateThis();
-                    }
+                    ElimateThis();
                     BFC.IngestIn(MyType,Mathf.Min(AmountLeft, BFC.IngestSpeed.FinalVal() * Time.fixedDeltaTime));
                 }
             }
@@ -61,19 +62,24 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
         /// </summary>
         public virtual void ElimateThis()
         {
+            if (this.gameObject.tag == "Banana")
+            {
+                food_manager.decrease_food_count(2, 1);
+            }
+            else if (this.gameObject.tag == "Cheese")
+            {
+                food_manager.decrease_food_count(0, 1);
+            }
+            else
+            {
+                food_manager.decrease_food_count(1, 1);
+            }
             Destroy(this.gameObject);
         }
 
         public virtual void RemoveParent()
         {
-            if (this.ParentGameObject != null)
-            {
-                DestroyImmediate(this.ParentGameObject);
-            }
-            else
-            {
-                DestroyImmediate(this.gameObject);
-            }
+            DestroyImmediate(this.gameObject);
         }
 
         public virtual void UpdateMaxAmount(Guid guid, Modifier modify)

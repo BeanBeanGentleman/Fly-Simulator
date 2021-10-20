@@ -265,12 +265,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &23080256
 Rigidbody:
@@ -427,12 +427,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &28741934
 Rigidbody:
@@ -559,12 +559,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &32815095
 Rigidbody:
@@ -860,12 +860,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &60396434
 Rigidbody:
@@ -1090,12 +1090,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &65931028
 Rigidbody:
@@ -1436,12 +1436,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &187987533
 Rigidbody:
@@ -1648,12 +1648,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &221645446
 Rigidbody:
@@ -1780,12 +1780,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &244956939
 Rigidbody:
@@ -1912,12 +1912,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &252733782
 Rigidbody:
@@ -2044,12 +2044,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &258745991
 Rigidbody:
@@ -2307,12 +2307,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &305921502
 Rigidbody:
@@ -2439,12 +2439,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &328954315
 Rigidbody:
@@ -2601,12 +2601,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &353859126
 Rigidbody:
@@ -2923,12 +2923,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &358361269
 Rigidbody:
@@ -3303,12 +3303,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &457896985
 Rigidbody:
@@ -3530,12 +3530,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &505957695
 Rigidbody:
@@ -3787,12 +3787,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &563070127
 Rigidbody:
@@ -4160,12 +4160,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &677369203
 Rigidbody:
@@ -4292,12 +4292,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &679378661
 Rigidbody:
@@ -4499,12 +4499,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &709598798
 Rigidbody:
@@ -4631,12 +4631,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &725327450
 Rigidbody:
@@ -4861,7 +4861,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9937c502911bd40bfa535a8705dd5882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 727242869}
 --- !u!114 &727242869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4951,12 +4950,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &737838708
 Rigidbody:
@@ -5149,12 +5148,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &774140260
 Rigidbody:
@@ -5379,7 +5378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9937c502911bd40bfa535a8705dd5882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 792655997}
 --- !u!114 &792655997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5714,12 +5712,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &873582507
 Rigidbody:
@@ -5906,12 +5904,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &895766653
 Rigidbody:
@@ -6038,12 +6036,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &917437380
 Rigidbody:
@@ -6170,12 +6168,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &956865839
 Rigidbody:
@@ -6587,12 +6585,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1108875530
 Rigidbody:
@@ -6719,12 +6717,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1122720905
 Rigidbody:
@@ -6946,12 +6944,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1132974282
 Rigidbody:
@@ -7078,12 +7076,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1133716974
 Rigidbody:
@@ -7305,12 +7303,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1164791605
 Rigidbody:
@@ -7532,12 +7530,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1252882231
 Rigidbody:
@@ -7664,12 +7662,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1254838996
 Rigidbody:
@@ -7826,12 +7824,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1303968398
 Rigidbody:
@@ -8083,12 +8081,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1327066370
 Rigidbody:
@@ -8315,12 +8313,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1339395762
 Rigidbody:
@@ -8844,12 +8842,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1391589345
 Rigidbody:
@@ -8976,12 +8974,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1423832004
 Rigidbody:
@@ -9108,12 +9106,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1460105824
 Rigidbody:
@@ -9240,12 +9238,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1468320153
 Rigidbody:
@@ -9372,12 +9370,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1477993798
 Rigidbody:
@@ -9504,12 +9502,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1511127038
 Rigidbody:
@@ -9636,12 +9634,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1522731813
 Rigidbody:
@@ -9768,12 +9766,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1526297548
 Rigidbody:
@@ -9900,12 +9898,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1533006421
 Rigidbody:
@@ -10032,12 +10030,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1547816291
 Rigidbody:
@@ -10259,12 +10257,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1574507130
 Rigidbody:
@@ -10394,7 +10392,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9937c502911bd40bfa535a8705dd5882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 1574752437}
 --- !u!114 &1574752437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10579,12 +10576,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1587732142
 Rigidbody:
@@ -10863,12 +10860,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1652221956
 Rigidbody:
@@ -11070,12 +11067,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1667909057
 Rigidbody:
@@ -11327,12 +11324,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1711567458
 Rigidbody:
@@ -11459,12 +11456,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1719305648
 Rigidbody:
@@ -11591,12 +11588,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1728857196
 Rigidbody:
@@ -11816,12 +11813,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1821035014
 Rigidbody:
@@ -11948,12 +11945,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1826919928
 Rigidbody:
@@ -12270,12 +12267,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1852890171
 Rigidbody:
@@ -12402,12 +12399,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1858014199
 Rigidbody:
@@ -12539,12 +12536,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1892730786
 Rigidbody:
@@ -13020,12 +13017,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1988851025
 Rigidbody:
@@ -13152,12 +13149,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.5
     Max: 0.5
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1990441194
 Rigidbody:
@@ -13284,12 +13281,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &1991828303
 Rigidbody:
@@ -13416,12 +13413,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &2036620637
 Rigidbody:
@@ -13644,12 +13641,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &2046296760
 Rigidbody:
@@ -13900,12 +13897,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseResourceMaxAmount: 10
+  food_manager: {fileID: 0}
+  ParentGameObject: {fileID: 0}
   FoodAmount:
     Temp: 0.25
     Max: 0.25
   MyType: 0
-  ParentGameObject: {fileID: 0}
   ExposureLevel: 0
 --- !u!54 &2069569472
 Rigidbody:
@@ -14097,75 +14094,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1001 &2111527504
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 26478c8f5f2694b4f89fa21a7af87a06, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 26478c8f5f2694b4f89fa21a7af87a06, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 26478c8f5f2694b4f89fa21a7af87a06, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 26478c8f5f2694b4f89fa21a7af87a06, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 26478c8f5f2694b4f89fa21a7af87a06, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 30.69
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 26478c8f5f2694b4f89fa21a7af87a06, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 9.42
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 26478c8f5f2694b4f89fa21a7af87a06, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 7.75
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 26478c8f5f2694b4f89fa21a7af87a06, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7262078
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 26478c8f5f2694b4f89fa21a7af87a06, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 26478c8f5f2694b4f89fa21a7af87a06, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.68747526
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 26478c8f5f2694b4f89fa21a7af87a06, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 26478c8f5f2694b4f89fa21a7af87a06, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 26478c8f5f2694b4f89fa21a7af87a06, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -86.861
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 26478c8f5f2694b4f89fa21a7af87a06, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 26478c8f5f2694b4f89fa21a7af87a06, type: 3}
-      propertyPath: m_Name
-      value: PR_Fridge_Body_01_low
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 26478c8f5f2694b4f89fa21a7af87a06, type: 3}
 --- !u!1 &2139554106
 GameObject:
   m_ObjectHideFlags: 0
@@ -14304,6 +14232,63 @@ Transform:
   m_Father: {fileID: 1631445111}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &756049318285517685
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 486229368969086068, guid: 97e71d120c95de44f871ee426c950c2e, type: 3}
+      propertyPath: m_Name
+      value: PR_Fridge_Body_01_low
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005639329691967182, guid: 97e71d120c95de44f871ee426c950c2e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005639329691967182, guid: 97e71d120c95de44f871ee426c950c2e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 30.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005639329691967182, guid: 97e71d120c95de44f871ee426c950c2e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005639329691967182, guid: 97e71d120c95de44f871ee426c950c2e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005639329691967182, guid: 97e71d120c95de44f871ee426c950c2e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7262078
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005639329691967182, guid: 97e71d120c95de44f871ee426c950c2e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005639329691967182, guid: 97e71d120c95de44f871ee426c950c2e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.68747526
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005639329691967182, guid: 97e71d120c95de44f871ee426c950c2e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005639329691967182, guid: 97e71d120c95de44f871ee426c950c2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005639329691967182, guid: 97e71d120c95de44f871ee426c950c2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -86.861
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005639329691967182, guid: 97e71d120c95de44f871ee426c950c2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 97e71d120c95de44f871ee426c950c2e, type: 3}
 --- !u!1001 &3125823467605116030
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22852,7 +22852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5858872857953273357, guid: d53ae5892dd794444bfc8ef5d48485fe, type: 3}
       propertyPath: m_Name
-      value: BanadaCount
+      value: BananaCount
       objectReference: {fileID: 0}
     - target: {fileID: 5858872857953273358, guid: d53ae5892dd794444bfc8ef5d48485fe, type: 3}
       propertyPath: m_FontData.m_MaxSize
