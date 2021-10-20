@@ -51,7 +51,7 @@ public class HealthBar : MonoBehaviour
         {
             // TODO
             // Call Game Over Scene
-            SceneManager.LoadScene("Game Over");
+            SceneManager.LoadScene("Game Over");    
         }
     }
 

@@ -979,7 +979,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb2902cf2221f64e92503676c6e559a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 3C Test Scene 1
+  NotYet: 1
+  CanvasAnimator: {fileID: 0}
+  sceneName: Level Apartment Working Copy
 --- !u!4 &561200951
 Transform:
   m_ObjectHideFlags: 0
@@ -1023,6 +1025,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb2902cf2221f64e92503676c6e559a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NotYet: 1
+  CanvasAnimator: {fileID: 0}
   sceneName: New Main Menu
 --- !u!4 &668875895
 Transform:
@@ -2165,7 +2169,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 561200950}
         m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: loadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2671,7 +2675,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 668875894}
         m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: loadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2815,7 +2819,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 668875894}
         m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: loadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
