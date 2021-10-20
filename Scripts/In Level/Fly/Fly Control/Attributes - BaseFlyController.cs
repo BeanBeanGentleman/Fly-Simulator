@@ -14,6 +14,8 @@ public partial class BaseFlyController : MonoBehaviour
     public BaseDiscreteHPBarController D_HPBar;
 
     public Dictionary<IngestTypes, float> IngestionRecord;
+
+    public GameObject EndScreenGameObject;
     
     /// <summary>
     /// For the fly taking damage
@@ -40,8 +42,7 @@ public partial class BaseFlyController : MonoBehaviour
 
     public virtual void Dies(string Message = "Whoops")
     {
-        var a = GameObject.FindGameObjectWithTag("EndScreen");
-        a.SetActive(true);
+        if(EndScreenGameObject != null) EndScreenGameObject.SetActive(true);
     }
 
 }
