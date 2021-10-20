@@ -35,10 +35,6 @@ public partial class BaseFlyController : MonoBehaviour
     /// </summary>
     public ValueContainer AirDragVal = new ValueContainer(3);
     /// <summary>
-    /// The speed of ingestion per second.
-    /// </summary>
-    public ValueContainer IngestSpeed = new ValueContainer(0.3f);
-    /// <summary>
     /// The noise multiplier toward the fly's buzz. Also affect the effective range of the noise.
     /// </summary>
     public ValueContainer NoiseLevel = new ValueContainer(1f);
@@ -109,6 +105,7 @@ public partial class BaseFlyController : MonoBehaviour
         MaxHP = new ValueContainer(BaseFlyMaxHP);
         HPCounter = new AutoResetCounter(MaxHP.FinalVal(), true);
         TakeDamage(0f);
+        ClearFood();
 
     }
     protected void FixedUpdate()

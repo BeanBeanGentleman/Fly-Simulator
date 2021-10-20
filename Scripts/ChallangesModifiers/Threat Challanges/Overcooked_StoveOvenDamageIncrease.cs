@@ -9,7 +9,7 @@ namespace ChallangesModifiers.Threat_Challanges
     public class Overcooked_StoveOvenDamageIncrease : BaseChallenge
     {
         [SerializeField]
-        private string _name = "Overcooked";
+        private string _name = "Overcooked I";
         [SerializeField]
         private string _description = "The Damage from stove oven increases. ";
         [SerializeField]

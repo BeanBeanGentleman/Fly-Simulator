@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 4010046416405747108}
   - component: {fileID: 9168476913150612604}
   - component: {fileID: 6387990755498271635}
+  - component: {fileID: 725180349712792564}
   m_Layer: 0
   m_Name: Fly
   m_TagString: Player
@@ -181,6 +182,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45f9da77f7277f4c96d7839a3e04626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BaseFlyMaxHP: 100
+  D_HPBar: {fileID: 0}
+  EndScreenGameObject: {fileID: 0}
   thisRigidbody: {fileID: 1487780917392196854}
   cc: {fileID: 0}
   AccelStrength:
@@ -218,6 +222,7 @@ MonoBehaviour:
   CamFolwClimbEul: {x: 30, y: 0, z: 0}
   RayLength: 1
   DrawDebug: 0
+  IngestManager: {fileID: 0}
 --- !u!82 &1487780917392196852
 AudioSource:
   m_ObjectHideFlags: 0
@@ -338,6 +343,7 @@ MonoBehaviour:
   BaseActivationTime: 3
   BaseCDTime: 6
   thisFlyController: {fileID: 5779968146687596947}
+  Indicator: {fileID: 0}
 --- !u!114 &4010046416405747108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +365,7 @@ MonoBehaviour:
   BaseActivationTime: 10
   BaseCDTime: 15
   thisFlyController: {fileID: 5779968146687596947}
+  Indicator: {fileID: 0}
 --- !u!136 &9168476913150612604
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -471,6 +478,28 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &725180349712792564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487780917392196848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423b48e2b6a6406c9cbb2a0c7db322e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShouldAct: 0
+  BuffValue:
+  - IsMultiply: 1
+    Value: 1000
+    Order: z
+  DebuffValue: []
+  BaseActivationTime: 10
+  BaseCDTime: 60
+  thisFlyController: {fileID: 5779968146687596947}
+  Indicator: {fileID: 0}
 --- !u!1 &1487780917789029983
 GameObject:
   m_ObjectHideFlags: 0

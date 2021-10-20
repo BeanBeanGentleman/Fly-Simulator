@@ -60,6 +60,7 @@ namespace Control
             ActivationTime.Max = ActivationTimeVal.FinalVal();
             Activated = CDTime.IsZeroReached(Time.deltaTime, false) && ShouldAct;
             ShouldAct = (Activated) && ShouldAct;
+            UpdateAbilityIndicator();
         }
 
         protected virtual void FixedUpdate()
@@ -102,8 +103,8 @@ namespace Control
         protected virtual void UpdateAbilityIndicator()
         {
             if (Indicator == null) return;
-            Indicator.progress = this.ActivationTime.Temp;
-            Indicator.CDProgress = this.CDTime.Temp;
+            Indicator.progress = this.ActivationTime.Temp/this.ActivationTime.Max; 
+            Indicator.CDProgress = this.CDTime.Temp/this.CDTime.Max;
             Indicator.activating = this.Activated; //TODO: Need inspection on this. 
         }
     }

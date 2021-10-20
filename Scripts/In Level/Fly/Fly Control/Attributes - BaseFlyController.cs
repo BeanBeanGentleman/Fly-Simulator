@@ -3,6 +3,7 @@ using Genral;
 using In_Level.Level_Item_Behaviours.Ingestable;
 using In_Level.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public partial class BaseFlyController : MonoBehaviour
@@ -13,15 +14,13 @@ public partial class BaseFlyController : MonoBehaviour
     public ValueContainer HPReceptionModifier = new ValueContainer(1);
     public BaseDiscreteHPBarController D_HPBar;
 
-    public Dictionary<IngestTypes, float> IngestionRecord;
-
-    public GameObject EndScreenGameObject;
+    public Text EndScreenGameObject;
     
     /// <summary>
     /// For the fly taking damage
     /// </summary>
     /// <param name="Val">The damage that the fly will take. This should be positive if the fly is losing hp.</param>
-    public void TakeDamage(float Val, string Message = "Whoops")
+    public void TakeDamage(float Val, string Message = "Whoops\n(Alt+F4)")
     {
         if (HPCounter.IsZeroReached(Val * HPReceptionModifier.FinalVal(), false, false))
         {
@@ -40,9 +39,14 @@ public partial class BaseFlyController : MonoBehaviour
 
     }
 
-    public virtual void Dies(string Message = "Whoops")
+    public virtual void Dies(string Message = "Whoops\n(Alt+F4)")
     {
-        if(EndScreenGameObject != null) EndScreenGameObject.SetActive(true);
+        if (EndScreenGameObject != null)
+        {
+            EndScreenGameObject.transform.parent.gameObject.SetActive(true);
+            EndScreenGameObject.text = Message;
+            Time.timeScale = 0;
+        }
     }
 
 }

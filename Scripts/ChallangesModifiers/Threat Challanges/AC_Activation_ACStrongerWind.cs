@@ -15,7 +15,7 @@ namespace ChallangesModifiers.Threat_Challanges
         
         
         [SerializeField]
-        private string _name = "AC Activation";
+        private string _name = "AC Activation I";
         [SerializeField]
         private string _description = "The wind strength of the Air Conditioner increases.";
         [SerializeField]

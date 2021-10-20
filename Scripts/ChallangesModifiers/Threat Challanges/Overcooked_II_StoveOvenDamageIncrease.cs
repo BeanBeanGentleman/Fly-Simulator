@@ -6,19 +6,14 @@ using UnityEngine.UI;
 
 namespace ChallangesModifiers.Threat_Challanges
 {
-    public class Fickle_Fridge_FridgeStackupSpeedIncrease : BaseChallenge
+    public class Overcooked_II_StoveOvenDamageIncrease : BaseChallenge
     {
-        // public string Name = "Fickle Fridge";
-        // public string Description = "The Effect from fridge stackup faster. ";
-        // public Modifier DifficultyModifier = new Modifier(false, 0.5f, "a");
-        
-        
         [SerializeField]
-        private string _name = "Fickle Fridge I";
+        private string _name = "Overcooked II";
         [SerializeField]
-        private string _description = "The Effect from fridge stackup faster. ";
+        private string _description = "The Damage from stove oven greatly increases. ";
         [SerializeField]
-        private Modifier _difficultyModifier = new Modifier(false, 0.5f, "a");
+        private Modifier _difficultyModifier = new Modifier(false, 1.8f, "a");
         
         public override string Name
         {
@@ -40,11 +35,11 @@ namespace ChallangesModifiers.Threat_Challanges
 
         public override void OnLevelLoaded()
         {
-            Modifier StackSpeedModifier = new Modifier(ModifyOption.Multiplicative, 1.5f, "z");
+            Modifier DMGModifier = new Modifier(ModifyOption.Multiplicative, 3f, "z"); // TODO: Need Inspection
             var guid = Guid.NewGuid();
-            foreach (StaticFreezer zoone in FindObjectsOfType<StaticFreezer>())
+            foreach (StoveOvenHeatZone zoone in FindObjectsOfType<StoveOvenHeatZone>())
             {
-                zoone.MobilityReductionStackSpeedMultiplier.SetModifier(guid, StackSpeedModifier);
+                zoone.DamageBaseValPerSec.SetModifier(guid, DMGModifier);
             }
         }
     }

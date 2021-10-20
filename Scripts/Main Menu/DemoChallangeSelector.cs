@@ -38,6 +38,7 @@ namespace Main_Menu
         {
             Difficulty.ClearModifiers();
             StringBuilder TempText = new StringBuilder();
+            TempText.Append("Click the level banner above to enter the game. \n\nSelect your challenges from left. \n\n Remember: You need ingest full 600 and get out alive.\n\n");
             foreach (Toggle singleToggle in ToggleParents.GetComponentsInChildren<Toggle>())
             {
                 if (singleToggle.isOn)

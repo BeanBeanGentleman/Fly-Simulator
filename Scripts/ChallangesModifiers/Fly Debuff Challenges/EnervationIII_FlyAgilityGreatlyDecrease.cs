@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace ChallangesModifiers.Fly_Debuff_Challenges
 {
-    public class EnervationII_FlyAgilityGreatlyDecrease : BaseChallenge
+    public class EnervationIII_FlyAgilityGreatlyDecrease : BaseChallenge
     {
         // public string Name = "Enervation";
         // public string Description = "The agility and moving acceleration of the fly will reduce.";
@@ -13,11 +13,11 @@ namespace ChallangesModifiers.Fly_Debuff_Challenges
         
         
         [SerializeField]
-        private string _name = "Enervation II";
+        private string _name = "Enervation III";
         [SerializeField]
-        private string _description = "The agility and moving acceleration of the fly will greatly reduce.";
+        private string _description = "The agility and moving acceleration of the fly will massively reduce.";
         [SerializeField]
-        private Modifier _difficultyModifier = new Modifier(true, 2f, "z");
+        private Modifier _difficultyModifier = new Modifier(true, 3f, "z");
         
         public override string Name
         {
@@ -39,7 +39,7 @@ namespace ChallangesModifiers.Fly_Debuff_Challenges
 
         public override void OnLevelLoaded()
         {
-            Modifier AgilityModifier = new Modifier(true, 0.7f, "z");
+            Modifier AgilityModifier = new Modifier(true, 0.5f, "z");
             var guid = Guid.NewGuid();
             GameObject.FindObjectOfType<BaseFlyController>().movementAccel.SetModifier(guid, AgilityModifier);
             GameObject.FindObjectOfType<BaseFlyController>().Agility.SetModifier(guid, AgilityModifier);
