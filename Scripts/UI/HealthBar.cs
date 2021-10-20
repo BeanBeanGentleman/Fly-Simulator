@@ -19,7 +19,7 @@ public class HealthBar : MonoBehaviour
 
     private void Start()
     {
-        difficulty_to_hp_loss[1] = 0.5f;
+        difficulty_to_hp_loss[1] = 0.2f;
         difficulty_to_hp_loss[2] = 1f;
         difficulty_to_hp_loss[3] = 2f;
         setMaxValue(50f);

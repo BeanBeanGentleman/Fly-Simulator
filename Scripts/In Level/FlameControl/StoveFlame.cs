@@ -12,6 +12,8 @@ public class StoveFlame : MonoBehaviour
     private Collider sphere_collider;
     private ParticleSystem parent_particle_sys;
     public Transform player;
+    public HealthBar hp_bar;
+    float elapse = 0;
 
     void Start()
     {
@@ -24,11 +26,12 @@ public class StoveFlame : MonoBehaviour
     {
         if (fly_in_col_range)
         {
-            Debug.Log("In range");
             // If its firing
             if (fire_on)
             {
-                Debug.Log("SET FLY ON FLAME");
+                float cur_hp = hp_bar.getValue();
+                cur_hp += -0.02f;
+                hp_bar.setValue(cur_hp);
             }
         }
     }
