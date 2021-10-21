@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Control
+﻿namespace In_Level.Fly.Fly_Abilities
 {
     public class GluttonyBuff : BaseUltimateBuff
     {

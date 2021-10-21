@@ -1,10 +1,4 @@
-﻿using System.Collections.Generic;
-using Genral;
-using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
-
-namespace Control
+﻿namespace In_Level.Fly.Fly_Abilities
 {
     /// <summary>
     /// This is for the After Burner ability for the normal fly.

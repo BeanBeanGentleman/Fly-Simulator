@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using Genral;
 using In_Level.UI;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
 
-namespace Control
+namespace In_Level.Fly.Fly_Abilities
 {
     public abstract class BaseAbilityController : MonoBehaviour
     {
