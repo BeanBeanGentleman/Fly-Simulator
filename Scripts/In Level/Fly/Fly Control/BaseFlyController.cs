@@ -105,7 +105,7 @@ public partial class BaseFlyController : MonoBehaviour
         MaxHP = new ValueContainer(BaseFlyMaxHP);
         HPCounter = new AutoResetCounter(MaxHP.FinalVal(), true);
         TakeDamage(0f);
-        ClearFood();
+        ClearIngestion();
 
     }
     protected void FixedUpdate()

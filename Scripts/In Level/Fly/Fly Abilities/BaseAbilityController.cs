@@ -10,8 +10,8 @@ namespace In_Level.Fly.Fly_Abilities
     {
         public Guid guid;
         public bool ShouldAct = false;
-        private AutoResetCounter ActivationTime;
-        private AutoResetCounter CDTime;
+        protected AutoResetCounter ActivationTime;
+        protected AutoResetCounter CDTime;
         public List<Modifier> BuffValue;
         public List<Modifier> DebuffValue;
 
@@ -65,7 +65,7 @@ namespace In_Level.Fly.Fly_Abilities
             _ = Activated ? _active(Time.fixedDeltaTime) : _deactive(); // Will have the ability automatically stop if released
         }
 
-        protected object _active(float TimeDelta)
+        protected virtual object _active(float TimeDelta)
         {
             if (ActivationTime.Temp < 0)
             {
@@ -81,7 +81,7 @@ namespace In_Level.Fly.Fly_Abilities
             return null;
         }
         
-        protected object _deactive()
+        protected virtual object _deactive()
         {
             ActivationTime.Temp = -1;
             if (!OnceDeactivated)

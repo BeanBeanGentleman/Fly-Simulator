@@ -44,7 +44,7 @@ public partial class BaseFlyController : MonoBehaviour
         IngestManager.IngestedValues = IngestedValues;
     }
 
-    public void ClearFood()
+    public void ClearIngestion()
     {
         IngestedValues = new Dictionary<IngestTypes, float>();
         IngestedValues.Add(IngestTypes.Fat,0);

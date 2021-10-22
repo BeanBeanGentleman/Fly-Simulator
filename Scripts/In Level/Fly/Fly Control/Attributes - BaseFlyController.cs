@@ -30,13 +30,30 @@ public partial class BaseFlyController : MonoBehaviour
         if (D_HPBar == null)
         {
             var a = FindObjectOfType<HealthBar>();
-            a.setValue(a.hp_bar.value - Val);
+            if (a != null) a.setValue(a.hp_bar.value - Val);
         }
         else
         {
             D_HPBar.HPProgress = HPCounter.Temp / HPCounter.Max;
         }
 
+    }
+    /// <summary>
+    /// For the fly recover from damage
+    /// </summary>
+    /// <param name="Val">The heal amount that the fly will take. This should be positive if the fly is getting hp.</param>
+    public void Heal(float Val)
+    {
+        HPCounter.Temp = Mathf.Clamp(HPCounter.Temp + Val, 0, HPCounter.Max);
+        if (D_HPBar == null)
+        {
+            var a = FindObjectOfType<HealthBar>();
+            if (a != null) a.setValue(a.hp_bar.value - Val);
+        }
+        else
+        {
+            D_HPBar.HPProgress = HPCounter.Temp / HPCounter.Max;
+        }
     }
 
     public virtual void Dies(string Message = "Whoops\n(Alt+F4)")

@@ -93,7 +93,7 @@ public partial class BaseFlyController
             Vector3 avg = this.transform.up * -1;
             foreach (var hit in Physics.RaycastAll(thisRigidbody.transform.position,
                 this.transform.up * -1,
-                RayLength))
+                RayLength*10))
             {
                 if (hit.collider.CompareTag("Climbable"))
                 {
@@ -150,12 +150,17 @@ public partial class BaseFlyController
     {
         List<RaycastHit> HitPoints = new List<RaycastHit>();
         RaycastHit hito;
-        for (float Vi = VerticalDegreePrecision; Vi < 360; Vi += VerticalDegreePrecision)
+        // Vector3 currentEuler = Quaternion.FromToRotation(Vector3.up, this.transform.up).eulerAngles;
+        // print(currentEuler);
+        for (float Vi = 0; Vi < 360; Vi += VerticalDegreePrecision)
         {
             for (float Hi = 0; Hi < 360; Hi += HorizontalDegreePrecision)
             {
                 //float elevation = Hi * Mathf.Deg2Rad;
                 //float heading = Vi * Mathf.Deg2Rad;
+                // h.GenerateBall(EulerToDirection(-currentEuler.x, currentEuler.y) * 10 + this.transform.position, Color.red);
+                // h.GenerateBall(EulerToDirection(Hi+currentEuler.y, Vi+currentEuler.z) + this.transform.position, Color.magenta,
+                //     true, 0.2f, 0.001f);
                 Ray rayray = new Ray(StartPoint, EulerToDirection(Hi, Vi));
                 RaycastHit[] RHs = Physics.RaycastAll(rayray, Distance);
                 foreach (RaycastHit RH in RHs)

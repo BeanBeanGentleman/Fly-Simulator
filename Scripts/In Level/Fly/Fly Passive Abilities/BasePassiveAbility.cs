@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Genral;
 using UnityEngine;
 
-namespace In_Level.Fly.Fly_Abilities
+namespace In_Level.Fly.Fly_Passive_Abilities
 {
-    public abstract class BasePassiveAbility : MonoBehaviour
+    public abstract partial class BasePassiveAbility : MonoBehaviour
     {
         public Guid guid;
         public List<Modifier> BuffValue;

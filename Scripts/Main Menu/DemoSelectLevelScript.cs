@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ChallangesModifiers;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -49,7 +50,6 @@ namespace Main_Menu
         
         private void Update()
         {
-            
             if (ClickCount == 1)
             {
                 // var f = 0.02f;
