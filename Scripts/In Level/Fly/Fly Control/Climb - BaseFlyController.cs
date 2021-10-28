@@ -67,7 +67,7 @@ public partial class BaseFlyController
         Pitch = Mathf.Abs(Pitch) < DeadZonePitch ? 0 : Pitch;
 
         thisRigidbody.AddRelativeTorque(
-            0,
+            Agility.FinalVal() * Pitch * PitchMultiplier,
             Agility.FinalVal() * Yaw * YawMultiplier,
             RollingSpeed * RollMultiplier);
         thisRigidbody.angularVelocity *= 0.2f;
@@ -150,16 +150,20 @@ public partial class BaseFlyController
     {
         List<RaycastHit> HitPoints = new List<RaycastHit>();
         RaycastHit hito;
-        // Vector3 currentEuler = Quaternion.FromToRotation(Vector3.up, this.transform.up).eulerAngles;
+        // Vector3 currentEuler = Quaternion.FromToRotation(Vector3.forward, this.transform.up).eulerAngles;
         // print(currentEuler);
         for (float Vi = 0; Vi < 360; Vi += VerticalDegreePrecision)
         {
             for (float Hi = 0; Hi < 360; Hi += HorizontalDegreePrecision)
             {
+                if (Vector3.Angle(EulerToDirection(Hi, Vi), -this.transform.up) > 76)
+                {
+                    continue;
+                }
                 //float elevation = Hi * Mathf.Deg2Rad;
                 //float heading = Vi * Mathf.Deg2Rad;
-                // h.GenerateBall(EulerToDirection(-currentEuler.x, currentEuler.y) * 10 + this.transform.position, Color.red);
-                // h.GenerateBall(EulerToDirection(Hi+currentEuler.y, Vi+currentEuler.z) + this.transform.position, Color.magenta,
+                // h.GenerateBall(EulerToDirection(Hi, Vi) * 10 + this.transform.position, Color.red);
+                // h.GenerateBall(EulerToDirection(Hi, Vi) * 3 + this.transform.position, Color.magenta,
                 //     true, 0.2f, 0.001f);
                 Ray rayray = new Ray(StartPoint, EulerToDirection(Hi, Vi));
                 RaycastHit[] RHs = Physics.RaycastAll(rayray, Distance);

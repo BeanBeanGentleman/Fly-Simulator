@@ -61,9 +61,13 @@ public partial class BaseFlyController : MonoBehaviour
         if (EndScreenGameObject != null)
         {
             EndScreenGameObject.transform.parent.gameObject.SetActive(true);
-            EndScreenGameObject.text = Message;
-            Time.timeScale = 0;
+            // EndScreenGameObject.text = Message;
         }
+    }
+
+    public float GetHP()
+    {
+        return HPCounter.Temp;
     }
 
 }

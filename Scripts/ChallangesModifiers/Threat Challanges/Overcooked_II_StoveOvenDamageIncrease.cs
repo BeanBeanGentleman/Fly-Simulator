@@ -13,7 +13,7 @@ namespace ChallangesModifiers.Threat_Challanges
         [SerializeField]
         private string _description = "The Damage from stove oven greatly increases. ";
         [SerializeField]
-        private Modifier _difficultyModifier = new Modifier(false, 1.8f, "a");
+        private Modifier _difficultyModifier = new Modifier(false, 2f, "a");
         
         public override string Name
         {
@@ -35,7 +35,7 @@ namespace ChallangesModifiers.Threat_Challanges
 
         public override void OnLevelLoaded()
         {
-            Modifier DMGModifier = new Modifier(ModifyOption.Multiplicative, 3f, "z"); // TODO: Need Inspection
+            Modifier DMGModifier = new Modifier(ModifyOption.Multiplicative, 10f, "z"); // TODO: Need Inspection
             var guid = Guid.NewGuid();
             foreach (StoveOvenHeatZone zoone in FindObjectsOfType<StoveOvenHeatZone>())
             {

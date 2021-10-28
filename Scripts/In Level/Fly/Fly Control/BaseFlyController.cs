@@ -42,15 +42,15 @@ public partial class BaseFlyController : MonoBehaviour
     /// <summary>
     /// The modifer for acceleration for left stick.
     /// </summary>
-    public Modifier AccelStrength = new Modifier(false, 2, "0");
+    public Modifier AccelStrength = new Modifier(false, 6, "0");
     /// <summary>
     /// The maximum modifier for acceleration for left stick.
     /// </summary>
-    public float AccelStrengthMax = 2;
+    public float AccelStrengthMax = 6;
     /// <summary>
     /// The extra drag for when climbing on a surface. Better for 
     /// </summary>
-    public Modifier OnClimbingExtraDrag = new Modifier(false, 5, "0");
+    public Modifier OnClimbingExtraDrag = new Modifier(false, 1, "0");
 
     /// <summary>
     /// The modifer for when left stick is pressed. For Air Drag.
@@ -70,6 +70,8 @@ public partial class BaseFlyController : MonoBehaviour
     public float RollingSpeed = 0;
     public float YawingSpeed = 0;
     public float PitchingSpeed = 0;
+
+    public float PitchDirectionMultiplier = 1;
 
     public Vector3 CurrentMovingDirection = Vector3.zero;
 

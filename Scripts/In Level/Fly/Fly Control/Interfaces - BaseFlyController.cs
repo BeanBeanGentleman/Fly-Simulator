@@ -58,6 +58,7 @@ public partial class BaseFlyController : MonoBehaviour, FlyControl.IFlightAction
     public virtual void OnView(InputAction.CallbackContext context)
     {
         _view = context.ReadValue<Vector2>();
+        _view = new Vector2(_view.x, _view.y * PitchDirectionMultiplier);
     }
 
     public virtual void OnClimbLR(InputAction.CallbackContext context)
@@ -108,6 +109,7 @@ public partial class BaseFlyController : MonoBehaviour, FlyControl.IFlightAction
     public virtual void OnAlignment(InputAction.CallbackContext context)
     {
         _alignment = context.ReadValue<Vector2>();
+        _alignment = new Vector2(_alignment.x, _alignment.y * PitchDirectionMultiplier);
     }
 
     public virtual void OnTakeoff(InputAction.CallbackContext context)

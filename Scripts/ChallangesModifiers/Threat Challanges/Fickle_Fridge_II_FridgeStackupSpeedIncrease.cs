@@ -40,7 +40,7 @@ namespace ChallangesModifiers.Threat_Challanges
 
         public override void OnLevelLoaded()
         {
-            Modifier StackSpeedModifier = new Modifier(ModifyOption.Multiplicative, 2f, "z");
+            Modifier StackSpeedModifier = new Modifier(ModifyOption.Multiplicative, 10f, "z");
             var guid = Guid.NewGuid();
             foreach (StaticFreezer zoone in FindObjectsOfType<StaticFreezer>())
             {

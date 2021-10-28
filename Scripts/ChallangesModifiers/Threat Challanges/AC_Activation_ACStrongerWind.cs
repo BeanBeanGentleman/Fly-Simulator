@@ -42,7 +42,7 @@ namespace ChallangesModifiers.Threat_Challanges
         
         public override void OnLevelLoaded()
         {
-            Modifier ForceModifier = new Modifier(ModifyOption.Multiplicative, 1.5f, "z");
+            Modifier ForceModifier = new Modifier(ModifyOption.Multiplicative, 3f, "z");
             var guid = Guid.NewGuid();
             foreach (CoolAirWindZone zoone in FindObjectsOfType<CoolAirWindZone>())
             {

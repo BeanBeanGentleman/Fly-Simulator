@@ -12,6 +12,8 @@ namespace In_Level.UI
         public Dictionary<IngestTypes, float> IngestedValues;
         public float DevideValue = 1;
 
+        public float TargetValue = 600;
+
         public Text CompletionValue;
 
         private IngestTypes[] _converter = new[]
@@ -29,6 +31,7 @@ namespace In_Level.UI
 
         protected virtual void Update()
         {
+            CompletionValue.text = $"0/{TargetValue}";
             if (IngestedValues == null) return;
             for (int i = 0; i < Images.Count; ++i)
             {
@@ -38,13 +41,15 @@ namespace In_Level.UI
                 {
                     TheWidth = 0;
                 }
+
+                TheWidth *= (600 / TargetValue);
                 float Offset = 0;
                 if (i != 0)
                 {
                     Offset = (Images[i - 1].rectTransform.anchoredPosition.x ) + (Images[i - 1].rectTransform.sizeDelta.x / 2);
                 }
                 Images[i].rectTransform.anchoredPosition = new Vector3(Offset + ((TheWidth/DevideValue)/2), Images[i].rectTransform.anchoredPosition.y);
-                Images[i].rectTransform.sizeDelta = new Vector2(TheWidth/DevideValue, Images[i].rectTransform.sizeDelta.y);
+                Images[i].rectTransform.sizeDelta = new Vector2((TheWidth / DevideValue), Images[i].rectTransform.sizeDelta.y);
             }
             
             float sum = 0;
@@ -53,7 +58,7 @@ namespace In_Level.UI
                 sum += vallue;
             }
 
-            CompletionValue.text = sum.ToString("N1") + "/600.0";
+            CompletionValue.text = sum.ToString("N1") + $"/{TargetValue}";
         }
     }
 }
