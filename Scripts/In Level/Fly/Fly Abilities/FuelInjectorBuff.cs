@@ -20,7 +20,7 @@ namespace In_Level.Fly.Fly_Abilities
 
         protected override void Deactive()
         {
-            if (theNATBBuff != null)
+            if (theNATBBuff != null && theNATBBuff.FinalBonusMultiplier != null)
             {
                 theNATBBuff.FinalBonusMultiplier.SetNoBonusModifier(guid);
             }

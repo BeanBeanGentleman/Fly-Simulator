@@ -10,12 +10,12 @@ namespace In_Level.Fly.Fly_Abilities
 
         protected override void Active()
         {
-            throw new System.NotImplementedException();
+            print("NOT IMPLEMENTED");
         }
 
         protected override void Deactive()
         {
-            throw new System.NotImplementedException();
+            print("NOT IMPLEMENTED");
         }
     }
 }

@@ -14,10 +14,7 @@ using Vector3 = UnityEngine.Vector3;
 public partial class BaseFlyController
 {
     public LineRenderer lr;
-    public GameObject CamFollower;
-    public Vector3 CamFolwOrigPos;
-    public Vector3 CamFolwClimbPos;
-    public Vector3 CamFolwClimbEul;
+
 
     public float RayLength = 1;
     
@@ -36,17 +33,6 @@ public partial class BaseFlyController
             IsClimbing = false;
         }
         if (_manualSwitchToggle) AutoAlignEnabled = !AutoAlignEnabled;
-        if (_useFreeCam)
-        {
-            cc.Freecam = true;
-            cc.CamLookingEulerOffset = new Vector3(-_alignment.y, _alignment.x,  0) * 180;
-        }
-        else
-        {
-            cc.Freecam = false;
-        }
-        CamFollower.transform.localPosition = CamFolwClimbPos;
-        CamFollower.transform.localEulerAngles = CamFolwClimbEul + Vector3.right * (_view.y * -30);
         var injestPressed = _ingest;
         this.Ingesting = injestPressed;
         IngestSound.volume = injestPressed?1:0;

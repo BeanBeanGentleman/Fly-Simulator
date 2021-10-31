@@ -15,6 +15,12 @@ namespace In_Level.Fly.Fly_Passive_Abilities
         
         public BaseFlyController thisFlyController;
         
+        private bool enabled = false;
+
+        public virtual void EnableThisPassiveAbility()
+        {
+            enabled = true;
+        }
         protected virtual void Start()
         {
             guid = Guid.NewGuid();
@@ -36,7 +42,7 @@ namespace In_Level.Fly.Fly_Passive_Abilities
 
         protected virtual void FixedUpdate()
         {
-            Active();
+            if(enabled) Active();
         }
         
         protected abstract void Active();

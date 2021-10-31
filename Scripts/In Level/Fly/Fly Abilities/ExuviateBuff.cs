@@ -50,7 +50,8 @@ namespace In_Level.Fly.Fly_Abilities
 
         protected override void Deactive()
         {
-            throw new System.NotImplementedException();
+            // throw new System.NotImplementedException();
+            print("NOT IMPLEMENTED");
         }
     }
 }

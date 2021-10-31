@@ -111,10 +111,18 @@ GameObject:
   - component: {fileID: 8896561752555511201}
   - component: {fileID: 4010046416405747108}
   - component: {fileID: 9168476913150612604}
-  - component: {fileID: 6387990755498271635}
   - component: {fileID: 725180349712792564}
+  - component: {fileID: 6387990755498271635}
+  - component: {fileID: 8923554029232202469}
+  - component: {fileID: 3018988210047165619}
+  - component: {fileID: 6978898154803810847}
+  - component: {fileID: 2768363144043687634}
+  - component: {fileID: 2742346564603896477}
+  - component: {fileID: 2657695777604296629}
+  - component: {fileID: 1092374733579275549}
+  - component: {fileID: 5015185174469674661}
   m_Layer: 0
-  m_Name: Fly
+  m_Name: Fly 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,6 +215,7 @@ MonoBehaviour:
   RollingSpeed: 0
   YawingSpeed: 0
   PitchingSpeed: 0
+  PitchDirectionMultiplier: 1
   CurrentMovingDirection: {x: 0, y: 0, z: 0}
   DeadZoneYaw: 0.05
   DeadZonePitch: 0.05
@@ -380,6 +389,28 @@ CapsuleCollider:
   m_Height: 0.2
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0.05}
+--- !u!114 &725180349712792564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487780917392196848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423b48e2b6a6406c9cbb2a0c7db322e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShouldAct: 0
+  BuffValue:
+  - IsMultiply: 1
+    Value: 1000
+    Order: z
+  DebuffValue: []
+  BaseActivationTime: 10
+  BaseCDTime: 60
+  thisFlyController: {fileID: 5779968146687596947}
+  Indicator: {fileID: 0}
 --- !u!120 &6387990755498271635
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -478,7 +509,7 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!114 &725180349712792564
+--- !u!114 &8923554029232202469
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -487,19 +518,178 @@ MonoBehaviour:
   m_GameObject: {fileID: 1487780917392196848}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 423b48e2b6a6406c9cbb2a0c7db322e7, type: 3}
+  m_Script: {fileID: 11500000, guid: c87cdb1f5829496492b1b0ea7c674885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ShouldAct: 0
   BuffValue:
   - IsMultiply: 1
-    Value: 1000
+    Value: 2
     Order: z
   DebuffValue: []
   BaseActivationTime: 10
-  BaseCDTime: 60
+  BaseCDTime: 10
   thisFlyController: {fileID: 5779968146687596947}
   Indicator: {fileID: 0}
+  theNATBBuff: {fileID: 5015185174469674661}
+--- !u!114 &3018988210047165619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487780917392196848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d30b59207d148a5a5d092e0611b4269, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShouldAct: 0
+  BuffValue:
+  - IsMultiply: 1
+    Value: 3
+    Order: z
+  - IsMultiply: 1
+    Value: 0.3
+    Order: a
+  DebuffValue:
+  - IsMultiply: 0
+    Value: 10
+    Order: a
+  BaseActivationTime: 2
+  BaseCDTime: 3
+  thisFlyController: {fileID: 5779968146687596947}
+  Indicator: {fileID: 0}
+  VFXTimeSlowDown: {fileID: 0}
+  PostProcessing: {fileID: 0}
+--- !u!114 &6978898154803810847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487780917392196848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 553600e6f1fa4dcc8d3a93d573439c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShouldAct: 0
+  BuffValue:
+  - IsMultiply: 1
+    Value: 0.9
+    Order: z
+  DebuffValue:
+  - IsMultiply: 0
+    Value: 10
+    Order: z
+  - IsMultiply: 1
+    Value: 0
+    Order: z
+  BaseActivationTime: 10
+  BaseCDTime: 30
+  thisFlyController: {fileID: 5779968146687596947}
+  Indicator: {fileID: 0}
+--- !u!114 &2768363144043687634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487780917392196848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c7cada4c60443eaf0de15615eba99b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShouldAct: 0
+  BuffValue:
+  - IsMultiply: 0
+    Value: 50
+    Order: a
+  - IsMultiply: 0
+    Value: 0.5
+    Order: a
+  DebuffValue:
+  - IsMultiply: 0
+    Value: 100
+    Order: a
+  BaseActivationTime: 6
+  BaseCDTime: 20
+  thisFlyController: {fileID: 5779968146687596947}
+  Indicator: {fileID: 0}
+--- !u!114 &2742346564603896477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487780917392196848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3aff93c5214e40b858213b75ed35ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShouldAct: 0
+  BuffValue:
+  - IsMultiply: 0
+    Value: 30
+    Order: a
+  DebuffValue: []
+  BaseActivationTime: 3
+  BaseCDTime: 6
+  thisFlyController: {fileID: 5779968146687596947}
+  Indicator: {fileID: 0}
+--- !u!114 &2657695777604296629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487780917392196848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e61b0d11d344d6adf73fcb1b06f616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShouldAct: 0
+  BuffValue: []
+  DebuffValue: []
+  BaseActivationTime: 3
+  BaseCDTime: 6
+  thisFlyController: {fileID: 5779968146687596947}
+  Indicator: {fileID: 0}
+--- !u!114 &1092374733579275549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487780917392196848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1a8cbcd94b41e99548491a1c635c38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuffValue: []
+  DebuffValue: []
+  thisFlyController: {fileID: 5779968146687596947}
+--- !u!114 &5015185174469674661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487780917392196848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d777ba53710341299c4b0cd88bd9a2e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BuffValue: []
+  DebuffValue: []
+  thisFlyController: {fileID: 5779968146687596947}
+  BaseBonusMultiplier: 2
 --- !u!1 &1487780917789029983
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,14 +1271,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d5a6ff9ab0e8f24589be3cd7d4fa780, type: 3}
---- !u!1 &7973088202993933027 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3533584671260762306, guid: 8d5a6ff9ab0e8f24589be3cd7d4fa780, type: 3}
-  m_PrefabInstance: {fileID: 6894951601586108961}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1524309301241268080 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5370725937325522257, guid: 8d5a6ff9ab0e8f24589be3cd7d4fa780, type: 3}
+  m_PrefabInstance: {fileID: 6894951601586108961}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7973088202993933027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3533584671260762306, guid: 8d5a6ff9ab0e8f24589be3cd7d4fa780, type: 3}
   m_PrefabInstance: {fileID: 6894951601586108961}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8097409903658798422

@@ -162,7 +162,7 @@ public partial class BaseFlyController : MonoBehaviour
     private void Update()
     {
         cc.CamLookingEulerOffset = new Vector3(-_alignment.y, _alignment.x,  0) * 180;
-        _ = IsClimbing ? Climb() : Flight();
+        _ = IsClimbing ? Climb() + ClimbCamControl() : Flight() + FlightCamControl();
     }
 
 
@@ -198,15 +198,7 @@ public partial class BaseFlyController : MonoBehaviour
                 // Target Switch
             }
         }
-
-        if (_useFreeCam)
-        {
-            cc.Freecam = true;
-        }
-        else
-        {
-            cc.Freecam = false;
-        }
+        
 
         if (_landDown)
         {
@@ -222,84 +214,7 @@ public partial class BaseFlyController : MonoBehaviour
         this.Ingesting = injestPressed;
         IngestSound.volume = injestPressed?1:0;
         
-        CamFollower.transform.localPosition = CamFolwOrigPos;
-        CamFollower.transform.localEulerAngles = Vector3.zero;
-        
         return 0;
-    }
-    
-    // protected void DeprecatedFixedUpdate()
-    // {
-    //     thisRigidbody.drag = AirDragVal.FinalVal();
-    //     thisRigidbody.AddForce(movementAccel.FinalVal() * this.transform.forward);
-    //     thisRigidbody.AddForce(Vector3.down * ArtificialGravity);
-    //     Vector2 MouseActualPos = Mouse.current.position.ReadValue();
-    //     MouseActualPos = Camera.main.ScreenToViewportPoint(MouseActualPos) - (Vector3.one * 0.5f);
-    //
-    //     float Yaw = Mathf.Clamp(MouseActualPos.x + YawingSpeed, -1, 1);
-    //     Yaw = Mathf.Abs(Yaw) < DeadZoneYaw ? 0 : Yaw;
-    //
-    //     float Roll = RollingSpeed;
-    //
-    //     float Pitch = Mathf.Clamp(MouseActualPos.y + PitchingSpeed, -1, 1);
-    //     Pitch = Mathf.Abs(Pitch) < DeadZonePitch ? 0 : Pitch;
-    //
-    //     thisRigidbody.AddRelativeTorque(
-    //         Agility.FinalVal() * Pitch * -PitchMultiplier,
-    //         Agility.FinalVal() * Yaw * YawMultiplier,
-    //         RollingSpeed * RollMultiplier,
-    //         ForceMode.Force);
-    //     thisRigidbody.angularVelocity *= 0.2f;
-    //     RollingSpeed = 0;
-    //     YawingSpeed = 0;
-    //     PitchingSpeed = 0;
-    //     
-    //     Buzz.pitch = NoiseLevel.FinalVal() * (movementAccel.FinalVal() / AccelStrength.Value);
-    //     Buzz.volume = NoiseLevel.FinalVal() * Buzz.pitch;
-    //
-    // }
-    private void DeprecatedUpdate()
-    {
-        // if (Accelerate) movementAccel.SetModifier(myGuid, AccelStrength);
-        //
-        // if (AirBrake)
-        // {
-        //     AirDragVal.SetModifier(myGuid, AirbrakeDragBonus);
-        //     movementAccel.SetModifier(myGuid, BackwardAccel);
-        // }
-        // else
-        // {
-        //     AirDragVal.SetNoBonusModifier(myGuid);
-        // }
-        //
-        // if((!AirBrake) && (!Accelerate))movementAccel.SetNoBonusModifier(myGuid);
-        //
-        // if (RollLeft)
-        // {
-        //     RollingSpeed = 1;
-        // }
-        // else if (RollRight)
-        // {
-        //     RollingSpeed = -1;
-        // }
-        // else
-        //     RollingSpeed = 0;
-        //
-        // if (YawLeft)
-        // {
-        //     YawingSpeed = -1;
-        // }
-        // else if (YawRight)
-        // {
-        //     YawingSpeed = 1;
-        // }
-        // else
-        //     YawingSpeed = 0;
-        //
-        // var injestPressed = Ingest;
-        // this.Ingesting = injestPressed;
-        // IngestSound.volume = injestPressed?1:0;
-
     }
     
     

@@ -32,6 +32,13 @@ namespace In_Level.Fly.Fly_Abilities
 
         public BaseAbilityProgressIndicator Indicator;
 
+        private bool enabled = false;
+
+        public virtual void EnableThisAbility()
+        {
+            enabled = true;
+        }
+        
         protected virtual void Start()
         {
             guid = Guid.NewGuid();
@@ -53,6 +60,7 @@ namespace In_Level.Fly.Fly_Abilities
 
         protected virtual void Update()
         {
+            if(!enabled) return;
             CDTime.Max = CDTimeVal.FinalVal();
             ActivationTime.Max = ActivationTimeVal.FinalVal();
             Activated = CDTime.IsZeroReached(Time.deltaTime, false) && ShouldAct;
@@ -62,6 +70,7 @@ namespace In_Level.Fly.Fly_Abilities
 
         protected virtual void FixedUpdate()
         {
+            if(!enabled) return;
             _ = Activated ? _active(Time.fixedDeltaTime) : _deactive(); // Will have the ability automatically stop if released
         }
 

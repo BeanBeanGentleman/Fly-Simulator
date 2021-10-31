@@ -13,6 +13,13 @@ namespace In_Level.Fly.Fly_Passive_Abilities
         private float _stackProgressIngest = 0;
 
         private Guid thisGuid;
+
+        protected override void Start()
+        {
+            base.Start();
+            FinalBonusMultiplier = new ValueContainer(BaseBonusMultiplier);
+        }
+
         protected override void Active()
         {
             if (FinalBonusMultiplier == null)

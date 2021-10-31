@@ -42,5 +42,16 @@ namespace In_Level.UI
 
             filler.fillAmount = Mathf.Lerp(filler.fillAmount, ToBeFillAmount, 0.5f);
         }
+
+        private void OnTriggerStay(Collider other)
+        {
+            Vector3 direction = other.transform.forward;
+            Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
+
+            rb.useGravity = false;
+            rb.AddForce(direction * 10);
+            rb.velocity = rb.velocity * 0.8f;
+            rb.velocity += Physics.gravity * 0.3f;
+        }
     }
 }

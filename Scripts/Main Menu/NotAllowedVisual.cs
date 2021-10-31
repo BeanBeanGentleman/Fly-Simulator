@@ -40,6 +40,8 @@ namespace Asset.Scripts
         public int SpecMaxCount = 128;
         public float SpecTakingRangeFromGivenRatio = 0.1f;
         public float SpecOffsetRangeFromGivenRatio = 0.2f;
+
+        public bool MusicSamplingMethod = false;
     
         // Start is called before the first frame update
         private void Start()
@@ -72,9 +74,14 @@ namespace Asset.Scripts
                 );
                 linee.rectTransform.eulerAngles += Vector3.forward * thisV3.z;
 
-
-                // UpdateLengthWidth(linee.rectTransform, ((float) count) * lIneeeCountInverse, SpecTakingRangeFromGivenRatio, FrameSpecData);
-                UpdateLengthWidth(linee.rectTransform, count, SpecOffsetRangeFromGivenRatio, FrameSpecData);
+                if (MusicSamplingMethod)
+                {
+                    UpdateLengthWidth(linee.rectTransform, ((float) count) * lIneeeCountInverse, SpecTakingRangeFromGivenRatio, FrameSpecData);
+                }
+                else
+                {
+                    UpdateLengthWidth(linee.rectTransform, count, SpecOffsetRangeFromGivenRatio, FrameSpecData);
+                }
                 
                 if (((int) ((Time.time * 10) + stuff)) % (int)(Random.Range(15, 35)) == 0)
                 {
