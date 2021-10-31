@@ -1,24 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using Genral;
-using UnityEditor;
+using In_Level.UI;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
 
-namespace Control
+namespace In_Level.Fly.Fly_Abilities
 {
     public abstract class BaseAbilityController : MonoBehaviour
     {
         public Guid guid;
         public bool ShouldAct = false;
-        public AutoResetCounter ActivationTime;
-        public AutoResetCounter CDTime;
+        protected AutoResetCounter ActivationTime;
+        protected AutoResetCounter CDTime;
         public List<Modifier> BuffValue;
         public List<Modifier> DebuffValue;
 
-        public ValueContainer ActivationTimeModifier;
-        public ValueContainer CDTimeModifier;
+        public float BaseActivationTime = 3;
+        [HideInInspector]
+        public ValueContainer ActivationTimeVal;
+        
+        
+        public float BaseCDTime = 6;
+        [HideInInspector]
+        public ValueContainer CDTimeVal;
 
         public BaseFlyController thisFlyController;
 
@@ -26,6 +30,15 @@ namespace Control
 
         protected bool OnceDeactivated = false;
 
+        public BaseAbilityProgressIndicator Indicator;
+
+        private bool enabled = false;
+
+        public virtual void EnableThisAbility()
+        {
+            enabled = true;
+        }
+        
         protected virtual void Start()
         {
             guid = Guid.NewGuid();
@@ -38,20 +51,30 @@ namespace Control
                     Destroy(this);
                 }
             }
+
+            ActivationTimeVal = new ValueContainer(BaseActivationTime);
+            CDTimeVal = new ValueContainer(BaseCDTime);
+            ActivationTime = new AutoResetCounter(ActivationTimeVal.FinalVal());
+            CDTime = new AutoResetCounter(CDTimeVal.FinalVal());
         }
 
         protected virtual void Update()
         {
+            if(!enabled) return;
+            CDTime.Max = CDTimeVal.FinalVal();
+            ActivationTime.Max = ActivationTimeVal.FinalVal();
             Activated = CDTime.IsZeroReached(Time.deltaTime, false) && ShouldAct;
             ShouldAct = (Activated) && ShouldAct;
+            UpdateAbilityIndicator();
         }
 
         protected virtual void FixedUpdate()
         {
+            if(!enabled) return;
             _ = Activated ? _active(Time.fixedDeltaTime) : _deactive(); // Will have the ability automatically stop if released
         }
 
-        protected object _active(float TimeDelta)
+        protected virtual object _active(float TimeDelta)
         {
             if (ActivationTime.Temp < 0)
             {
@@ -67,7 +90,7 @@ namespace Control
             return null;
         }
         
-        protected object _deactive()
+        protected virtual object _deactive()
         {
             ActivationTime.Temp = -1;
             if (!OnceDeactivated)
@@ -82,5 +105,13 @@ namespace Control
 
         protected abstract void Active();
         protected abstract void Deactive();
+
+        protected virtual void UpdateAbilityIndicator()
+        {
+            if (Indicator == null) return;
+            Indicator.progress = this.ActivationTime.Temp/this.ActivationTime.Max; 
+            Indicator.CDProgress = this.CDTime.Temp/this.CDTime.Max;
+            Indicator.activating = this.Activated; //TODO: Need inspection on this. 
+        }
     }
 }

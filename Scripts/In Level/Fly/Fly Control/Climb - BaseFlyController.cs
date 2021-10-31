@@ -14,10 +14,12 @@ using Vector3 = UnityEngine.Vector3;
 public partial class BaseFlyController
 {
     public LineRenderer lr;
-    public GameObject CamFollower;
-    public Vector3 CamFolwOrigPos;
-    public Vector3 CamFolwClimbPos;
-    public Vector3 CamFolwClimbEul;
+
+
+    public float RayLength = 1;
+    
+    
+    public bool DrawDebug = false;
     
     int Climb()
     {
@@ -26,25 +28,18 @@ public partial class BaseFlyController
         CurrentMovingDirection = AccelDirection;
         AccelStrength.Value = Mathf.Clamp01(AccelDirection.magnitude) * AccelStrengthMax;
         movementAccel.SetModifier(myGuid, AccelStrength);
+        if (_takeOff)
+        {
+            IsClimbing = false;
+        }
         if (_manualSwitchToggle) AutoAlignEnabled = !AutoAlignEnabled;
-        if (_useFreeCam)
-        {
-            cc.Freecam = true;
-            cc.CamLookingEulerOffset = new Vector3(-_alignment.y, _alignment.x,  0) * 180;
-        }
-        else
-        {
-            cc.Freecam = false;
-        }
-        CamFollower.transform.localPosition = CamFolwClimbPos;
-        CamFollower.transform.localEulerAngles = CamFolwClimbEul;
         var injestPressed = _ingest;
         this.Ingesting = injestPressed;
         IngestSound.volume = injestPressed?1:0;
         return 0;
     }
     
-        int ClimbAction()
+    int ClimbAction()
     {
         
         AirDragVal.SetModifier(myGuid, OnClimbingExtraDrag);
@@ -58,7 +53,7 @@ public partial class BaseFlyController
         Pitch = Mathf.Abs(Pitch) < DeadZonePitch ? 0 : Pitch;
 
         thisRigidbody.AddRelativeTorque(
-            0,
+            Agility.FinalVal() * Pitch * PitchMultiplier,
             Agility.FinalVal() * Yaw * YawMultiplier,
             RollingSpeed * RollMultiplier);
         thisRigidbody.angularVelocity *= 0.2f;
@@ -81,9 +76,10 @@ public partial class BaseFlyController
         else
         {
             bool DownHasHit = false;
+            Vector3 avg = this.transform.up * -1;
             foreach (var hit in Physics.RaycastAll(thisRigidbody.transform.position,
                 this.transform.up * -1,
-                0.25f))
+                RayLength*10))
             {
                 if (hit.collider.CompareTag("Climbable"))
                 {
@@ -95,7 +91,7 @@ public partial class BaseFlyController
                     break;
                 }
             }
-            List<RaycastHit> regularSphereScan = RegularSphereScan(this.transform.position, 15, 15, 0.25f);
+            List<RaycastHit> regularSphereScan = RegularSphereScan(this.transform.position, 15, 15, RayLength);
             List<float> normalsX = new List<float>();
             List<float> normalsY = new List<float>();
             List<float> normalsZ = new List<float>();
@@ -109,18 +105,27 @@ public partial class BaseFlyController
                     ClimbCounter.MaxmizeTemp();
                 }
 
-                Vector3 avg = new Vector3(normalsX.Sum(), normalsY.Sum(), normalsZ.Sum())/normalsX.Count;
+                avg = -new Vector3(normalsX.Sum(), normalsY.Sum(), normalsZ.Sum())/normalsX.Count;
                 if (normalsX.Count > 0)
                 {
                     nextRot = Quaternion.LookRotation(Vector3.Cross(avg,
                             Vector3.Cross(thisRigidbody.transform.forward,
                                 avg)),
                         avg);
-                    thisRigidbody.AddForce(avg * -ArtificialGravity);
                 }
 
             }
-            // DebugShowingLines(lr, regularSphereScan);
+
+            thisRigidbody.AddForce(avg.normalized * ArtificialGravity * 2);
+            if (DrawDebug)
+            {
+                DebugShowingLines(lr, regularSphereScan);
+            }
+
+            if (_manualSwitchTargetL)
+            {
+                DrawDebug = !DrawDebug;
+            }
         }
         this.transform.rotation = Quaternion.Lerp(thisRigidbody.rotation, nextRot, 0.14f);
         
@@ -131,12 +136,21 @@ public partial class BaseFlyController
     {
         List<RaycastHit> HitPoints = new List<RaycastHit>();
         RaycastHit hito;
-        for (float Vi = VerticalDegreePrecision; Vi < 360; Vi += VerticalDegreePrecision)
+        // Vector3 currentEuler = Quaternion.FromToRotation(Vector3.forward, this.transform.up).eulerAngles;
+        // print(currentEuler);
+        for (float Vi = 0; Vi < 360; Vi += VerticalDegreePrecision)
         {
             for (float Hi = 0; Hi < 360; Hi += HorizontalDegreePrecision)
             {
+                if (Vector3.Angle(EulerToDirection(Hi, Vi), -this.transform.up) > 76)
+                {
+                    continue;
+                }
                 //float elevation = Hi * Mathf.Deg2Rad;
                 //float heading = Vi * Mathf.Deg2Rad;
+                // h.GenerateBall(EulerToDirection(Hi, Vi) * 10 + this.transform.position, Color.red);
+                // h.GenerateBall(EulerToDirection(Hi, Vi) * 3 + this.transform.position, Color.magenta,
+                //     true, 0.2f, 0.001f);
                 Ray rayray = new Ray(StartPoint, EulerToDirection(Hi, Vi));
                 RaycastHit[] RHs = Physics.RaycastAll(rayray, Distance);
                 foreach (RaycastHit RH in RHs)

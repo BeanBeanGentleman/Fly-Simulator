@@ -35,10 +35,6 @@ public partial class BaseFlyController : MonoBehaviour
     /// </summary>
     public ValueContainer AirDragVal = new ValueContainer(3);
     /// <summary>
-    /// The speed of ingestion per second.
-    /// </summary>
-    public ValueContainer IngestSpeed = new ValueContainer(0.3f);
-    /// <summary>
     /// The noise multiplier toward the fly's buzz. Also affect the effective range of the noise.
     /// </summary>
     public ValueContainer NoiseLevel = new ValueContainer(1f);
@@ -46,15 +42,15 @@ public partial class BaseFlyController : MonoBehaviour
     /// <summary>
     /// The modifer for acceleration for left stick.
     /// </summary>
-    public Modifier AccelStrength = new Modifier(false, 2, "0");
+    public Modifier AccelStrength = new Modifier(false, 6, "0");
     /// <summary>
     /// The maximum modifier for acceleration for left stick.
     /// </summary>
-    public float AccelStrengthMax = 2;
+    public float AccelStrengthMax = 6;
     /// <summary>
     /// The extra drag for when climbing on a surface. Better for 
     /// </summary>
-    public Modifier OnClimbingExtraDrag = new Modifier(false, 5, "0");
+    public Modifier OnClimbingExtraDrag = new Modifier(false, 1, "0");
 
     /// <summary>
     /// The modifer for when left stick is pressed. For Air Drag.
@@ -74,6 +70,8 @@ public partial class BaseFlyController : MonoBehaviour
     public float RollingSpeed = 0;
     public float YawingSpeed = 0;
     public float PitchingSpeed = 0;
+
+    public float PitchDirectionMultiplier = 1;
 
     public Vector3 CurrentMovingDirection = Vector3.zero;
 
@@ -106,7 +104,10 @@ public partial class BaseFlyController : MonoBehaviour
         Agility.SetNoBonusModifier(myGuid);
         AirDragVal.SetNoBonusModifier(myGuid);
         IngestSpeed.SetNoBonusModifier(myGuid);
-
+        MaxHP = new ValueContainer(BaseFlyMaxHP);
+        HPCounter = new AutoResetCounter(MaxHP.FinalVal(), true);
+        TakeDamage(0f);
+        ClearIngestion();
 
     }
     protected void FixedUpdate()
@@ -161,9 +162,7 @@ public partial class BaseFlyController : MonoBehaviour
     private void Update()
     {
         cc.CamLookingEulerOffset = new Vector3(-_alignment.y, _alignment.x,  0) * 180;
-        _ = IsClimbing ? Climb() : Flight();
-        
-        if(_takeOff) TakeDamage(0.1f);
+        _ = IsClimbing ? Climb() + ClimbCamControl() : Flight() + FlightCamControl();
     }
 
 
@@ -199,19 +198,11 @@ public partial class BaseFlyController : MonoBehaviour
                 // Target Switch
             }
         }
-
-        if (_useFreeCam)
-        {
-            cc.Freecam = true;
-        }
-        else
-        {
-            cc.Freecam = false;
-        }
+        
 
         if (_landDown)
         {
-            if (RegularSphereScan(this.transform.position, 15, 15, 2f).Count > 0)
+            if (RegularSphereScan(this.transform.position, 15, 15, RayLength).Count > 0)
             {
                 ClimbCounter.MaxmizeTemp();
                 IsClimbing = true;
@@ -223,84 +214,7 @@ public partial class BaseFlyController : MonoBehaviour
         this.Ingesting = injestPressed;
         IngestSound.volume = injestPressed?1:0;
         
-        CamFollower.transform.localPosition = CamFolwOrigPos;
-        CamFollower.transform.localEulerAngles = Vector3.zero;
-        
         return 0;
-    }
-    
-    // protected void DeprecatedFixedUpdate()
-    // {
-    //     thisRigidbody.drag = AirDragVal.FinalVal();
-    //     thisRigidbody.AddForce(movementAccel.FinalVal() * this.transform.forward);
-    //     thisRigidbody.AddForce(Vector3.down * ArtificialGravity);
-    //     Vector2 MouseActualPos = Mouse.current.position.ReadValue();
-    //     MouseActualPos = Camera.main.ScreenToViewportPoint(MouseActualPos) - (Vector3.one * 0.5f);
-    //
-    //     float Yaw = Mathf.Clamp(MouseActualPos.x + YawingSpeed, -1, 1);
-    //     Yaw = Mathf.Abs(Yaw) < DeadZoneYaw ? 0 : Yaw;
-    //
-    //     float Roll = RollingSpeed;
-    //
-    //     float Pitch = Mathf.Clamp(MouseActualPos.y + PitchingSpeed, -1, 1);
-    //     Pitch = Mathf.Abs(Pitch) < DeadZonePitch ? 0 : Pitch;
-    //
-    //     thisRigidbody.AddRelativeTorque(
-    //         Agility.FinalVal() * Pitch * -PitchMultiplier,
-    //         Agility.FinalVal() * Yaw * YawMultiplier,
-    //         RollingSpeed * RollMultiplier,
-    //         ForceMode.Force);
-    //     thisRigidbody.angularVelocity *= 0.2f;
-    //     RollingSpeed = 0;
-    //     YawingSpeed = 0;
-    //     PitchingSpeed = 0;
-    //     
-    //     Buzz.pitch = NoiseLevel.FinalVal() * (movementAccel.FinalVal() / AccelStrength.Value);
-    //     Buzz.volume = NoiseLevel.FinalVal() * Buzz.pitch;
-    //
-    // }
-    private void DeprecatedUpdate()
-    {
-        // if (Accelerate) movementAccel.SetModifier(myGuid, AccelStrength);
-        //
-        // if (AirBrake)
-        // {
-        //     AirDragVal.SetModifier(myGuid, AirbrakeDragBonus);
-        //     movementAccel.SetModifier(myGuid, BackwardAccel);
-        // }
-        // else
-        // {
-        //     AirDragVal.SetNoBonusModifier(myGuid);
-        // }
-        //
-        // if((!AirBrake) && (!Accelerate))movementAccel.SetNoBonusModifier(myGuid);
-        //
-        // if (RollLeft)
-        // {
-        //     RollingSpeed = 1;
-        // }
-        // else if (RollRight)
-        // {
-        //     RollingSpeed = -1;
-        // }
-        // else
-        //     RollingSpeed = 0;
-        //
-        // if (YawLeft)
-        // {
-        //     YawingSpeed = -1;
-        // }
-        // else if (YawRight)
-        // {
-        //     YawingSpeed = 1;
-        // }
-        // else
-        //     YawingSpeed = 0;
-        //
-        // var injestPressed = Ingest;
-        // this.Ingesting = injestPressed;
-        // IngestSound.volume = injestPressed?1:0;
-
     }
     
     
@@ -310,15 +224,7 @@ public partial class BaseFlyController : MonoBehaviour
     void CancelAirBrake(InputAction.CallbackContext ctx){
         AirDragVal.SetNoBonusModifier(myGuid);
     }
-    /// <summary>
-    /// For the fly taking damage
-    /// </summary>
-    /// <param name="Val">The damage that the fly will take. This should be positive if the fly is losing hp.</param>
-    public void TakeDamage(float Val)
-    {
-        var a = FindObjectOfType<HealthBar>();
-        a.setValue(a.hp_bar.value - Val );
-    }
+
 
     private void OnCollisionEnter(Collision other)
     {

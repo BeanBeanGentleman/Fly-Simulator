@@ -13,7 +13,8 @@ namespace Genral
     public class ValueContainer
     {
         public readonly float BaseVal;
-        public Dictionary<Guid, Modifier> Modifiers;
+        [SerializeField]
+        public Dictionary<Guid, Modifier> Modifiers = new Dictionary<Guid, Modifier>();
         
         /// <summary>
         /// Initialize the container
@@ -22,7 +23,7 @@ namespace Genral
         public ValueContainer(float theBaseVal)
         {
             BaseVal = theBaseVal;
-            Modifiers = new Dictionary<Guid, Modifier>();
+            Modifiers = Modifiers == null? new Dictionary<Guid, Modifier>() : Modifiers;
         }
         
         
@@ -57,8 +58,16 @@ namespace Genral
         /// <param name="theModifier">The Modifier</param>
         public void SetModifier(Guid theGuid, Modifier theModifier)
         {
+            if (this.Modifiers == null) this.Modifiers = new Dictionary<Guid, Modifier>();
             if (this.Modifiers.ContainsKey(theGuid)) this.Modifiers[theGuid] = theModifier;
             else this.Modifiers.Add(theGuid, theModifier);
+        }
+        /// <summary>
+        /// Clear all modifiers
+        /// </summary>
+        public void ClearModifiers()
+        {
+            this.Modifiers.Clear();
         }
     }
 }

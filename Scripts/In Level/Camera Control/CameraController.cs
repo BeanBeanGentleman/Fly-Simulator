@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour
 
     public float Multipler = 0.2f;
     public float MultiplerAngle = 0.2f;
+    public float MultiplerFreeCam = 0.05f;
 
     public RectTransform TheRing;
 
@@ -17,7 +18,7 @@ public class CameraController : MonoBehaviour
     
     
     // Update is called once per frame
-    private void FixedUpdate()
+    private void Update()
     {
         if(!Freecam)
         {
@@ -26,14 +27,14 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(LockDownLookingDirection + CamLookingEulerOffset), MultiplerAngle);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(LockDownLookingDirection + CamLookingEulerOffset), MultiplerFreeCam);
+            // Freecam needs to be modified to as orbit camera.
         }
         
+        // 
         transform.position = Vector3.Lerp(transform.position, FollowUp.transform.position, Multipler);
-    }
-
-    private void Update()
-    {
         TheRing.position = new Vector3(CamLookingEulerOffset.y, -CamLookingEulerOffset.x, 5) + Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0));
     }
+    // TODO: DO NOT CLIP
+    
 }

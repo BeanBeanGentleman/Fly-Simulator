@@ -18,13 +18,27 @@ namespace Genral
         /// </summary>
         public string Order;
         
+        [Obsolete("Use ModifyOption instead of bool for clearer indication")]
         public Modifier(bool isMultiply, float value, string order)
         {
             IsMultiply = isMultiply;
             Value = value;
             Order = order;
         }
+        
+        public Modifier(ModifyOption applyment, float value, string order)
+        {
+            IsMultiply = applyment == ModifyOption.Multiplicative;
+            Value = value;
+            Order = order;
+        }
 
         public static readonly Modifier NoBonusModifier = new Modifier(false, 0, "NULL");
+    }
+
+    public enum ModifyOption
+    {
+        Additive,
+        Multiplicative 
     }
 }
