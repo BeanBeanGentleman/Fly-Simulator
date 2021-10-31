@@ -16,6 +16,10 @@ public partial class BaseFlyController
     public float CamFlightDist = 5;
     public float CamClimbDist = 5;
 
+    public Vector3 TargetAngle = Vector3.zero;
+
+    public float CamMultiplier = 0.02f;
+
     public int ClimbCamControl()
     {
         Vector3 ResultEuler = CamFolwClimbDefaultEuler;
@@ -29,10 +33,20 @@ public partial class BaseFlyController
         {
             // cc.Freecam = false;
         }
-        CamFollower.transform.localPosition = Vector3.Slerp(CamFollower.transform.localPosition, CamClimbDist * EulerToDirection(-ResultEuler.x, ResultEuler.y)
-        , cc.Multipler);
+
+        float Dist = CamClimbDist * 2;
+        Ray ray = new Ray(this.transform.position, cc.transform.position - this.transform.position);
+        RaycastHit hitt;
+        if (Physics.Raycast(ray, out hitt))
+        {
+            Dist = hitt.distance;
+        }
+        TargetAngle = Vector3.Lerp(TargetAngle, ResultEuler, CamMultiplier);
+        CamFollower.transform.localPosition = Mathf.Min(Dist, CamClimbDist) * EulerToDirection(-TargetAngle.x, TargetAngle.y);
         // CamFollower.transform.localPosition = CamFolwClimbPos;
-        CamFollower.transform.localEulerAngles = CamFolwClimbAdditionalEul + Vector3.right * (_view.y * -30) + new Vector3(-ResultEuler.x, (ResultEuler.y - 180), 0);
+        CamFollower.transform.localEulerAngles = CamFolwClimbAdditionalEul + Vector3.right * (_view.y * -30) + new Vector3(-TargetAngle.x, (TargetAngle.y - 180), 0);
+        
+        this.Looking.SetActive(Mathf.Min(Dist, CamFlightDist) > 0.5f);
         
         return 0;
     }
@@ -50,9 +64,21 @@ public partial class BaseFlyController
         {
             // cc.Freecam = false;
         }
-        CamFollower.transform.localPosition = Vector3.Slerp(CamFollower.transform.localPosition, CamFlightDist * EulerToDirection(-ResultEuler.x, ResultEuler
-        .y) , cc.Multipler);
-        CamFollower.transform.localEulerAngles = new Vector3(-ResultEuler.x, (ResultEuler.y - 180) , 0);
+        
+        float Dist = CamClimbDist * 2;
+        Ray ray = new Ray(this.transform.position, cc.transform.position - this.transform.position);
+        RaycastHit hitt;
+        if (Physics.Raycast(ray, out hitt))
+        {
+            Dist = hitt.distance;
+        }
+        
+        TargetAngle = Vector3.Lerp(TargetAngle, ResultEuler, CamMultiplier);
+        CamFollower.transform.localPosition = Mathf.Min(Dist, CamFlightDist) * EulerToDirection(-TargetAngle.x, TargetAngle.y);
+        CamFollower.transform.localEulerAngles = new Vector3(-TargetAngle.x, (TargetAngle.y - 180) , 0);
+        
+        this.Looking.SetActive(Mathf.Min(Dist, CamFlightDist) > 0.5f);
+        
         // CamFollower.transform.localPosition = CamFolwFlightPos;
         return 0;
     }

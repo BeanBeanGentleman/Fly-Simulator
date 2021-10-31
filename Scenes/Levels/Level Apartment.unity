@@ -32855,6 +32855,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 564711711}
     - target: {fileID: 5779968146687596947, guid: da71b0136ee4f034e88b61e53dff7e6b, type: 3}
+      propertyPath: OnClimbingExtraDrag.Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5779968146687596947, guid: da71b0136ee4f034e88b61e53dff7e6b, type: 3}
       propertyPath: CamFolwClimbDefaultEuler.x
       value: -30
       objectReference: {fileID: 0}
