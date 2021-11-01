@@ -32746,6 +32746,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fly 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1487780917392196849, guid: da71b0136ee4f034e88b61e53dff7e6b, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: d8919181f5db0a145812a7c1bfc9b588, type: 2}
     - target: {fileID: 1487780917392196855, guid: da71b0136ee4f034e88b61e53dff7e6b, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -32838,6 +32842,10 @@ PrefabInstance:
       propertyPath: D_HPBar
       value: 
       objectReference: {fileID: 400654872}
+    - target: {fileID: 5779968146687596947, guid: da71b0136ee4f034e88b61e53dff7e6b, type: 3}
+      propertyPath: RayLength
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5779968146687596947, guid: da71b0136ee4f034e88b61e53dff7e6b, type: 3}
       propertyPath: CamClimbDist
       value: 2

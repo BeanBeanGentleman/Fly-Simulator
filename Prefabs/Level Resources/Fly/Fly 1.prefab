@@ -213,9 +213,6 @@ MonoBehaviour:
   IngestSound: {fileID: 1487780918709185470}
   Looking: {fileID: 7887574111164509541}
   ArtificialGravity: 0.3
-  RollingSpeed: 0
-  YawingSpeed: 0
-  PitchingSpeed: 0
   PitchDirectionMultiplier: 1
   CurrentMovingDirection: {x: 0, y: 0, z: 0}
   DeadZoneYaw: 0.05
@@ -236,7 +233,7 @@ MonoBehaviour:
   TargetAngle: {x: 0, y: 0, z: 0}
   CamMultiplier: 0.02
   lr: {fileID: 6387990755498271635}
-  RayLength: 1
+  RayLength: 0.05
   DrawDebug: 0
   IngestManager: {fileID: 0}
 --- !u!82 &1487780917392196852

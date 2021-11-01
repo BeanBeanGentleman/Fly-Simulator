@@ -67,9 +67,9 @@ public partial class BaseFlyController : MonoBehaviour
     /// </summary>
     public float ArtificialGravity = 0.3f;
     
-    public float RollingSpeed = 0;
-    public float YawingSpeed = 0;
-    public float PitchingSpeed = 0;
+    protected float RollingSpeed = 0;
+    protected float YawingSpeed = 0;
+    protected float PitchingSpeed = 0;
 
     public float PitchDirectionMultiplier = 1;
 
@@ -90,11 +90,18 @@ public partial class BaseFlyController : MonoBehaviour
     public float DeadZonePitch = 0.2f;
 
     private Guid myGuid;
-
+    /// <summary>
+    /// If this fly is under ingestion
+    /// </summary>
     public bool Ingesting { get; set; }
-
+    /// <summary>
+    /// If this fly is in the state of climbing
+    /// </summary>
     public bool IsClimbing;
     public AutoResetCounter ClimbCounter = new AutoResetCounter(5);
+    /// <summary>
+    /// If Auto Alignment is enabled
+    /// </summary>
     public bool AutoAlignEnabled = true;
     
     private void Start()
@@ -123,8 +130,6 @@ public partial class BaseFlyController : MonoBehaviour
         thisRigidbody.drag = AirDragVal.FinalVal();
         thisRigidbody.AddRelativeForce(movementAccel.FinalVal() * CurrentMovingDirection);
         thisRigidbody.AddForce(Vector3.down * ArtificialGravity);
-        // Vector2 MouseActualPos = Mouse.current.position.ReadValue();
-        // MouseActualPos = Camera.main.ScreenToViewportPoint(MouseActualPos) - (Vector3.one * 0.5f);
 
         Vector2 KnownAlignment = _useFreeCam ? Vector2.zero : _alignment;
         float Yaw = Mathf.Clamp(KnownAlignment.x, -1, 1);
