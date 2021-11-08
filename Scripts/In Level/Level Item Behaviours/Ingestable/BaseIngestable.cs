@@ -44,7 +44,7 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
             FoodAmount.MaxmizeTemp();
         }
 
-        protected virtual void OnCollisionEnter(Collision other)
+        private void OnTriggerEnter(Collider other)
         {
             BaseFlyController BFC;
             if (other.gameObject.TryGetComponent<BaseFlyController>(out BFC))
@@ -53,10 +53,11 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
                 {
                     float AmountLeft = FoodAmount.Temp;
                     ElimateThis();
-                    BFC.IngestIn(MyType,Mathf.Min(AmountLeft, BFC.IngestSpeed.FinalVal() * Time.fixedDeltaTime));
+                    //BFC.IngestIn(MyType, Mathf.Min(AmountLeft, BFC.IngestSpeed.FinalVal() * Time.fixedDeltaTime));
                 }
             }
         }
+
         /// <summary>
         /// Call this when the food is depleted
         /// </summary>

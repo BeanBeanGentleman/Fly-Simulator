@@ -259,6 +259,10 @@ PrefabInstance:
       propertyPath: ParentGameObject
       value: 
       objectReference: {fileID: 397050451}
+    - target: {fileID: 7772150231005727032, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
 --- !u!1001 &14247763
@@ -1787,6 +1791,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Apple
       objectReference: {fileID: 0}
+    - target: {fileID: 3712486018351098369, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8709489851052740877, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
       propertyPath: food_manager
       value: 
@@ -1962,6 +1970,10 @@ PrefabInstance:
     - target: {fileID: 3192459278100638785, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
       propertyPath: m_TagString
       value: Apple
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712486018351098369, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8709489851052740877, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
       propertyPath: food_manager
@@ -5540,6 +5552,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 862939070}
     m_Modifications:
+    - target: {fileID: 1052822734738265403, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
+      propertyPath: hp_bar
+      value: 
+      objectReference: {fileID: 274925225}
     - target: {fileID: 1052822734738265403, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
       propertyPath: player
       value: 
@@ -13189,6 +13205,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 862939070}
     m_Modifications:
+    - target: {fileID: 1052822734738265403, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
+      propertyPath: hp_bar
+      value: 
+      objectReference: {fileID: 274925225}
     - target: {fileID: 1052822734738265403, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
       propertyPath: player
       value: 
@@ -23266,6 +23286,10 @@ PrefabInstance:
       propertyPath: ParentGameObject
       value: 
       objectReference: {fileID: 598888642}
+    - target: {fileID: 3253380206888426185, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
 --- !u!1 &1222628535
@@ -23627,6 +23651,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Apple
       objectReference: {fileID: 0}
+    - target: {fileID: 3712486018351098369, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8709489851052740877, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
       propertyPath: food_manager
       value: 
@@ -23709,6 +23737,10 @@ PrefabInstance:
       propertyPath: ParentGameObject
       value: 
       objectReference: {fileID: 1573276522}
+    - target: {fileID: 3253380206888426185, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
 --- !u!1001 &1324034856
@@ -24348,6 +24380,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 862939070}
     m_Modifications:
     - target: {fileID: 1052822734738265403, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
+      propertyPath: hp_bar
+      value: 
+      objectReference: {fileID: 274925225}
+    - target: {fileID: 1052822734738265403, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1419251923}
@@ -24673,6 +24709,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 862939070}
     m_Modifications:
+    - target: {fileID: 1052822734738265403, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
+      propertyPath: hp_bar
+      value: 
+      objectReference: {fileID: 274925225}
     - target: {fileID: 1052822734738265403, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
       propertyPath: player
       value: 
@@ -31849,11 +31889,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1011978109161637294, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.04
+      value: 9.83
       objectReference: {fileID: 0}
     - target: {fileID: 1011978109161637294, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.39
+      value: 11.21
       objectReference: {fileID: 0}
     - target: {fileID: 1011978109161637294, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
       propertyPath: m_LocalPosition.z
@@ -31895,6 +31935,18 @@ PrefabInstance:
       propertyPath: ParentGameObject
       value: 
       objectReference: {fileID: 1866668370}
+    - target: {fileID: 3253380206888426185, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
+      propertyPath: m_Radius
+      value: 0.08375494
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253380206888426185, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
+      propertyPath: m_Center.y
+      value: 0.011658645
+      objectReference: {fileID: 0}
+    - target: {fileID: 3253380206888426185, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
 --- !u!4 &2001885049 stripped
@@ -32716,6 +32768,10 @@ PrefabInstance:
       propertyPath: ParentGameObject
       value: 
       objectReference: {fileID: 1944649653}
+    - target: {fileID: 7772150231005727032, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
 --- !u!4 &2106025565 stripped
@@ -54028,6 +54084,10 @@ PrefabInstance:
       propertyPath: ParentGameObject
       value: 
       objectReference: {fileID: 7772150231005727030}
+    - target: {fileID: 7772150231005727032, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
 --- !u!1 &7522010746170940230

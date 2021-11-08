@@ -30,7 +30,7 @@ public class StoveFlame : MonoBehaviour
             if (fire_on)
             {
                 float cur_hp = hp_bar.getValue();
-                cur_hp += -0.02f;
+                cur_hp += -0.001f;
                 hp_bar.setValue(cur_hp);
             }
         }
