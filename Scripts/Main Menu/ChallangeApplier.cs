@@ -27,12 +27,22 @@ namespace Main_Menu
         {
             if(Halt) return;
             Halt = true;
-            foreach (var chal in Challanges)
+            
+            var BFC = FindObjectOfType<BaseFlyController>();
+            if (BFC != null)
             {
-                Type theChal = chal.GetType();
-                print(theChal.Name);
-                BaseChallenge cha =  (BaseChallenge) this.gameObject.AddComponent(theChal);
-                cha.OnLevelLoaded();
+                BFC.PitchDirectionMultiplier = InverseY.isOn ? -1 : 1;
+            }
+            
+            if (Challanges != null)
+            {
+                foreach (var chal in Challanges)
+                {
+                    Type theChal = chal.GetType();
+                    print(theChal.Name);
+                    BaseChallenge cha =  (BaseChallenge) this.gameObject.AddComponent(theChal);
+                    cha.OnLevelLoaded();
+                }
             }
 
             SceneManager.sceneLoaded -= ActiveAll;
@@ -44,11 +54,7 @@ namespace Main_Menu
                 findObjectOfType.DontDestoryOnLoadObjects.Add(this.gameObject);
             }
             
-            var BFC = FindObjectOfType<BaseFlyController>();
-            if (BFC != null)
-            {
-                BFC.PitchDirectionMultiplier = InverseY.isOn ? -1 : 1;
-            }
+
         }
 
         void ActiveAll(Scene a, LoadSceneMode b)
