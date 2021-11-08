@@ -19,6 +19,9 @@ namespace In_Level.Fly.Fly_Passive_Abilities
     protected bool _useFreeCam;
     protected bool _ingest = false;
     protected bool _airBreak = false;
+
+    protected bool _rollLeft;
+    protected bool _rollRight;
     
     protected float _climbForeBack = 0;
     protected float _climbLeftRight = 0;
@@ -83,6 +86,16 @@ namespace In_Level.Fly.Fly_Passive_Abilities
     public void OnAirBreak(InputAction.CallbackContext context)
     {
         _airBreak = context.phase == InputActionPhase.Performed;
+    }
+
+    public void OnRollLeft(InputAction.CallbackContext context)
+    {
+        _rollLeft = context.phase == InputActionPhase.Performed;
+    }
+
+    public void OnRollRight(InputAction.CallbackContext context)
+    {
+        _rollRight = context.phase == InputActionPhase.Performed;
     }
 
     void FlyControl.IClimbActions.OnManualSelectSwitch(InputAction.CallbackContext context)

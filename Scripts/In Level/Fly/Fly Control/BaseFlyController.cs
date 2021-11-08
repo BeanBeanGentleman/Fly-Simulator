@@ -75,7 +75,7 @@ public partial class BaseFlyController : MonoBehaviour
 
     public Vector3 CurrentMovingDirection = Vector3.zero;
 
-    private float RollMultiplier = 0;
+    private float RollMultiplier = 0.02f;
     private float YawMultiplier = 0.2f;
     private float PitchMultiplier = 0.1f;
     
@@ -137,6 +137,8 @@ public partial class BaseFlyController : MonoBehaviour
         
         float Pitch = Mathf.Clamp(KnownAlignment.y, -1, 1);
         Pitch = Mathf.Abs(Pitch) < DeadZonePitch ? 0 : Pitch;
+
+        RollingSpeed = _rollLeft ? 1f : (_rollRight ? -1f : 0f);
     
         thisRigidbody.AddRelativeTorque(
             Agility.FinalVal() * Pitch * -PitchMultiplier,

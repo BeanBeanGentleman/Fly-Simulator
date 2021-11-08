@@ -25,6 +25,9 @@ public partial class BaseFlyController : MonoBehaviour, FlyControl.IFlightAction
     private bool _ingest = false;
     private bool _airBreak = false;
     
+    protected bool _rollLeft;
+    protected bool _rollRight;
+
     private float _climbForeBack = 0;
     private float _climbLeftRight = 0;
     private Vector2 _view = new Vector2();
@@ -145,5 +148,14 @@ public partial class BaseFlyController : MonoBehaviour, FlyControl.IFlightAction
     void FlyControl.IFlightActions.OnUseFreeCam(InputAction.CallbackContext context)
     {
         _useFreeCam = context.phase == InputActionPhase.Performed;
+    }
+    public void OnRollLeft(InputAction.CallbackContext context)
+    {
+        _rollLeft = context.phase == InputActionPhase.Performed;
+    }
+
+    public void OnRollRight(InputAction.CallbackContext context)
+    {
+        _rollRight = context.phase == InputActionPhase.Performed;
     }
 }

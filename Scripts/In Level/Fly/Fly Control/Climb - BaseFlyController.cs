@@ -118,7 +118,7 @@ public partial class BaseFlyController
             thisRigidbody.AddForce(avg.normalized * ArtificialGravity * -2);
             if (DrawDebug)
             {
-                DebugShowingLines(lr, regularSphereScan);
+                // DebugShowingLines(lr, regularSphereScan);
             }
 
             if (_manualSwitchTargetL)
