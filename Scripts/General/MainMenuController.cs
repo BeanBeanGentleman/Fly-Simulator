@@ -5,7 +5,12 @@ public class MainMenuController : MonoBehaviour
 {
     public bool NotYet = true;
     public Animator CanvasAnimator;
+<<<<<<< HEAD
+
+    public string sceneName;
+=======
     
+>>>>>>> dev_tony
     private static readonly int UseApart = Animator.StringToHash("Use Apart");
     public void ExitOrGetUp()
     {
@@ -20,7 +25,11 @@ public class MainMenuController : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
+    public void loadScene()
+=======
     public void LoadScene(string SceneName)
+>>>>>>> dev_tony
     {
         SceneManager.LoadScene(SceneName);
     }

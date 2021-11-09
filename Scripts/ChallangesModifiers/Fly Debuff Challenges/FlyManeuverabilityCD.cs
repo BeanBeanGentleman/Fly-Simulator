@@ -1,6 +1,6 @@
 ﻿using System;
+using Control;
 using Genral;
-using In_Level.Fly.Fly_Abilities;
 using UnityEngine;
 
 namespace ChallangesModifiers.Fly_Debuff_Challenges

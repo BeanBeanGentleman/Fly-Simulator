@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using Genral;
 using In_Level.UI;
+<<<<<<< HEAD
+using UnityEditor;
+=======
+>>>>>>> dev_tony
 using UnityEngine;
 
 namespace In_Level.Fly.Fly_Abilities
@@ -10,8 +14,13 @@ namespace In_Level.Fly.Fly_Abilities
     {
         public Guid guid;
         public bool ShouldAct = false;
+<<<<<<< HEAD
+        private AutoResetCounter ActivationTime;
+        private AutoResetCounter CDTime;
+=======
         protected AutoResetCounter ActivationTime;
         protected AutoResetCounter CDTime;
+>>>>>>> dev_tony
         public List<Modifier> BuffValue;
         public List<Modifier> DebuffValue;
 
@@ -32,6 +41,8 @@ namespace In_Level.Fly.Fly_Abilities
 
         public BaseAbilityProgressIndicator Indicator;
 
+<<<<<<< HEAD
+=======
         private bool enabled = false;
 
         public virtual void EnableThisAbility()
@@ -39,6 +50,7 @@ namespace In_Level.Fly.Fly_Abilities
             enabled = true;
         }
         
+>>>>>>> dev_tony
         protected virtual void Start()
         {
             guid = Guid.NewGuid();
@@ -60,7 +72,10 @@ namespace In_Level.Fly.Fly_Abilities
 
         protected virtual void Update()
         {
+<<<<<<< HEAD
+=======
             if(!enabled) return;
+>>>>>>> dev_tony
             CDTime.Max = CDTimeVal.FinalVal();
             ActivationTime.Max = ActivationTimeVal.FinalVal();
             Activated = CDTime.IsZeroReached(Time.deltaTime, false) && ShouldAct;
@@ -109,8 +124,13 @@ namespace In_Level.Fly.Fly_Abilities
         protected virtual void UpdateAbilityIndicator()
         {
             if (Indicator == null) return;
+<<<<<<< HEAD
+            Indicator.progress = this.ActivationTime.Temp;
+            Indicator.CDProgress = this.CDTime.Temp;
+=======
             Indicator.progress = this.ActivationTime.Temp/this.ActivationTime.Max; 
             Indicator.CDProgress = this.CDTime.Temp/this.CDTime.Max;
+>>>>>>> dev_tony
             Indicator.activating = this.Activated; //TODO: Need inspection on this. 
         }
     }

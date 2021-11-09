@@ -114,7 +114,10 @@ public partial class BaseFlyController : MonoBehaviour
         MaxHP = new ValueContainer(BaseFlyMaxHP);
         HPCounter = new AutoResetCounter(MaxHP.FinalVal(), true);
         TakeDamage(0f);
+<<<<<<< HEAD
+=======
         ClearIngestion();
+>>>>>>> dev_tony
 
     }
     protected void FixedUpdate()
@@ -149,9 +152,11 @@ public partial class BaseFlyController : MonoBehaviour
         RollingSpeed = 0;
         YawingSpeed = 0;
         PitchingSpeed = 0;
-        
-        Buzz.pitch = NoiseLevel.FinalVal() * (movementAccel.FinalVal() / AccelStrengthMax);
-        Buzz.volume = NoiseLevel.FinalVal() * Buzz.pitch;
+
+        /* Buzz.pitch = NoiseLevel.FinalVal() * (movementAccel.FinalVal() / AccelStrengthMax);
+        Buzz.volume = NoiseLevel.FinalVal() * Buzz.pitch; */
+        Buzz.volume = 1;
+        Buzz.pitch = 1;
 
         Quaternion nextRot = this.transform.rotation;
         if (_useFreeCam)
@@ -169,7 +174,11 @@ public partial class BaseFlyController : MonoBehaviour
     private void Update()
     {
         cc.CamLookingEulerOffset = new Vector3(-_alignment.y, _alignment.x,  0) * 180;
+<<<<<<< HEAD
+        _ = IsClimbing ? Climb() : Flight();
+=======
         _ = IsClimbing ? Climb() + ClimbCamControl() : Flight() + FlightCamControl();
+>>>>>>> dev_tony
     }
 
 

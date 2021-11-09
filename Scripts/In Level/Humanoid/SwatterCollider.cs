@@ -29,7 +29,7 @@ public class SwatterCollider : MonoBehaviour
             if (!got_hit)
             {
                 float cur_hp = hp_bar_manager.getValue();
-                cur_hp += -10;
+                cur_hp += -2;
                 hp_bar_manager.setValue(cur_hp);
                 StartCoroutine(SwatterDamageCoro());
                 got_hit = true;

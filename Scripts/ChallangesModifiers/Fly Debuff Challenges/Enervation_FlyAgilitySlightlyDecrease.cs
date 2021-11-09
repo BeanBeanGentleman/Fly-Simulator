@@ -39,7 +39,7 @@ namespace ChallangesModifiers.Fly_Debuff_Challenges
 
         public override void OnLevelLoaded()
         {
-            Modifier AgilityModifier = new Modifier(true, 0.9f, "z");
+            Modifier AgilityModifier = new Modifier(true, 0.7f, "z");
             var guid = Guid.NewGuid();
             GameObject.FindObjectOfType<BaseFlyController>().movementAccel.SetModifier(guid, AgilityModifier);
             GameObject.FindObjectOfType<BaseFlyController>().Agility.SetModifier(guid, AgilityModifier);

@@ -9,12 +9,16 @@ public class StoveFlame : MonoBehaviour
     private bool fly_in_col_range = false;
     private bool fire_on = true;
     private bool is_displaying = false;
-
+    private Collider sphere_collider;
     private ParticleSystem parent_particle_sys;
+    public Transform player;
+    public HealthBar hp_bar;
+    float elapse = 0;
 
     void Start()
     {
         fly_in_col_range = false;
+        sphere_collider = GetComponent<Collider>();
         parent_particle_sys = GetComponent<ParticleSystem>();
     }
 
@@ -25,32 +29,19 @@ public class StoveFlame : MonoBehaviour
             // If its firing
             if (fire_on)
             {
-                Debug.Log("SET FLY ON FLAME");
+                float cur_hp = hp_bar.getValue();
+                cur_hp += -0.001f;
+                hp_bar.setValue(cur_hp);
             }
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void check_if_fly_is_within_bounds()
     {
-        if (collision.gameObject.name == "Fly")
-        {
+        if (sphere_collider.bounds.Contains(player.position)) { 
             fly_in_col_range = true;
         }
     }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.name == "Fly")
-        {
-            Debug.Log("Fly Out");
-        }
-    }
-
-    void fly_leave_fire()
-    {
-        fly_in_col_range = false;
-    }
-
     IEnumerator FireControlCoroutine()
     {
         is_displaying = !is_displaying;
@@ -89,6 +80,7 @@ public class StoveFlame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        check_if_fly_is_within_bounds();
         fire_flame();
         hurt_fly();
     }

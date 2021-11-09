@@ -5084,7 +5084,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 4
   m_SortMode: 0
   m_MinParticleSize: 0.05
   m_MaxParticleSize: 2
@@ -5265,7 +5265,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4385490430313938626, guid: 9bbea11ad8f988e41a4a7456ea0fcd6c, type: 3}
 --- !u!64 &5892393377173798043

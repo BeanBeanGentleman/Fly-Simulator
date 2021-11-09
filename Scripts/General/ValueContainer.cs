@@ -14,7 +14,11 @@ namespace Genral
     {
         public readonly float BaseVal;
         [SerializeField]
+<<<<<<< HEAD
+        public Dictionary<Guid, Modifier> Modifiers;
+=======
         public Dictionary<Guid, Modifier> Modifiers = new Dictionary<Guid, Modifier>();
+>>>>>>> dev_tony
         
         /// <summary>
         /// Initialize the container

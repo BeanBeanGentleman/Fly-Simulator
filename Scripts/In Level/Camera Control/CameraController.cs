@@ -15,10 +15,13 @@ public class CameraController : MonoBehaviour
     /// Lerp Value on Rotation
     /// </summary>
     public float MultiplerAngle = 0.2f;
+<<<<<<< HEAD
+=======
     /// <summary>
     /// Lerp Value when using Freecam. Freecam is deprecated.
     /// </summary>
     [Obsolete]
+>>>>>>> dev_tony
     public float MultiplerFreeCam = 0.05f;
 
     /// <summary>
@@ -46,7 +49,14 @@ public class CameraController : MonoBehaviour
         else
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(LockDownLookingDirection + CamLookingEulerOffset), MultiplerFreeCam);
+<<<<<<< HEAD
+            // Freecam needs to be modified to as orbit camera.
         }
+        
+        // 
+=======
+        }
+>>>>>>> dev_tony
         transform.position = Vector3.Lerp(transform.position, FollowUp.transform.position, Multipler);
         TheRing.position = new Vector3(CamLookingEulerOffset.y, -CamLookingEulerOffset.x, 5) + Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0));
     }
