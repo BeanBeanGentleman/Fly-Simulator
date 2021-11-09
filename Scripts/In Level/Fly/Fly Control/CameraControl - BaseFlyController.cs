@@ -46,7 +46,7 @@ public partial class BaseFlyController
         // CamFollower.transform.localPosition = CamFolwClimbPos;
         CamFollower.transform.localEulerAngles = CamFolwClimbAdditionalEul + Vector3.right * (_view.y * -30) + new Vector3(-TargetAngle.x, (TargetAngle.y - 180), 0);
         
-        this.Looking.SetActive(Mathf.Min(Dist, CamFlightDist) > 0.5f);
+        this.Looking.SetActive(Mathf.Min(Dist, CamClimbDist) > 0.5f);
         
         return 0;
     }
