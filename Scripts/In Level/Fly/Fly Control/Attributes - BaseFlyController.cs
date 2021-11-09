@@ -3,6 +3,7 @@ using Genral;
 using In_Level.Level_Item_Behaviours.Ingestable;
 using In_Level.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public partial class BaseFlyController : MonoBehaviour
@@ -13,13 +14,13 @@ public partial class BaseFlyController : MonoBehaviour
     public ValueContainer HPReceptionModifier = new ValueContainer(1);
     public BaseDiscreteHPBarController D_HPBar;
 
-    public Dictionary<IngestTypes, float> IngestionRecord;
+    public Text EndScreenGameObject;
     
     /// <summary>
     /// For the fly taking damage
     /// </summary>
     /// <param name="Val">The damage that the fly will take. This should be positive if the fly is losing hp.</param>
-    public void TakeDamage(float Val, string Message = "Whoops")
+    public void TakeDamage(float Val, string Message = "Whoops\n(Alt+F4)")
     {
         if (HPCounter.IsZeroReached(Val * HPReceptionModifier.FinalVal(), false, false))
         {
@@ -29,7 +30,7 @@ public partial class BaseFlyController : MonoBehaviour
         if (D_HPBar == null)
         {
             var a = FindObjectOfType<HealthBar>();
-            a.setValue(a.hp_bar.value - Val );
+            if (a != null) a.setValue(a.hp_bar.value - Val);
         }
         else
         {
@@ -37,11 +38,36 @@ public partial class BaseFlyController : MonoBehaviour
         }
 
     }
-
-    public virtual void Dies(string Message = "Whoops")
+    /// <summary>
+    /// For the fly recover from damage
+    /// </summary>
+    /// <param name="Val">The heal amount that the fly will take. This should be positive if the fly is getting hp.</param>
+    public void Heal(float Val)
     {
-        var a = GameObject.FindGameObjectWithTag("EndScreen");
-        a.SetActive(true);
+        HPCounter.Temp = Mathf.Clamp(HPCounter.Temp + Val, 0, HPCounter.Max);
+        if (D_HPBar == null)
+        {
+            var a = FindObjectOfType<HealthBar>();
+            if (a != null) a.setValue(a.hp_bar.value - Val);
+        }
+        else
+        {
+            D_HPBar.HPProgress = HPCounter.Temp / HPCounter.Max;
+        }
+    }
+
+    public virtual void Dies(string Message = "Whoops\n(Alt+F4)")
+    {
+        if (EndScreenGameObject != null)
+        {
+            EndScreenGameObject.transform.parent.gameObject.SetActive(true);
+            // EndScreenGameObject.text = Message;
+        }
+    }
+
+    public float GetHP()
+    {
+        return HPCounter.Temp;
     }
 
 }

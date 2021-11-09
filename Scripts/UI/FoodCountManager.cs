@@ -11,7 +11,7 @@ public class FoodCountManager : MonoBehaviour
     private int banana_count;
     private int apple_count;
 
-    private int[] food_req_count = { 3,3,3 };
+    private int[] food_req_count = { 3,3,3};
 
 
     public int get_count(int index)
@@ -32,6 +32,9 @@ public class FoodCountManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
+        if (food_req_count[0] == 0 && food_req_count[1] == 0 && food_req_count[2] == 0)
+        {
+            SceneManager.LoadScene("Win");
+        }
+     }
 }

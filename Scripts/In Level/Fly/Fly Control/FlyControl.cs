@@ -105,6 +105,22 @@ public class @FlyControl : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""RollLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""be8b1bbf-9713-4ea6-89c6-1cb587029522"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RollRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""05328e51-c130-476d-bcb4-5260b02fbd85"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -226,6 +242,28 @@ public class @FlyControl : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""ControllerSchemeMouseLike"",
                     ""action"": ""AirBreak"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59864ae2-bf68-4707-8436-18f04ab1ab01"",
+                    ""path"": ""<XInputController>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RollLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cca7a0b2-dedd-4395-b14c-92d783917f20"",
+                    ""path"": ""<XInputController>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RollRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -413,6 +451,8 @@ public class @FlyControl : IInputActionCollection, IDisposable
         m_Flight_ManualSelectSwitch = m_Flight.FindAction("ManualSelectSwitch", throwIfNotFound: true);
         m_Flight_UseFreeCam = m_Flight.FindAction("UseFreeCam", throwIfNotFound: true);
         m_Flight_AirBreak = m_Flight.FindAction("AirBreak", throwIfNotFound: true);
+        m_Flight_RollLeft = m_Flight.FindAction("RollLeft", throwIfNotFound: true);
+        m_Flight_RollRight = m_Flight.FindAction("RollRight", throwIfNotFound: true);
         // Climb
         m_Climb = asset.FindActionMap("Climb", throwIfNotFound: true);
         m_Climb_Ingest = m_Climb.FindAction("Ingest", throwIfNotFound: true);
@@ -483,6 +523,8 @@ public class @FlyControl : IInputActionCollection, IDisposable
     private readonly InputAction m_Flight_ManualSelectSwitch;
     private readonly InputAction m_Flight_UseFreeCam;
     private readonly InputAction m_Flight_AirBreak;
+    private readonly InputAction m_Flight_RollLeft;
+    private readonly InputAction m_Flight_RollRight;
     public struct FlightActions
     {
         private @FlyControl m_Wrapper;
@@ -498,6 +540,8 @@ public class @FlyControl : IInputActionCollection, IDisposable
         public InputAction @ManualSelectSwitch => m_Wrapper.m_Flight_ManualSelectSwitch;
         public InputAction @UseFreeCam => m_Wrapper.m_Flight_UseFreeCam;
         public InputAction @AirBreak => m_Wrapper.m_Flight_AirBreak;
+        public InputAction @RollLeft => m_Wrapper.m_Flight_RollLeft;
+        public InputAction @RollRight => m_Wrapper.m_Flight_RollRight;
         public InputActionMap Get() { return m_Wrapper.m_Flight; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -540,6 +584,12 @@ public class @FlyControl : IInputActionCollection, IDisposable
                 @AirBreak.started -= m_Wrapper.m_FlightActionsCallbackInterface.OnAirBreak;
                 @AirBreak.performed -= m_Wrapper.m_FlightActionsCallbackInterface.OnAirBreak;
                 @AirBreak.canceled -= m_Wrapper.m_FlightActionsCallbackInterface.OnAirBreak;
+                @RollLeft.started -= m_Wrapper.m_FlightActionsCallbackInterface.OnRollLeft;
+                @RollLeft.performed -= m_Wrapper.m_FlightActionsCallbackInterface.OnRollLeft;
+                @RollLeft.canceled -= m_Wrapper.m_FlightActionsCallbackInterface.OnRollLeft;
+                @RollRight.started -= m_Wrapper.m_FlightActionsCallbackInterface.OnRollRight;
+                @RollRight.performed -= m_Wrapper.m_FlightActionsCallbackInterface.OnRollRight;
+                @RollRight.canceled -= m_Wrapper.m_FlightActionsCallbackInterface.OnRollRight;
             }
             m_Wrapper.m_FlightActionsCallbackInterface = instance;
             if (instance != null)
@@ -577,6 +627,12 @@ public class @FlyControl : IInputActionCollection, IDisposable
                 @AirBreak.started += instance.OnAirBreak;
                 @AirBreak.performed += instance.OnAirBreak;
                 @AirBreak.canceled += instance.OnAirBreak;
+                @RollLeft.started += instance.OnRollLeft;
+                @RollLeft.performed += instance.OnRollLeft;
+                @RollLeft.canceled += instance.OnRollLeft;
+                @RollRight.started += instance.OnRollRight;
+                @RollRight.performed += instance.OnRollRight;
+                @RollRight.canceled += instance.OnRollRight;
             }
         }
     }
@@ -692,6 +748,8 @@ public class @FlyControl : IInputActionCollection, IDisposable
         void OnManualSelectSwitch(InputAction.CallbackContext context);
         void OnUseFreeCam(InputAction.CallbackContext context);
         void OnAirBreak(InputAction.CallbackContext context);
+        void OnRollLeft(InputAction.CallbackContext context);
+        void OnRollRight(InputAction.CallbackContext context);
     }
     public interface IClimbActions
     {

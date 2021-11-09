@@ -24,7 +24,7 @@ public class EnemyAI : MonoBehaviour
     bool alreadyAttacked;
 
     //States
-    public float sightRange, attackRange;
+    private float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
     bool in_transit = false;
@@ -63,7 +63,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Patroling()
     {
-       if (navPt.Length == 0)
+        if (navPt.Length == 0)
         {
             return;
         }
@@ -127,5 +127,3 @@ public class EnemyAI : MonoBehaviour
         alreadyAttacked = false;
     }
 }
-
-

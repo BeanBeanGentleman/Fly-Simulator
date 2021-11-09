@@ -11,20 +11,17 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
         /// <summary>
         /// The base resource max amount.
         /// </summary>
-        private float BaseResourceMaxAmount = 0.5f;
+        public float BaseResourceMaxAmount = 10f;
         /// <summary>
         /// The value container of the resource max amount.  
         /// </summary>
         public ValueContainer ResourceMaxAmount;
-
-        public FoodCountManager food_manager;
-
-        public GameObject ParentGameObject;
-
         /// <summary>
         /// The amount left in this ingestable resource.
         /// </summary>
         public AutoResetCounter FoodAmount;
+
+        public FoodCountManager food_manager;
         /// <summary>
         /// The type of food
         /// </summary>
@@ -32,6 +29,7 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
         /// <summary>
         /// The very parent. Used for removal under challenges.
         /// </summary>
+        public GameObject ParentGameObject;
         /// <summary>
         /// The rating of how this ingestable resource is exposed and easy to acquire. 
         /// </summary>
@@ -44,19 +42,16 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
             FoodAmount.MaxmizeTemp();
         }
 
-        protected virtual void OnCollisionEnter(Collision other)
+        private void OnCollisionEnter(Collision collision)
         {
             BaseFlyController BFC;
-            if (other.gameObject.TryGetComponent<BaseFlyController>(out BFC))
+            if (collision.gameObject.name == "Fly")
             {
-                if (BFC.Ingesting)
-                {
-                    float AmountLeft = FoodAmount.Temp;
-                    ElimateThis();
-                    BFC.IngestIn(MyType,Mathf.Min(AmountLeft, BFC.IngestSpeed.FinalVal() * Time.fixedDeltaTime));
-                }
+                ElimateThis();
             }
         }
+
+
         /// <summary>
         /// Call this when the food is depleted
         /// </summary>
@@ -79,7 +74,14 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
 
         public virtual void RemoveParent()
         {
-            DestroyImmediate(this.gameObject);
+            if (this.ParentGameObject != null)
+            {
+                DestroyImmediate(this.ParentGameObject);
+            }
+            else
+            {
+                DestroyImmediate(this.gameObject);
+            }
         }
 
         public virtual void UpdateMaxAmount(Guid guid, Modifier modify)

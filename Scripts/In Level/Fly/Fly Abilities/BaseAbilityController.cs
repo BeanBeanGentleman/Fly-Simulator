@@ -4,17 +4,15 @@ using Genral;
 using In_Level.UI;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
 
-namespace Control
+namespace In_Level.Fly.Fly_Abilities
 {
     public abstract class BaseAbilityController : MonoBehaviour
     {
         public Guid guid;
         public bool ShouldAct = false;
-        private AutoResetCounter ActivationTime;
-        private AutoResetCounter CDTime;
+        protected AutoResetCounter ActivationTime;
+        protected AutoResetCounter CDTime;
         public List<Modifier> BuffValue;
         public List<Modifier> DebuffValue;
 
@@ -35,6 +33,13 @@ namespace Control
 
         public BaseAbilityProgressIndicator Indicator;
 
+        private bool enabled = false;
+
+        public virtual void EnableThisAbility()
+        {
+            enabled = true;
+        }
+        
         protected virtual void Start()
         {
             guid = Guid.NewGuid();
@@ -56,18 +61,21 @@ namespace Control
 
         protected virtual void Update()
         {
+            if(!enabled) return;
             CDTime.Max = CDTimeVal.FinalVal();
             ActivationTime.Max = ActivationTimeVal.FinalVal();
             Activated = CDTime.IsZeroReached(Time.deltaTime, false) && ShouldAct;
             ShouldAct = (Activated) && ShouldAct;
+            UpdateAbilityIndicator();
         }
 
         protected virtual void FixedUpdate()
         {
+            if(!enabled) return;
             _ = Activated ? _active(Time.fixedDeltaTime) : _deactive(); // Will have the ability automatically stop if released
         }
 
-        protected object _active(float TimeDelta)
+        protected virtual object _active(float TimeDelta)
         {
             if (ActivationTime.Temp < 0)
             {
@@ -83,7 +91,7 @@ namespace Control
             return null;
         }
         
-        protected object _deactive()
+        protected virtual object _deactive()
         {
             ActivationTime.Temp = -1;
             if (!OnceDeactivated)
@@ -102,8 +110,8 @@ namespace Control
         protected virtual void UpdateAbilityIndicator()
         {
             if (Indicator == null) return;
-            Indicator.progress = this.ActivationTime.Temp;
-            Indicator.CDProgress = this.CDTime.Temp;
+            Indicator.progress = this.ActivationTime.Temp/this.ActivationTime.Max; 
+            Indicator.CDProgress = this.CDTime.Temp/this.CDTime.Max;
             Indicator.activating = this.Activated; //TODO: Need inspection on this. 
         }
     }

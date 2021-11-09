@@ -6460,6 +6460,7 @@ RectTransform:
   - {fileID: 126538639}
   - {fileID: 213693816}
   - {fileID: 698804856}
+  - {fileID: 1557362300}
   m_Father: {fileID: 2067385256}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

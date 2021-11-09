@@ -27,17 +27,31 @@ namespace In_Level.UI
 
         protected virtual void Update()
         {
+            float ToBeFillAmount = 0;
             if (activating)
             {
-                filler.fillAmount = showNoProgress?1:progress;
+                ToBeFillAmount = showNoProgress?1:progress;
                 filler.color = runningColor;
             }
             else
             {
                 CDProgress = Mathf.Clamp01(CDProgress);
-                filler.fillAmount = CDProgress;
-                filler.color = Color.Lerp(CDColor, idleColor, Mathf.Clamp01((CDProgress - 0.95f) * 20));    
+                ToBeFillAmount = 1-CDProgress;
+                filler.color = Color.Lerp(idleColor, CDColor , Mathf.Clamp01((CDProgress - 0.1f) * 20));    
             }
+
+            filler.fillAmount = Mathf.Lerp(filler.fillAmount, ToBeFillAmount, 0.5f);
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            Vector3 direction = other.transform.forward;
+            Rigidbody rb = this.gameObject.GetComponent<Rigidbody>();
+
+            rb.useGravity = false;
+            rb.AddForce(direction * 10);
+            rb.velocity = rb.velocity * 0.8f;
+            rb.velocity += Physics.gravity * 0.3f;
         }
     }
 }

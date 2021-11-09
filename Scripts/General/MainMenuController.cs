@@ -21,9 +21,9 @@ public class MainMenuController : MonoBehaviour
         }
     }
 
-    public void loadScene()
+    public void LoadScene(string SceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(SceneName);
     }
     
 }
