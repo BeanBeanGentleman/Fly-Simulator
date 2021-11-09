@@ -261,7 +261,7 @@ PrefabInstance:
       objectReference: {fileID: 397050451}
     - target: {fileID: 7772150231005727032, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
@@ -1793,7 +1793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3712486018351098369, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8709489851052740877, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
       propertyPath: food_manager
@@ -1973,7 +1973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3712486018351098369, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8709489851052740877, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
       propertyPath: food_manager
@@ -19475,7 +19475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1487780917392196855, guid: da71b0136ee4f034e88b61e53dff7e6b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -35.39
+      value: -26.59
       objectReference: {fileID: 0}
     - target: {fileID: 1487780917392196855, guid: da71b0136ee4f034e88b61e53dff7e6b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -23211,7 +23211,7 @@ PrefabInstance:
       objectReference: {fileID: 598888642}
     - target: {fileID: 3253380206888426185, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
@@ -23402,7 +23402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3712486018351098369, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8709489851052740877, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
       propertyPath: food_manager
@@ -23488,7 +23488,7 @@ PrefabInstance:
       objectReference: {fileID: 1573276522}
     - target: {fileID: 3253380206888426185, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
@@ -26248,7 +26248,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676874174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34, y: 1.68, z: -52}
+  m_LocalPosition: {x: -34, y: 9.09, z: -52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -26267,7 +26267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FollowUp: {fileID: 1990625154}
-  Multipler: 0.05
+  Multipler: 0.02
   MultiplerAngle: 0.05
   MultiplerFreeCam: 0.05
   TheRing: {fileID: 542696573}
@@ -26285,7 +26285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9044ef733a99ffa4aa7a986bb5e9a7f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FrostAmount: 0.5
+  FrostAmount: 0
   minFrost: 0
   maxFrost: 1
   seethroughness: 0.2
@@ -31704,7 +31704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3253380206888426185, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
@@ -32529,7 +32529,7 @@ PrefabInstance:
       objectReference: {fileID: 1944649653}
     - target: {fileID: 7772150231005727032, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
@@ -53845,7 +53845,7 @@ PrefabInstance:
       objectReference: {fileID: 7772150231005727030}
     - target: {fileID: 7772150231005727032, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}

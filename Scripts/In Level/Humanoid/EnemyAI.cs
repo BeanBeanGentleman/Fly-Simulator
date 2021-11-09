@@ -24,7 +24,7 @@ public class EnemyAI : MonoBehaviour
     bool alreadyAttacked;
 
     //States
-    public float sightRange, attackRange;
+    private float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
     bool in_transit = false;
@@ -44,7 +44,8 @@ public class EnemyAI : MonoBehaviour
     }
 
     private void Update()
-    {   
+    {
+        Debug.Log(navPt[0].position);
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
@@ -62,7 +63,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Patroling()
     {
-       if (navPt.Length == 0)
+        if (navPt.Length == 0)
         {
             return;
         }
@@ -126,5 +127,3 @@ public class EnemyAI : MonoBehaviour
         alreadyAttacked = false;
     }
 }
-
-
