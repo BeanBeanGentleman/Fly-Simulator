@@ -107,9 +107,10 @@ public class AutoResetCounter
     ///     Constructor. Temp is 0 at the start.
     /// </summary>
     /// <param name="MaxToSet"></param>
-    public AutoResetCounter(float MaxToSet)
+    public AutoResetCounter(float MaxToSet, bool MaxThis=false)
     {
         Max = MaxToSet;
+        if(MaxThis){MaxmizeTemp();}
     }
 
     /// <summary>

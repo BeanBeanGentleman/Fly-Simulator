@@ -15,7 +15,8 @@ namespace ChallangesModifiers.Threat_Challanges
         
         
         [SerializeField]
-        private string _name = "AC Activation";
+        private string _name = "AC Activation I";
+
         [SerializeField]
         private string _description = "The wind strength of the Air Conditioner increases.";
         [SerializeField]
@@ -42,7 +43,7 @@ namespace ChallangesModifiers.Threat_Challanges
         
         public override void OnLevelLoaded()
         {
-            Modifier ForceModifier = new Modifier(ModifyOption.Multiplicative, 1.5f, "z");
+            Modifier ForceModifier = new Modifier(ModifyOption.Multiplicative, 3f, "z");
             var guid = Guid.NewGuid();
             foreach (CoolAirWindZone zoone in FindObjectsOfType<CoolAirWindZone>())
             {

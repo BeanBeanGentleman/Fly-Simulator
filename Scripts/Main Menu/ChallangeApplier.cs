@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using ChallangesModifiers;
+using In_Level.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Main_Menu
 {
@@ -14,6 +16,7 @@ namespace Main_Menu
 
         public float Difficulty;
 
+        public Toggle InverseY;
         private void Update()
         {
             SceneManager.sceneLoaded += ActiveAll;
@@ -24,15 +27,34 @@ namespace Main_Menu
         {
             if(Halt) return;
             Halt = true;
-            foreach (var chal in Challanges)
+            
+            var BFC = FindObjectOfType<BaseFlyController>();
+            if (BFC != null)
             {
-                Type theChal = chal.GetType();
-                print(theChal.Name);
-                BaseChallenge cha =  (BaseChallenge) this.gameObject.AddComponent(theChal);
-                cha.OnLevelLoaded();
+                BFC.PitchDirectionMultiplier = InverseY.isOn ? -1 : 1;
+            }
+            
+            if (Challanges != null)
+            {
+                foreach (var chal in Challanges)
+                {
+                    Type theChal = chal.GetType();
+                    print(theChal.Name);
+                    BaseChallenge cha =  (BaseChallenge) this.gameObject.AddComponent(theChal);
+                    cha.OnLevelLoaded();
+                }
             }
 
             SceneManager.sceneLoaded -= ActiveAll;
+
+            BaseObjectiveManager findObjectOfType = FindObjectOfType<BaseObjectiveManager>();
+            if (findObjectOfType)
+            {
+                findObjectOfType.Difficulty = Difficulty;
+                findObjectOfType.DontDestoryOnLoadObjects.Add(this.gameObject);
+            }
+            
+
         }
 
         void ActiveAll(Scene a, LoadSceneMode b)

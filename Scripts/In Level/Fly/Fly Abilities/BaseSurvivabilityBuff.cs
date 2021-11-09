@@ -1,7 +1,6 @@
-﻿using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using UnityEngine.InputSystem;
 
-namespace Control
+namespace In_Level.Fly.Fly_Abilities
 {
     public abstract class BaseSurvivabilityBuff : BaseAbilityController, FlyAbilityControl.ISurviabilityAbilityActions
     {

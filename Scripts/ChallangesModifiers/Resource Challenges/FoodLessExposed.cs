@@ -40,6 +40,7 @@ namespace ChallangesModifiers.Resource_Challenges
                 if (ingestable.ExposureLevel > 8)
                 {
                     ingestable.RemoveParent();
+          
                 }
             }
         }

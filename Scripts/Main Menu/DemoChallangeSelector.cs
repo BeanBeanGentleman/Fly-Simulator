@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using ChallangesModifiers;
 using Genral;
+using In_Level.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ namespace Main_Menu
         public HashSet<BaseChallenge> BCs = new HashSet<BaseChallenge>();
         
 
-        public ValueContainer Difficulty = new ValueContainer(1);
+        public ValueContainer Difficulty = new ValueContainer(0);
 
         public ChallangeApplier TargetChallangeApplier;
 
@@ -38,6 +39,8 @@ namespace Main_Menu
         {
             Difficulty.ClearModifiers();
             StringBuilder TempText = new StringBuilder();
+            BCs.Clear();
+            TempText.Append("Click the level banner above to enter the game. \n\nSelect your challenges from left. \n\n");
             foreach (Toggle singleToggle in ToggleParents.GetComponentsInChildren<Toggle>())
             {
                 if (singleToggle.isOn)
@@ -61,6 +64,8 @@ namespace Main_Menu
             DetailText.text = TempText.ToString();
             TargetChallangeApplier.Challanges = BCs;
             TargetChallangeApplier.Difficulty = Difficulty.FinalVal();
+
+
         }
     }
 }
