@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 1032669175526446190}
   - component: {fileID: 3253380206888426185}
   - component: {fileID: 1706643178290125078}
-  m_Layer: 0
+  - component: {fileID: 1866668372}
+  - component: {fileID: 1866668371}
+  m_Layer: 7
   m_Name: Cheese_02
   m_TagString: Cheese
   m_Icon: {fileID: 0}
@@ -94,8 +96,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.0720963
-  m_Center: {x: 0, y: 0, z: 0.020934504}
+  m_Radius: 0.08375494
+  m_Center: {x: 0, y: 0.011658645, z: 0.020934504}
 --- !u!114 &1706643178290125078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,10 +110,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food_manager: {fileID: 0}
-  ParentGameObject: {fileID: 0}
+  BaseResourceMaxAmount: 10
   FoodAmount:
     Temp: 0
     Max: 0
+  food_manager: {fileID: 0}
   MyType: 2
+  ParentGameObject: {fileID: 1010773094922619768}
   ExposureLevel: 0
+--- !u!114 &1866668372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010773094922619768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573ca2997378cec4bafdef68779d3569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1866668371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010773094922619768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 3edf353a190a8df438bf92be95c20452, type: 2}
+  isGlobal: 0
+  blendDistance: 100000
+  weight: 1
+  priority: 0
