@@ -3,10 +3,7 @@ using Genral;
 using In_Level.Level_Item_Behaviours.Ingestable;
 using In_Level.UI;
 using UnityEngine;
-<<<<<<< HEAD
-=======
 using UnityEngine.UI;
->>>>>>> dev_tony
 
 
 public partial class BaseFlyController : MonoBehaviour
@@ -17,21 +14,13 @@ public partial class BaseFlyController : MonoBehaviour
     public ValueContainer HPReceptionModifier = new ValueContainer(1);
     public BaseDiscreteHPBarController D_HPBar;
 
-<<<<<<< HEAD
-    public Dictionary<IngestTypes, float> IngestionRecord;
-=======
     public Text EndScreenGameObject;
->>>>>>> dev_tony
     
     /// <summary>
     /// For the fly taking damage
     /// </summary>
     /// <param name="Val">The damage that the fly will take. This should be positive if the fly is losing hp.</param>
-<<<<<<< HEAD
-    public void TakeDamage(float Val, string Message = "Whoops")
-=======
     public void TakeDamage(float Val, string Message = "Whoops\n(Alt+F4)")
->>>>>>> dev_tony
     {
         if (HPCounter.IsZeroReached(Val * HPReceptionModifier.FinalVal(), false, false))
         {
@@ -41,11 +30,7 @@ public partial class BaseFlyController : MonoBehaviour
         if (D_HPBar == null)
         {
             var a = FindObjectOfType<HealthBar>();
-<<<<<<< HEAD
-            a.setValue(a.hp_bar.value - Val );
-=======
             if (a != null) a.setValue(a.hp_bar.value - Val);
->>>>>>> dev_tony
         }
         else
         {
@@ -53,13 +38,6 @@ public partial class BaseFlyController : MonoBehaviour
         }
 
     }
-<<<<<<< HEAD
-
-    public virtual void Dies(string Message = "Whoops")
-    {
-        var a = GameObject.FindGameObjectWithTag("EndScreen");
-        a.SetActive(true);
-=======
     /// <summary>
     /// For the fly recover from damage
     /// </summary>
@@ -90,7 +68,6 @@ public partial class BaseFlyController : MonoBehaviour
     public float GetHP()
     {
         return HPCounter.Temp;
->>>>>>> dev_tony
     }
 
 }

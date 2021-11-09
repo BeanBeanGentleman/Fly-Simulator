@@ -1,6 +1,6 @@
 ﻿using System;
-using Control;
 using Genral;
+using In_Level.Fly.Fly_Abilities;
 using UnityEngine;
 
 namespace ChallangesModifiers.Fly_Debuff_Challenges
@@ -10,15 +10,15 @@ namespace ChallangesModifiers.Fly_Debuff_Challenges
         // public string Name = "Enervation";
         // public string Description = "The agility and moving acceleration of the fly will reduce.";
         // public Modifier DifficultyModifier = new Modifier(true, 1.3f, "z");
-        
-        
+
+
         [SerializeField]
         private string _name = "Hindrance";
         [SerializeField]
         private string _description = "The Maneuverability ability of the fly will suffer greater cool down duration.";
         [SerializeField]
         private Modifier _difficultyModifier = new Modifier(true, 1.2f, "h");
-        
+
         public override string Name
         {
             get => _name;
@@ -45,7 +45,7 @@ namespace ChallangesModifiers.Fly_Debuff_Challenges
             {
                 buf.CDTimeVal.SetModifier(guid, CDModifier);
             }
-            
+
         }
     }
 }

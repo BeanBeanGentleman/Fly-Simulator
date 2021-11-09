@@ -14,26 +14,12 @@ using Vector3 = UnityEngine.Vector3;
 public partial class BaseFlyController
 {
     public LineRenderer lr;
-<<<<<<< HEAD
-    public GameObject CamFollower;
-    public Vector3 CamFolwOrigPos;
-    public Vector3 CamFolwClimbPos;
-    public Vector3 CamFolwClimbEul;
-
-    public float RayLength = 1;
-    
-    
-    public bool DrawDebug = false;
-    
-=======
 
 
     public float RayLength = 1;
 
 
     public bool DrawDebug = false;
-
->>>>>>> dev_tony
     int Climb()
     {
         float UpDown = _takeOff ? 1 : (_landDown ? -1 : 0);
@@ -42,38 +28,17 @@ public partial class BaseFlyController
         AccelStrength.Value = Mathf.Clamp01(AccelDirection.magnitude) * AccelStrengthMax;
         movementAccel.SetModifier(myGuid, AccelStrength);
         if (_takeOff)
-<<<<<<< HEAD
         {
             IsClimbing = false;
         }
-        if (_manualSwitchToggle) AutoAlignEnabled = !AutoAlignEnabled;
-        if (_useFreeCam)
-=======
->>>>>>> dev_tony
-        {
-            IsClimbing = false;
-        }
-<<<<<<< HEAD
-        else
-        {
-            cc.Freecam = false;
-        }
-        CamFollower.transform.localPosition = CamFolwClimbPos;
-        CamFollower.transform.localEulerAngles = CamFolwClimbEul + Vector3.right * (_view.y * -30);
-=======
 
         if (_manualSwitchToggle) AutoAlignEnabled = !AutoAlignEnabled;
->>>>>>> dev_tony
         var injestPressed = _ingest;
         this.Ingesting = injestPressed;
         IngestSound.volume = injestPressed ? 1 : 0;
         return 0;
     }
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> dev_tony
     int ClimbAction()
     {
         AirDragVal.SetModifier(myGuid, OnClimbingExtraDrag);
@@ -94,15 +59,9 @@ public partial class BaseFlyController
         RollingSpeed = 0;
         YawingSpeed = 0;
         PitchingSpeed = 0;
-<<<<<<< HEAD
-        
-/*        Buzz.pitch = 0;
-        Buzz.volume = 0;*/
-=======
 
         Buzz.pitch = 0;
         Buzz.volume = 0;
->>>>>>> dev_tony
 
         int flipped = 1;
         Quaternion nextRot = this.transform.rotation;
@@ -119,11 +78,7 @@ public partial class BaseFlyController
             Vector3 avg = this.transform.up * -1;
             foreach (var hit in Physics.RaycastAll(thisRigidbody.transform.position,
                 this.transform.up * -1,
-<<<<<<< HEAD
-                RayLength))
-=======
                 RayLength * 10))
->>>>>>> dev_tony
             {
                 if (hit.collider.CompareTag("Climbable"))
                 {
@@ -135,12 +90,8 @@ public partial class BaseFlyController
                     break;
                 }
             }
-<<<<<<< HEAD
-            List<RaycastHit> regularSphereScan = RegularSphereScan(this.transform.position, 15, 15, RayLength);
-=======
 
             List<RaycastHit> regularSphereScan = RegularSphereScan(this.transform.position, 15, 15, RayLength * (_landDown ? 5 : 1));
->>>>>>> dev_tony
             List<float> normalsX = new List<float>();
             List<float> normalsY = new List<float>();
             List<float> normalsZ = new List<float>();
@@ -155,21 +106,11 @@ public partial class BaseFlyController
                     ClimbCounter.MaxmizeTemp();
                 }
 
-<<<<<<< HEAD
-                avg = -new Vector3(normalsX.Sum(), normalsY.Sum(), normalsZ.Sum())/normalsX.Count;
-                if (normalsX.Count > 0)
-                {
-                    nextRot = Quaternion.LookRotation(Vector3.Cross(avg,
-                            Vector3.Cross(thisRigidbody.transform.forward,
-                                avg)),
-                        avg);
-=======
                 avg = new Vector3(normalsX.Sum(), normalsY.Sum(), normalsZ.Sum()) / normalsX.Count;
                 if (normalsX.Count > 0)
                 {
                     nextRot = Quaternion.LookRotation(Vector3.Cross(avg, Vector3.Cross(thisRigidbody.transform.forward, avg)) * Mathf.Sign(Vector3.Dot(avg, 
                     this.transform.up)), avg);
->>>>>>> dev_tony
                 }
             }
 
@@ -183,20 +124,6 @@ public partial class BaseFlyController
             {
                 DrawDebug = !DrawDebug;
             }
-<<<<<<< HEAD
-
-            thisRigidbody.AddForce(avg.normalized * ArtificialGravity * 2);
-            if (DrawDebug)
-            {
-                DebugShowingLines(lr, regularSphereScan);
-            }
-
-            if (_manualSwitchTargetL)
-            {
-                DrawDebug = !DrawDebug;
-            }
-=======
->>>>>>> dev_tony
         }
 
         this.transform.rotation = Quaternion.Lerp(thisRigidbody.rotation, nextRot, 0.14f);

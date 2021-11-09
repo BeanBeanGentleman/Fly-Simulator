@@ -11,23 +11,11 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
         /// <summary>
         /// The base resource max amount.
         /// </summary>
-<<<<<<< HEAD
-        private float BaseResourceMaxAmount = 0.5f;
-=======
         public float BaseResourceMaxAmount = 10f;
->>>>>>> dev_tony
         /// <summary>
         /// The value container of the resource max amount.  
         /// </summary>
         public ValueContainer ResourceMaxAmount;
-<<<<<<< HEAD
-
-        public FoodCountManager food_manager;
-
-        public GameObject ParentGameObject;
-
-=======
->>>>>>> dev_tony
         /// <summary>
         /// The amount left in this ingestable resource.
         /// </summary>
@@ -39,10 +27,7 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
         /// <summary>
         /// The very parent. Used for removal under challenges.
         /// </summary>
-<<<<<<< HEAD
-=======
         public GameObject ParentGameObject;
->>>>>>> dev_tony
         /// <summary>
         /// The rating of how this ingestable resource is exposed and easy to acquire. 
         /// </summary>
@@ -55,11 +40,7 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
             FoodAmount.MaxmizeTemp();
         }
 
-<<<<<<< HEAD
-        private void OnTriggerEnter(Collider other)
-=======
         protected virtual void OnCollisionStay(Collision other)
->>>>>>> dev_tony
         {
             BaseFlyController BFC;
             if (other.gameObject.TryGetComponent<BaseFlyController>(out BFC))
@@ -67,37 +48,24 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
                 if (BFC.Ingesting)
                 {
                     float AmountLeft = FoodAmount.Temp;
-                    ElimateThis();
-                    //BFC.IngestIn(MyType, Mathf.Min(AmountLeft, BFC.IngestSpeed.FinalVal() * Time.fixedDeltaTime));
+                    if (FoodAmount.IsZeroReached(BFC.IngestSpeed.FinalVal() * Time.fixedDeltaTime))
+                    {
+                        ElimateThis();
+                    }
+                    BFC.IngestIn(MyType, Mathf.Min(AmountLeft, BFC.IngestSpeed.FinalVal() * Time.fixedDeltaTime));
                 }
             }
         }
-
         /// <summary>
         /// Call this when the food is depleted
         /// </summary>
         public virtual void ElimateThis()
         {
-            if (this.gameObject.tag == "Banana")
-            {
-                food_manager.decrease_food_count(2, 1);
-            }
-            else if (this.gameObject.tag == "Cheese")
-            {
-                food_manager.decrease_food_count(0, 1);
-            }
-            else
-            {
-                food_manager.decrease_food_count(1, 1);
-            }
             Destroy(this.gameObject);
         }
 
         public virtual void RemoveParent()
         {
-<<<<<<< HEAD
-            DestroyImmediate(this.gameObject);
-=======
             if (this.ParentGameObject != null)
             {
                 DestroyImmediate(this.ParentGameObject);
@@ -106,7 +74,6 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
             {
                 DestroyImmediate(this.gameObject);
             }
->>>>>>> dev_tony
         }
 
         public virtual void UpdateMaxAmount(Guid guid, Modifier modify)

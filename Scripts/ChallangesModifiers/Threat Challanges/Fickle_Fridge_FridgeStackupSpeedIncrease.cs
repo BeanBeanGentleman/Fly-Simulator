@@ -14,11 +14,7 @@ namespace ChallangesModifiers.Threat_Challanges
         
         
         [SerializeField]
-<<<<<<< HEAD
-        private string _name = "Fickle Fridge";
-=======
         private string _name = "Fickle Fridge I";
->>>>>>> dev_tony
         [SerializeField]
         private string _description = "The Effect from fridge stackup faster. ";
         [SerializeField]
@@ -44,11 +40,7 @@ namespace ChallangesModifiers.Threat_Challanges
 
         public override void OnLevelLoaded()
         {
-<<<<<<< HEAD
-            Modifier StackSpeedModifier = new Modifier(ModifyOption.Multiplicative, 1.5f, "z");
-=======
             Modifier StackSpeedModifier = new Modifier(ModifyOption.Multiplicative, 3f, "z");
->>>>>>> dev_tony
             var guid = Guid.NewGuid();
             foreach (StaticFreezer zoone in FindObjectsOfType<StaticFreezer>())
             {

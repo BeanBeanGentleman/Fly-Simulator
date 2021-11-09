@@ -27,26 +27,15 @@ namespace In_Level.UI
 
         protected virtual void Update()
         {
-<<<<<<< HEAD
-            if (activating)
-            {
-                filler.fillAmount = showNoProgress?1:progress;
-=======
             float ToBeFillAmount = 0;
             if (activating)
             {
                 ToBeFillAmount = showNoProgress?1:progress;
->>>>>>> dev_tony
                 filler.color = runningColor;
             }
             else
             {
                 CDProgress = Mathf.Clamp01(CDProgress);
-<<<<<<< HEAD
-                filler.fillAmount = CDProgress;
-                filler.color = Color.Lerp(CDColor, idleColor, Mathf.Clamp01((CDProgress - 0.95f) * 20));    
-            }
-=======
                 ToBeFillAmount = 1-CDProgress;
                 filler.color = Color.Lerp(idleColor, CDColor , Mathf.Clamp01((CDProgress - 0.1f) * 20));    
             }
@@ -63,7 +52,6 @@ namespace In_Level.UI
             rb.AddForce(direction * 10);
             rb.velocity = rb.velocity * 0.8f;
             rb.velocity += Physics.gravity * 0.3f;
->>>>>>> dev_tony
         }
     }
 }

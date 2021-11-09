@@ -6,11 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class FoodCountManager : MonoBehaviour
 {   
-<<<<<<< HEAD
-=======
-
-    public Text text;
->>>>>>> dev_tony
 
     private int cheese_count;
     private int banana_count;
@@ -18,49 +13,10 @@ public class FoodCountManager : MonoBehaviour
 
     private int[] food_req_count = { 3,3,3};
 
-<<<<<<< HEAD
-=======
 
     public int get_count(int index)
     {
         return food_req_count[index];
-    }
-
-    public void decrease_food_count(int index, int val)
-    {
-        food_req_count[index] -= val;
-        set_food_count();
-    }
-
-
-    public int get_count(int index)
-    {
-        return food_req_count[index];
-    }
-
-    public void decrease_food_count(int index, int val)
-    {
-        food_req_count[index] -= val;
-        set_food_count();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        set_food_count();
-    }   
->>>>>>> dev_tony
-
-    public int get_count(int index)
-    {
-<<<<<<< HEAD
-        return food_req_count[index];
-=======
-
-        food_req_count[index] = Mathf.Max(0,val);
-
-        set_food_count();
->>>>>>> dev_tony
     }
 
     public void decrease_food_count(int index, int val)

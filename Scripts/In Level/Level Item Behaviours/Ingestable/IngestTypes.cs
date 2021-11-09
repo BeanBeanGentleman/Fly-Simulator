@@ -2,17 +2,6 @@
 {
     public enum IngestTypes
     {
-<<<<<<< HEAD
-        Fat,
-        Protein,
-        CarbonHydrate,
-        Water,
-        VitaminA,
-        VitaminB,
-        VitaminC,
-        Mineral,
-        Sodium
-=======
         Fat=0,
         Protein=1,
         CarbonHydrate=2,
@@ -22,6 +11,5 @@
         VitaminC=6,
         Mineral=7,
         Sodium=8
->>>>>>> dev_tony
     }
 }

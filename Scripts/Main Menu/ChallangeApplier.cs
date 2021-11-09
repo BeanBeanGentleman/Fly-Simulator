@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using ChallangesModifiers;
-<<<<<<< HEAD
-using UnityEngine;
-using UnityEngine.SceneManagement;
-=======
 using In_Level.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
->>>>>>> dev_tony
 
 namespace Main_Menu
 {
@@ -21,10 +16,7 @@ namespace Main_Menu
 
         public float Difficulty;
 
-<<<<<<< HEAD
-=======
         public Toggle InverseY;
->>>>>>> dev_tony
         private void Update()
         {
             SceneManager.sceneLoaded += ActiveAll;
@@ -35,17 +27,6 @@ namespace Main_Menu
         {
             if(Halt) return;
             Halt = true;
-<<<<<<< HEAD
-            foreach (var chal in Challanges)
-            {
-                Type theChal = chal.GetType();
-                print(theChal.Name);
-                BaseChallenge cha =  (BaseChallenge) this.gameObject.AddComponent(theChal);
-                cha.OnLevelLoaded();
-            }
-
-            SceneManager.sceneLoaded -= ActiveAll;
-=======
             
             var BFC = FindObjectOfType<BaseFlyController>();
             if (BFC != null)
@@ -74,7 +55,6 @@ namespace Main_Menu
             }
             
 
->>>>>>> dev_tony
         }
 
         void ActiveAll(Scene a, LoadSceneMode b)

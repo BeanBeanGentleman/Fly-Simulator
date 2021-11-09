@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using ChallangesModifiers;
 using UnityEngine;
-<<<<<<< HEAD
-=======
 using UnityEngine.InputSystem;
->>>>>>> dev_tony
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -53,10 +50,6 @@ namespace Main_Menu
         
         private void Update()
         {
-<<<<<<< HEAD
-            
-=======
->>>>>>> dev_tony
             if (ClickCount == 1)
             {
                 // var f = 0.02f;

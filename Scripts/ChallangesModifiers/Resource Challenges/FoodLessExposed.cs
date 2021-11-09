@@ -37,18 +37,10 @@ namespace ChallangesModifiers.Resource_Challenges
         {
             foreach (BaseIngestable ingestable in FindObjectsOfType<BaseIngestable>())
             {
-<<<<<<< HEAD
                 if (ingestable.ExposureLevel > 8)
                 {
                     ingestable.RemoveParent();
-=======
-                if (ingestable != null && ingestable.gameObject != null)
-                {
-                    if (ingestable.ExposureLevel > 8)
-                    {
-                        ingestable.RemoveParent();
-                    }
->>>>>>> dev_tony
+          
                 }
             }
         }
