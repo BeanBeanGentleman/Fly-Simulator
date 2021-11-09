@@ -92,6 +92,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "RollLeft",
+                    "type": "Button",
+                    "id": "be8b1bbf-9713-4ea6-89c6-1cb587029522",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RollRight",
+                    "type": "Button",
+                    "id": "05328e51-c130-476d-bcb4-5260b02fbd85",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -213,6 +229,28 @@
                     "processors": "",
                     "groups": "ControllerSchemeMouseLike",
                     "action": "AirBreak",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "59864ae2-bf68-4707-8436-18f04ab1ab01",
+                    "path": "<XInputController>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RollLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cca7a0b2-dedd-4395-b14c-92d783917f20",
+                    "path": "<XInputController>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RollRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

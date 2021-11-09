@@ -11,16 +11,23 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
         /// <summary>
         /// The base resource max amount.
         /// </summary>
+<<<<<<< HEAD
         private float BaseResourceMaxAmount = 0.5f;
+=======
+        public float BaseResourceMaxAmount = 10f;
+>>>>>>> dev_tony
         /// <summary>
         /// The value container of the resource max amount.  
         /// </summary>
         public ValueContainer ResourceMaxAmount;
+<<<<<<< HEAD
 
         public FoodCountManager food_manager;
 
         public GameObject ParentGameObject;
 
+=======
+>>>>>>> dev_tony
         /// <summary>
         /// The amount left in this ingestable resource.
         /// </summary>
@@ -32,6 +39,10 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
         /// <summary>
         /// The very parent. Used for removal under challenges.
         /// </summary>
+<<<<<<< HEAD
+=======
+        public GameObject ParentGameObject;
+>>>>>>> dev_tony
         /// <summary>
         /// The rating of how this ingestable resource is exposed and easy to acquire. 
         /// </summary>
@@ -44,7 +55,11 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
             FoodAmount.MaxmizeTemp();
         }
 
+<<<<<<< HEAD
         private void OnTriggerEnter(Collider other)
+=======
+        protected virtual void OnCollisionStay(Collision other)
+>>>>>>> dev_tony
         {
             BaseFlyController BFC;
             if (other.gameObject.TryGetComponent<BaseFlyController>(out BFC))
@@ -80,7 +95,18 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
 
         public virtual void RemoveParent()
         {
+<<<<<<< HEAD
             DestroyImmediate(this.gameObject);
+=======
+            if (this.ParentGameObject != null)
+            {
+                DestroyImmediate(this.ParentGameObject);
+            }
+            else
+            {
+                DestroyImmediate(this.gameObject);
+            }
+>>>>>>> dev_tony
         }
 
         public virtual void UpdateMaxAmount(Guid guid, Modifier modify)

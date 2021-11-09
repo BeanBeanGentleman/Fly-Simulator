@@ -9,11 +9,19 @@ namespace ChallangesModifiers.Threat_Challanges
     public class Overcooked_StoveOvenDamageIncrease : BaseChallenge
     {
         [SerializeField]
+<<<<<<< HEAD
         private string _name = "Overcooked";
         [SerializeField]
         private string _description = "The Damage from stove oven increases. ";
         [SerializeField]
         private Modifier _difficultyModifier = new Modifier(false, 1, "a");
+=======
+        private string _name = "Overcooked I";
+        [SerializeField]
+        private string _description = "The Damage from stove oven increases. ";
+        [SerializeField]
+        private Modifier _difficultyModifier = new Modifier(false, 1.3f, "a");
+>>>>>>> dev_tony
         
         public override string Name
         {
@@ -35,7 +43,11 @@ namespace ChallangesModifiers.Threat_Challanges
 
         public override void OnLevelLoaded()
         {
+<<<<<<< HEAD
             Modifier DMGModifier = new Modifier(ModifyOption.Multiplicative, 1.3f, "z");
+=======
+            Modifier DMGModifier = new Modifier(ModifyOption.Multiplicative, 3f, "z");
+>>>>>>> dev_tony
             var guid = Guid.NewGuid();
             foreach (StoveOvenHeatZone zoone in FindObjectsOfType<StoveOvenHeatZone>())
             {
