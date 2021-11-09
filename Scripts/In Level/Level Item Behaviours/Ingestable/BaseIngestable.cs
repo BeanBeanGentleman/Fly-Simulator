@@ -20,6 +20,8 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
         /// The amount left in this ingestable resource.
         /// </summary>
         public AutoResetCounter FoodAmount;
+
+        public FoodCountManager food_manager;
         /// <summary>
         /// The type of food
         /// </summary>
@@ -40,27 +42,33 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
             FoodAmount.MaxmizeTemp();
         }
 
-        protected virtual void OnCollisionStay(Collision other)
+        private void OnCollisionEnter(Collision collision)
         {
             BaseFlyController BFC;
-            if (other.gameObject.TryGetComponent<BaseFlyController>(out BFC))
+            if (collision.gameObject.name == "Fly")
             {
-                if (BFC.Ingesting)
-                {
-                    float AmountLeft = FoodAmount.Temp;
-                    if (FoodAmount.IsZeroReached(BFC.IngestSpeed.FinalVal() * Time.fixedDeltaTime))
-                    {
-                        ElimateThis();
-                    }
-                    BFC.IngestIn(MyType, Mathf.Min(AmountLeft, BFC.IngestSpeed.FinalVal() * Time.fixedDeltaTime));
-                }
+                ElimateThis();
             }
         }
+
+
         /// <summary>
         /// Call this when the food is depleted
         /// </summary>
         public virtual void ElimateThis()
         {
+            if (this.gameObject.tag == "Banana")
+            {
+                food_manager.decrease_food_count(2, 1);
+            }
+            else if (this.gameObject.tag == "Cheese")
+            {
+                food_manager.decrease_food_count(0, 1);
+            }
+            else
+            {
+                food_manager.decrease_food_count(1, 1);
+            }
             Destroy(this.gameObject);
         }
 

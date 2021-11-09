@@ -60,7 +60,6 @@ public class StoveFlame : MonoBehaviour
 
     void fire_flame()
     {
-        Debug.Log(fire_on);
         if (fire_on && !is_displaying)
         {
             parent_particle_sys.Clear();
