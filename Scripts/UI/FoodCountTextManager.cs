@@ -17,16 +17,28 @@ public class FoodCountTextManager : MonoBehaviour
     void Update()
     {
         if (gameObject.name == "CheeseCount")
-        {
-            text.text = food_ma.get_count(0).ToString() + " Remain / " + bag_ma.get_bag_count(0).ToString() + " in bag";
+        {   
+            if (food_ma.get_count(0) == 0){
+                text.text = "Completed";
+            }else{
+                text.text = food_ma.get_count(0).ToString() + " Remain / " + bag_ma.get_bag_count(0).ToString() + " in bag";
+            }
         }
         else if (gameObject.name == "AppleCount")
-        {
-            text.text = food_ma.get_count(1).ToString()+ " Remain / " + bag_ma.get_bag_count(1).ToString() + " in bag";
+        {   
+            if (food_ma.get_count(0) == 0){
+                text.text = "Completed";
+            }else{
+                text.text = food_ma.get_count(1).ToString()+ " Remain / " + bag_ma.get_bag_count(1).ToString() + " in bag";
+            }
         }
         else if (gameObject.name == "BananaCount")
         {
-            text.text = food_ma.get_count(2).ToString()+ " Remain / " + bag_ma.get_bag_count(2).ToString() + " in bag";
+            if (food_ma.get_count(0) == 0){
+                text.text = "Completed";
+            }else{
+                text.text = food_ma.get_count(2).ToString()+ " Remain / " + bag_ma.get_bag_count(2).ToString() + " in bag";
+            }
         }
 
         if ((food_ma.get_count(0) + food_ma.get_count(1) + food_ma.get_count(2)) == 0)
