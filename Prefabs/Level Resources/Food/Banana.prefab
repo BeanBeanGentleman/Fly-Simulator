@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 262728904454270066}
   - component: {fileID: 7772150231005727032}
   - component: {fileID: 7772150231005727031}
-  m_Layer: 0
+  - component: {fileID: 25119489086310526}
+  - component: {fileID: 7772150231005727036}
+  m_Layer: 7
   m_Name: Banana
-  m_TagString: Untagged
+  m_TagString: Banana
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 285799809243603686}
   m_LocalRotation: {x: 0, y: 0.9890004, z: 0, w: 0.14791292}
   m_LocalPosition: {x: -15.37, y: 7.31, z: 6.15}
-  m_LocalScale: {x: 15, y: 15, z: 5}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -61,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dd4330fb196ead84ea9d14e6bbbe8ed5, type: 2}
+  - {fileID: 2100000, guid: 3808a86017cd5364d814d8c18ec9b954, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,10 +110,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FoodCollider: {fileID: 0}
+  BaseResourceMaxAmount: 10
   FoodAmount:
     Temp: 0
     Max: 0
+  food_manager: {fileID: 0}
   MyType: 2
-  ParentGameObject: {fileID: 0}
+  ParentGameObject: {fileID: 285799809243603686}
   ExposureLevel: 0
+--- !u!114 &25119489086310526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285799809243603686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: e7ccbee42cc33a34ca5776213ae79b27, type: 2}
+  isGlobal: 0
+  blendDistance: 1000000
+  weight: 0.663
+  priority: 0
+--- !u!114 &7772150231005727036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285799809243603686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573ca2997378cec4bafdef68779d3569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

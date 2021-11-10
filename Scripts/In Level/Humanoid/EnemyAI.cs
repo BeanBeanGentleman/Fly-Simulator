@@ -63,6 +63,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Patroling()
     {
+        anim.SetTrigger("Walk");
         if (navPt.Length == 0)
         {
             return;

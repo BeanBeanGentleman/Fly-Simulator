@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3179505254145810909}
   - component: {fileID: 3712486018351098369}
   - component: {fileID: 8709489851052740877}
+  - component: {fileID: 1026627791}
+  - component: {fileID: 1026627792}
   m_Layer: 0
   m_Name: SweetPepper
   m_TagString: Apple
@@ -108,10 +110,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849b95738ea04cce9cea27b91e6201b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food_manager: {fileID: 0}
-  ParentGameObject: {fileID: 0}
+  BaseResourceMaxAmount: 10
   FoodAmount:
     Temp: 0
     Max: 0
+  food_manager: {fileID: 0}
   MyType: 2
+  ParentGameObject: {fileID: 3192459278100638785}
   ExposureLevel: 0
+--- !u!114 &1026627791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3192459278100638785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 732330b03c23f744da286585329f3d2f, type: 2}
+  isGlobal: 0
+  blendDistance: 100000
+  weight: 1
+  priority: 0
+--- !u!114 &1026627792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3192459278100638785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 573ca2997378cec4bafdef68779d3569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
