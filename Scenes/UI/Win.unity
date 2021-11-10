@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb2902cf2221f64e92503676c6e559a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NotYet: 1
+  CanvasAnimator: {fileID: 0}
   sceneName: New Main Menu
 --- !u!4 &513238857
 Transform:
@@ -799,6 +801,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb2902cf2221f64e92503676c6e559a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NotYet: 1
+  CanvasAnimator: {fileID: 0}
   sceneName: 
 --- !u!4 &1489209692
 Transform:
@@ -1034,13 +1038,13 @@ MonoBehaviour:
       - m_Target: {fileID: 513238856}
         m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
         m_MethodName: LoadScene
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: New Main Menu
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1916917965
@@ -1260,13 +1264,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1489209691}
         m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
         m_MethodName: LoadScene
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level Apartment Working Copy
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2075329878
