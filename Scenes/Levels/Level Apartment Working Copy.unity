@@ -6260,7 +6260,7 @@ MonoBehaviour:
   cheese: {fileID: 1010773094922619768, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
   apple: {fileID: 3192459278100638785, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
   banana: {fileID: 285799809243603686, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
-  size: {x: 0, y: 0, z: 0}
+  size: {x: 2, y: 2, z: 2}
   bag_manager: {fileID: 893545310}
   count_manager: {fileID: 19805172}
 --- !u!54 &409791535
