@@ -51,6 +51,10 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
             {
                 ElimateThis();
             }
+            if (collision.gameObject.name == "Mouse")
+            {
+                ElimateThisByMouse();
+            }
         }
 
         private void OnTriggerEnter(Collider other)
@@ -60,6 +64,11 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
             {
                 ElimateThis();
             }
+            if (other.gameObject.name == "Mouse")
+            {
+                ElimateThisByMouse();
+            }
+            print(other.gameObject.name);
         }
 
 
@@ -80,6 +89,26 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
             else
             {
                 bag_count_manager.increase_food_count(1);
+            }
+            Destroy(this.gameObject);
+        }
+
+        public virtual void ElimateThisByMouse()
+        {
+            Debug.Log("ElimateThis");
+            if (this.gameObject.tag == "Banana")
+            {
+                food_manager.decrease_food_count(2, 1);
+                
+            }
+            else if (this.gameObject.tag == "Cheese")
+            {
+                food_manager.decrease_food_count(0, 1);
+            }
+            else
+            {
+                food_manager.decrease_food_count(1, 1);
+                
             }
             Destroy(this.gameObject);
         }

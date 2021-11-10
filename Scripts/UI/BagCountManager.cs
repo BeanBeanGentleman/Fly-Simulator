@@ -24,7 +24,10 @@ public class BagCountManager : MonoBehaviour
         in_speed_up = !in_speed_up;
     }
 
-
+    public int get_total_food_count()
+    {
+        return food_bag_count[0] + food_bag_count[1] + food_bag_count[2];
+    }
 
     public void decrease_food_count(int index, int val)
     {
