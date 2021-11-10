@@ -22,6 +22,7 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
         public AutoResetCounter FoodAmount;
 
         public FoodCountManager food_manager;
+        public BagCountManager bag_count_manager;
         /// <summary>
         /// The type of food
         /// </summary>
@@ -45,6 +46,7 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
         private void OnCollisionEnter(Collision collision)
         {
             BaseFlyController BFC;
+            Debug.Log("OnCollisionEnter");
             if (collision.gameObject.name == "Fly")
             {
                 ElimateThis();
@@ -56,18 +58,19 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
         /// Call this when the food is depleted
         /// </summary>
         public virtual void ElimateThis()
-        {
+        {   
+            Debug.Log("ElimateThis");
             if (this.gameObject.tag == "Banana")
             {
-                food_manager.decrease_food_count(2, 1);
+                bag_count_manager.increase_food_count(2);
             }
             else if (this.gameObject.tag == "Cheese")
             {
-                food_manager.decrease_food_count(0, 1);
+                bag_count_manager.increase_food_count(0);
             }
             else
             {
-                food_manager.decrease_food_count(1, 1);
+                bag_count_manager.increase_food_count(1);
             }
             Destroy(this.gameObject);
         }
