@@ -10,8 +10,7 @@ public class FoodCountManager : MonoBehaviour
     private int cheese_count;
     private int banana_count;
     private int apple_count;
-
-    private int[] food_req_count = { 3,3,3};
+    public int[] food_req_count;
 
 
     public int get_count(int index)
@@ -27,6 +26,7 @@ public class FoodCountManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
     }  
 
     // Update is called once per frame
