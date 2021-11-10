@@ -25,7 +25,7 @@ public partial class BaseFlyController : MonoBehaviour
     /// <summary>
     /// The force strength for pushing the fly at the given direction.
     /// </summary>
-    [FormerlySerializedAs("ForwardAccel")] public ValueContainer movementAccel = new ValueContainer(0);
+    [FormerlySerializedAs("ForwardAccel")] public ValueContainer movementAccel = new ValueContainer(1);
     /// <summary>
     /// The agility for fly to maneuver. The less value the harder to turn.
     /// </summary>

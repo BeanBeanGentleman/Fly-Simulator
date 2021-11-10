@@ -7,11 +7,24 @@ public class BagCountManager : MonoBehaviour
 
     private int[] food_bag_count = {0,0,0};
 
+    private bool in_speed_up = false;
 
     public int get_bag_count(int index)
     {
         return food_bag_count[index];
     }
+
+    public bool check_if_in_speed_up()
+    {
+        return in_speed_up;
+    }
+
+    public void alter_speed_up()
+    {
+        in_speed_up = !in_speed_up;
+    }
+
+
 
     public void decrease_food_count(int index, int val)
     {

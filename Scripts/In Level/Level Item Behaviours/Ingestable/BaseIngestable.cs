@@ -53,6 +53,15 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
             }
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            BaseFlyController BFC;
+            if (other.gameObject.name == "Fly")
+            {
+                ElimateThis();
+            }
+        }
+
 
         /// <summary>
         /// Call this when the food is depleted

@@ -203,10 +203,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Banana (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 285799809243603686, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
-      propertyPath: m_TagString
-      value: Banana
-      objectReference: {fileID: 0}
     - target: {fileID: 286793406431523678, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -256,17 +252,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 19805172}
     - target: {fileID: 7772150231005727031, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
-      propertyPath: ParentGameObject
-      value: 
-      objectReference: {fileID: 397050451}
-    - target: {fileID: 7772150231005727031, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
       propertyPath: bag_count_manager
       value: 
       objectReference: {fileID: 893545310}
-    - target: {fileID: 7772150231005727032, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
 --- !u!1001 &14247763
@@ -1797,7 +1785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3712486018351098369, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8709489851052740877, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
       propertyPath: food_manager
@@ -1985,7 +1973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3712486018351098369, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8709489851052740877, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
       propertyPath: food_manager
@@ -6011,11 +5999,6 @@ MonoBehaviour:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1487780917969726249, guid: da71b0136ee4f034e88b61e53dff7e6b, type: 3}
   m_PrefabInstance: {fileID: 1011517559}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &397050451 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 285799809243603686, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
-  m_PrefabInstance: {fileID: 5257816}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &397050452 stripped
 Transform:
@@ -13907,11 +13890,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
---- !u!1 &598888642 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1010773094922619768, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
-  m_PrefabInstance: {fileID: 1220213954}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &598888643 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1011978109161637294, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
@@ -25090,10 +25068,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cheese (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1010773094922619768, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
-      propertyPath: m_TagString
-      value: Cheese
-      objectReference: {fileID: 0}
     - target: {fileID: 1011978109161637294, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -25143,17 +25117,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 19805172}
     - target: {fileID: 1706643178290125078, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
-      propertyPath: ParentGameObject
-      value: 
-      objectReference: {fileID: 598888642}
-    - target: {fileID: 1706643178290125078, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
       propertyPath: bag_count_manager
       value: 
       objectReference: {fileID: 893545310}
-    - target: {fileID: 3253380206888426185, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
 --- !u!1 &1222628535
@@ -25486,7 +25452,7 @@ PrefabInstance:
       objectReference: {fileID: 893545310}
     - target: {fileID: 3253380206888426185, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
@@ -29319,8 +29285,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.32453412, y: 0.57159346, z: 0.3297832}
-  m_Center: {x: 0.021231642, y: 1.1209337, z: 0.06520593}
+  m_Size: {x: 0.38809842, y: 0.63371104, z: 0.46477127}
+  m_Center: {x: 0.036915462, y: 1.1044891, z: 0.042797726}
 --- !u!114 &1681946204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29343,6 +29309,7 @@ MonoBehaviour:
   BaseCDTime: 6
   thisFlyController: {fileID: 334113096}
   Indicator: {fileID: 0}
+  bag_c: {fileID: 893545310}
 --- !u!1001 &1697540940
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34735,11 +34702,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bcb0ace899666c44b7ead8aa5ff6b3a, type: 3}
---- !u!1 &1944649653 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 285799809243603686, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
-  m_PrefabInstance: {fileID: 2079893952}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1944649654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 286793406431523678, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
@@ -34863,10 +34825,6 @@ PrefabInstance:
     - target: {fileID: 1010773094922619768, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
       propertyPath: m_Name
       value: Cheese
-      objectReference: {fileID: 0}
-    - target: {fileID: 1010773094922619768, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1011978109161637294, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
       propertyPath: m_RootOrder
@@ -35808,10 +35766,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Banana (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 285799809243603686, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
-      propertyPath: m_TagString
-      value: Banana
-      objectReference: {fileID: 0}
     - target: {fileID: 286793406431523678, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -35861,17 +35815,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 19805172}
     - target: {fileID: 7772150231005727031, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
-      propertyPath: ParentGameObject
-      value: 
-      objectReference: {fileID: 1944649653}
-    - target: {fileID: 7772150231005727031, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
       propertyPath: bag_count_manager
       value: 
       objectReference: {fileID: 893545310}
-    - target: {fileID: 7772150231005727032, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
 --- !u!4 &2106025565 stripped

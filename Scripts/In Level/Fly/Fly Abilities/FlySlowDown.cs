@@ -35,6 +35,11 @@ namespace In_Level.Fly.Fly_Abilities
 
         private void Update()
         {
+            if (bag_count_manager.check_if_in_speed_up())
+            {
+                return;
+            }
+
             int new_food = 0;
             for (int i = 0; i < 3; i++)
             {

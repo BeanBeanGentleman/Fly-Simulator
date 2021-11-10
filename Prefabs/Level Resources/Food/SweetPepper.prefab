@@ -93,7 +93,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3192459278100638785}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.08762406
@@ -115,6 +115,7 @@ MonoBehaviour:
     Temp: 0
     Max: 0
   food_manager: {fileID: 0}
+  bag_count_manager: {fileID: 0}
   MyType: 2
   ParentGameObject: {fileID: 3192459278100638785}
   ExposureLevel: 0
