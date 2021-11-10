@@ -21,14 +21,9 @@ namespace In_Level.Fly.Fly_Abilities
         }
 
 
-        private void OnCollisionEnter(UnityEngine.Collision collision)
+        private void Update()
         {
-            if (collision.gameObject.name == "Fly")
-            {
-                this.gameObject.SetActive(false);
-                Active();
-                Invoke(nameof(Deactive), 20);
-            }
+            
         }
     }
 }
