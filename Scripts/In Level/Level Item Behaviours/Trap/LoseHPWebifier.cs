@@ -19,6 +19,7 @@ namespace In_Level.Level_Item_Behaviours.Trap
             BaseFlyController BFC;
             if (other.gameObject.TryGetComponent<BaseFlyController>(out BFC))
             {
+                Debug.Log("fly in!!");
                 // Instantiate Escape Progress Bar here
             }
         }
@@ -53,7 +54,7 @@ namespace In_Level.Level_Item_Behaviours.Trap
             else
             {
                 float cur_hp = hp_bar.getValue();
-                cur_hp += -0.01f;
+                cur_hp += -0.001f;
                 hp_bar.setValue(cur_hp);
 
 
