@@ -1712,6 +1712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9937c502911bd40bfa535a8705dd5882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food_req_count: 030000000300000003000000
 --- !u!1001 &40511873
 PrefabInstance:
   m_ObjectHideFlags: 0
