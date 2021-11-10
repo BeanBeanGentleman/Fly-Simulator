@@ -8,14 +8,13 @@ public class TurotialManager : MonoBehaviour
 {   
     public GameObject[] popUps;
     private int popupIndex;
-    public FoodCountManager foodManager;
+    public BagCountManager bagcountmanager;
     private int food_total;
 
     // Start is called before the first frame update
     void Start()
     {
         popupIndex = 0;
-        food_total = foodManager.get_count(0) + foodManager.get_count(1) + foodManager.get_count(2);
     }
 
     // Update is called once per frame
@@ -90,8 +89,8 @@ public class TurotialManager : MonoBehaviour
                 popupIndex ++;
             }
         }else if (popupIndex == 12){
-            var food_count_current = foodManager.get_count(0) + foodManager.get_count(1) + foodManager.get_count(2);
-            if (food_total - food_count_current >= 1){
+            var food_count_current = bagcountmanager.get_bag_count(0) + bagcountmanager.get_bag_count(1) + bagcountmanager.get_bag_count(2);
+            if (food_count_current >= 1){
                 popupIndex ++;
             }
         }
