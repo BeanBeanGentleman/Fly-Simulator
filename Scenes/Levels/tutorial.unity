@@ -2498,7 +2498,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Close to Any food and Press A to collect
+  m_Text: Fly to Any food and collect it
 --- !u!222 &171812724
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28108,7 +28108,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Now fly to bedroom bottom corner and give it to mouse
+  m_Text: Now fly to bedroom deep bottom corner and give it to mouse
 --- !u!222 &1739944607
 CanvasRenderer:
   m_ObjectHideFlags: 0
