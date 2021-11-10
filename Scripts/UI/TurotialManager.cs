@@ -2,21 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class TurotialManager : MonoBehaviour
 {   
     public GameObject[] popUps;
     private int popupIndex;
+    public FoodCountManager foodManager;
+    private int food_total;
 
     // Start is called before the first frame update
     void Start()
     {
         popupIndex = 0;
+        food_total = foodManager.get_count(0) + foodManager.get_count(1) + foodManager.get_count(2);
     }
 
     // Update is called once per frame
     void Update()
-    {   
+    {
         var gamepad = Gamepad.current;
         for (int i = 0; i < popUps.Length; i++){
             if (i == popupIndex){
@@ -83,6 +87,11 @@ public class TurotialManager : MonoBehaviour
         }else if (popupIndex == 11){
             var righttrigger = gamepad.rightTrigger.ReadValue();
             if (righttrigger == 1){
+                popupIndex ++;
+            }
+        }else if (popupIndex == 12){
+            var food_count_current = foodManager.get_count(0) + foodManager.get_count(1) + foodManager.get_count(2);
+            if (food_total - food_count_current >= 1){
                 popupIndex ++;
             }
         }
