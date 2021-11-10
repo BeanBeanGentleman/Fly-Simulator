@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace In_Level.Level_Item_Behaviours.Trap
 {
@@ -7,6 +8,7 @@ namespace In_Level.Level_Item_Behaviours.Trap
         public AutoResetCounter HP = new AutoResetCounter(10);
         public HealthBar hp_bar;
         public HealthBarScr escape_progressbar;
+        public Text text;
         public bool playerOnWeb = false;
         protected override void Start()
         {
@@ -21,6 +23,8 @@ namespace In_Level.Level_Item_Behaviours.Trap
             {
                 Debug.Log("fly in!!");
                 // Instantiate Escape Progress Bar here
+                escape_progressbar.gameObject.SetActive(true);
+                text.gameObject.SetActive(true);
             }
         }
 
@@ -61,6 +65,8 @@ namespace In_Level.Level_Item_Behaviours.Trap
                 if (escape_progressbar.cur_p() >= 92f)
                 {
                     Destroy(this.gameObject);
+                    escape_progressbar.gameObject.SetActive(false);
+                    text.gameObject.SetActive(false);
                 }
 
             }
