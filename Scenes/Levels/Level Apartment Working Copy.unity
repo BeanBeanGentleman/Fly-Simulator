@@ -2006,7 +2006,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60697762}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b408b2db82781ae47b6ad12cc5a2c355, type: 3}
   m_Name: 
@@ -6336,60 +6336,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
---- !u!1 &409791531 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8422892626600285392, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
-  m_PrefabInstance: {fileID: 1124283589}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &409791532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409791531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85022ff8ed792184d8e1a387909db408, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerFly: {fileID: 1833300266}
-  Basketinfo: {fileID: 409791531}
-  cheese: {fileID: 1010773094922619768, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
-  apple: {fileID: 3192459278100638785, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
-  banana: {fileID: 285799809243603686, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
-  size: {x: 2, y: 2, z: 2}
-  bag_manager: {fileID: 893545310}
-  count_manager: {fileID: 19805172}
---- !u!54 &409791535
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409791531}
-  serializedVersion: 2
-  m_Mass: 100
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &409791536
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 409791531}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.2848885, y: 1.8302528, z: 1}
-  m_Center: {x: -0.027693987, y: 0.7751853, z: 5.053388e-17}
 --- !u!1001 &411523619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24267,14 +24213,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8422892626592999198, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
-      propertyPath: m_Avatar
+    - target: {fileID: 409791532, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
+      propertyPath: playerFly
       value: 
-      objectReference: {fileID: 9000000, guid: 510b94bbc967ddb4f9793e758dd54ac5, type: 3}
-    - target: {fileID: 8422892626592999198, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
-      propertyPath: m_Controller
+      objectReference: {fileID: 1833300266}
+    - target: {fileID: 409791532, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
+      propertyPath: bag_manager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 893545310}
+    - target: {fileID: 409791532, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
+      propertyPath: count_manager
+      value: 
+      objectReference: {fileID: 19805172}
     - target: {fileID: 8422892626600249584, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
       propertyPath: m_RootOrder
       value: 3

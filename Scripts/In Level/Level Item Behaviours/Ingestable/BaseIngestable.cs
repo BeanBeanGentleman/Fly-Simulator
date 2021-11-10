@@ -43,20 +43,6 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
             FoodAmount.MaxmizeTemp();
         }
 
-        private void OnCollisionEnter(Collision collision)
-        {
-            BaseFlyController BFC;
-            Debug.Log("OnCollisionEnter");
-            if (collision.gameObject.name == "Fly")
-            {
-                ElimateThis();
-            }
-            if (collision.gameObject.name == "Mouse")
-            {
-                ElimateThisByMouse();
-            }
-        }
-
         private void OnTriggerEnter(Collider other)
         {
             BaseFlyController BFC;
@@ -92,25 +78,7 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
             Destroy(this.gameObject);
         }
 
-        public virtual void ElimateThisByMouse()
-        {
-            Debug.Log("ElimateThis");
-            if (this.gameObject.tag == "Banana")
-            {
-                food_manager.decrease_food_count(2, 1);
-                
-            }
-            else if (this.gameObject.tag == "Cheese")
-            {
-                food_manager.decrease_food_count(0, 1);
-            }
-            else
-            {
-                food_manager.decrease_food_count(1, 1);
-                
-            }
-            Destroy(this.gameObject);
-        }
+
 
         public virtual void RemoveParent()
         {

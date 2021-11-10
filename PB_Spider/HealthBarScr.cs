@@ -73,6 +73,6 @@ public class HealthBarScr : MonoBehaviour
 
     void Damage()
     {
-        health -= 1f;
+        health -= 0.1f;
     }
 }

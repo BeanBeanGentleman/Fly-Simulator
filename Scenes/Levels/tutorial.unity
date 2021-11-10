@@ -2134,15 +2134,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5260254566599994767, guid: 1fd0a28da50e9ca4e8d1181dfd7c7677, type: 3}
       propertyPath: m_Size.x
-      value: 1
+      value: 2.0558808
       objectReference: {fileID: 0}
     - target: {fileID: 5260254566599994767, guid: 1fd0a28da50e9ca4e8d1181dfd7c7677, type: 3}
       propertyPath: m_Size.y
-      value: 1
+      value: 1.6976223
       objectReference: {fileID: 0}
     - target: {fileID: 5260254566599994767, guid: 1fd0a28da50e9ca4e8d1181dfd7c7677, type: 3}
       propertyPath: m_Size.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5260254566599994767, guid: 1fd0a28da50e9ca4e8d1181dfd7c7677, type: 3}
+      propertyPath: m_Center.x
+      value: 0.00816226
+      objectReference: {fileID: 0}
+    - target: {fileID: 5260254566599994767, guid: 1fd0a28da50e9ca4e8d1181dfd7c7677, type: 3}
+      propertyPath: m_Center.y
+      value: 0.67570114
+      objectReference: {fileID: 0}
+    - target: {fileID: 5260254566599994767, guid: 1fd0a28da50e9ca4e8d1181dfd7c7677, type: 3}
+      propertyPath: m_Center.z
+      value: 4.970416e-18
       objectReference: {fileID: 0}
     - target: {fileID: 5260254566599994771, guid: 1fd0a28da50e9ca4e8d1181dfd7c7677, type: 3}
       propertyPath: playerFly

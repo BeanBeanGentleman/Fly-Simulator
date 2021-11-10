@@ -10,6 +10,7 @@ namespace In_Level.Level_Item_Behaviours.Trap
         public HealthBarScr escape_progressbar;
         public Text text;
         public bool playerOnWeb = false;
+        BaseFlyController BFC;
         protected override void Start()
         {
             base.Start();
@@ -18,10 +19,9 @@ namespace In_Level.Level_Item_Behaviours.Trap
 
         private void OnTriggerEnter(Collider other)
         {
-            BaseFlyController BFC;
+
             if (other.gameObject.TryGetComponent<BaseFlyController>(out BFC))
             {
-                Debug.Log("fly in!!");
                 // Instantiate Escape Progress Bar here
                 escape_progressbar.gameObject.SetActive(true);
                 text.gameObject.SetActive(true);
@@ -39,14 +39,10 @@ namespace In_Level.Level_Item_Behaviours.Trap
             }
         }
 
-        protected override void OnTriggerExit(Collider other)
+        void restore_speed()
         {
-            BaseFlyController BFC;
-            if (other.gameObject.TryGetComponent<BaseFlyController>(out BFC))
-            {
-                playerOnWeb = false;
-                BFC.AirDragVal.SetNoBonusModifier(thisGuid); 
-            }
+            playerOnWeb = false;
+            BFC.AirDragVal.SetNoBonusModifier(thisGuid); 
         }
 
         private void Update()
@@ -62,9 +58,10 @@ namespace In_Level.Level_Item_Behaviours.Trap
                 hp_bar.setValue(cur_hp);
 
 
-                if (escape_progressbar.cur_p() >= 92f)
+                if (escape_progressbar.cur_p() >= 95f)
                 {
                     Destroy(this.gameObject);
+                    restore_speed();
                     escape_progressbar.gameObject.SetActive(false);
                     text.gameObject.SetActive(false);
                 }
