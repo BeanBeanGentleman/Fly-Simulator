@@ -93,6 +93,11 @@ public class TurotialManager : MonoBehaviour
             if (food_count_current >= 1){
                 popupIndex ++;
             }
+        }else if (popupIndex == 13){
+            var food_count_current = bagcountmanager.get_bag_count(0) + bagcountmanager.get_bag_count(1) + bagcountmanager.get_bag_count(2);
+            if (food_count_current == 0){
+                popupIndex ++;
+            }
         }
     }
 }
