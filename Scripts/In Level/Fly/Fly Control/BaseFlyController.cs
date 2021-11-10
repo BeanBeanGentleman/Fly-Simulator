@@ -123,8 +123,11 @@ public partial class BaseFlyController : MonoBehaviour
     }
     protected void FixedUpdate()
     {
-        _ = IsClimbing ? ClimbAction() : FlightAction();
-        if (ClimbCounter.IsZeroReached(1, false)) IsClimbing = false;
+       /* _ = IsClimbing ? ClimbAction() : FlightAction();
+        if (ClimbCounter.IsZeroReached(1, false)) IsClimbing = false;*/
+
+        IsClimbing = false;
+        FlightAction();
 
     }
 

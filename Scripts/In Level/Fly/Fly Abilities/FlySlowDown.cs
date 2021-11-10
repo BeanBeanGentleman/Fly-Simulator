@@ -59,7 +59,7 @@ namespace In_Level.Fly.Fly_Abilities
                 }
                 else
                 {
-                    f = -0.1f * total_food;
+                    f = -0.3f * total_food;
                     mod = new Modifier(false, f, "0");
                     Active();
                 }
