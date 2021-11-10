@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 581024230735719259}
   - component: {fileID: 581024230735719256}
   - component: {fileID: 581024230735719257}
-  - component: {fileID: 581024230735719258}
+  - component: {fileID: 1543592692}
   m_Layer: 5
   m_Name: CheeseCount
   m_TagString: Untagged
@@ -80,7 +80,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Cheese Count
---- !u!114 &581024230735719258
+--- !u!114 &1543592692
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,7 +89,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 581024230735719236}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9937c502911bd40bfa535a8705dd5882, type: 3}
+  m_Script: {fileID: 11500000, guid: f71f5bca5d4186842adfd6c4d6d1a5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 581024230735719257}
+  food_ma: {fileID: 0}
+  bag_ma: {fileID: 0}

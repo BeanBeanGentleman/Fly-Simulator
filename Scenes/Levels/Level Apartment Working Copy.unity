@@ -259,6 +259,10 @@ PrefabInstance:
       propertyPath: ParentGameObject
       value: 
       objectReference: {fileID: 397050451}
+    - target: {fileID: 7772150231005727031, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
+      propertyPath: bag_count_manager
+      value: 
+      objectReference: {fileID: 893545310}
     - target: {fileID: 7772150231005727032, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -1803,6 +1807,10 @@ PrefabInstance:
       propertyPath: ParentGameObject
       value: 
       objectReference: {fileID: 1205780660}
+    - target: {fileID: 8709489851052740877, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
+      propertyPath: bag_count_manager
+      value: 
+      objectReference: {fileID: 893545310}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
 --- !u!1 &43338133
@@ -1987,6 +1995,10 @@ PrefabInstance:
       propertyPath: ParentGameObject
       value: 
       objectReference: {fileID: 1165624684}
+    - target: {fileID: 8709489851052740877, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
+      propertyPath: bag_count_manager
+      value: 
+      objectReference: {fileID: 893545310}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
 --- !u!1 &60697762 stripped
@@ -2101,6 +2113,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1678935461}
     m_Modifications:
+    - target: {fileID: 1015372793, guid: 6fcb93e9a3c8b8d4997361d12f7c09b2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4554772757350780461, guid: 6fcb93e9a3c8b8d4997361d12f7c09b2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2131,7 +2147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4554772757350780461, guid: 6fcb93e9a3c8b8d4997361d12f7c09b2, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 160
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4554772757350780461, guid: 6fcb93e9a3c8b8d4997361d12f7c09b2, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2167,7 +2183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4554772757350780461, guid: 6fcb93e9a3c8b8d4997361d12f7c09b2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 105
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 4554772757350780461, guid: 6fcb93e9a3c8b8d4997361d12f7c09b2, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -13548,6 +13564,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 284361786}
     m_Modifications:
+    - target: {fileID: 1543592692, guid: 7175b75312ba20b409e2d9dba79437f0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 581024230735719236, guid: 7175b75312ba20b409e2d9dba79437f0, type: 3}
       propertyPath: m_Name
       value: CheeseCount
@@ -13582,7 +13602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 581024230735719259, guid: 7175b75312ba20b409e2d9dba79437f0, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 160
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 581024230735719259, guid: 7175b75312ba20b409e2d9dba79437f0, type: 3}
       propertyPath: m_SizeDelta.y
@@ -13618,7 +13638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 581024230735719259, guid: 7175b75312ba20b409e2d9dba79437f0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 101
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 581024230735719259, guid: 7175b75312ba20b409e2d9dba79437f0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -17130,6 +17150,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 286008019}
     m_Modifications:
+    - target: {fileID: 1794450851, guid: d53ae5892dd794444bfc8ef5d48485fe, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5858872857953273356, guid: d53ae5892dd794444bfc8ef5d48485fe, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -17160,7 +17184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5858872857953273356, guid: d53ae5892dd794444bfc8ef5d48485fe, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 160
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 5858872857953273356, guid: d53ae5892dd794444bfc8ef5d48485fe, type: 3}
       propertyPath: m_SizeDelta.y
@@ -17196,7 +17220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5858872857953273356, guid: d53ae5892dd794444bfc8ef5d48485fe, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 105
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 5858872857953273356, guid: d53ae5892dd794444bfc8ef5d48485fe, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -18560,6 +18584,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1c49d6c9ec18e24b92af556b8bade75, type: 3}
+--- !u!1 &893545308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 893545309}
+  - component: {fileID: 893545310}
+  m_Layer: 5
+  m_Name: BagManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &893545309
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893545308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2112167673}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &893545310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893545308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02384441c091ba749822812fa0e62610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &916908806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20880,6 +20952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1015372794}
   food_ma: {fileID: 19805172}
+  bag_ma: {fileID: 893545310}
 --- !u!114 &1015372794 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4554772757350780435, guid: 6fcb93e9a3c8b8d4997361d12f7c09b2, type: 3}
@@ -24811,6 +24884,10 @@ PrefabInstance:
       propertyPath: ParentGameObject
       value: 
       objectReference: {fileID: 598888642}
+    - target: {fileID: 1706643178290125078, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
+      propertyPath: bag_count_manager
+      value: 
+      objectReference: {fileID: 893545310}
     - target: {fileID: 3253380206888426185, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -25063,6 +25140,10 @@ PrefabInstance:
       propertyPath: food_manager
       value: 
       objectReference: {fileID: 19805172}
+    - target: {fileID: 8709489851052740877, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
+      propertyPath: bag_count_manager
+      value: 
+      objectReference: {fileID: 893545310}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86745613934f77049ac2337fea19bf1b, type: 3}
 --- !u!4 &1301683389 stripped
@@ -25137,6 +25218,10 @@ PrefabInstance:
       propertyPath: ParentGameObject
       value: 
       objectReference: {fileID: 1573276522}
+    - target: {fileID: 1706643178290125078, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
+      propertyPath: bag_count_manager
+      value: 
+      objectReference: {fileID: 893545310}
     - target: {fileID: 3253380206888426185, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -26891,6 +26976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1543592693}
   food_ma: {fileID: 19805172}
+  bag_ma: {fileID: 893545310}
 --- !u!114 &1543592693 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 581024230735719257, guid: 7175b75312ba20b409e2d9dba79437f0, type: 3}
@@ -29372,6 +29458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1794450852}
   food_ma: {fileID: 19805172}
+  bag_ma: {fileID: 893545310}
 --- !u!114 &1794450852 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5858872857953273358, guid: d53ae5892dd794444bfc8ef5d48485fe, type: 3}
@@ -34355,6 +34442,10 @@ PrefabInstance:
       propertyPath: food_manager
       value: 
       objectReference: {fileID: 19805172}
+    - target: {fileID: 1706643178290125078, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
+      propertyPath: bag_count_manager
+      value: 
+      objectReference: {fileID: 893545310}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b86d07a77ab06e349959c186e09cea71, type: 3}
 --- !u!4 &2001885049 stripped
@@ -35299,6 +35390,10 @@ PrefabInstance:
       propertyPath: ParentGameObject
       value: 
       objectReference: {fileID: 1944649653}
+    - target: {fileID: 7772150231005727031, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
+      propertyPath: bag_count_manager
+      value: 
+      objectReference: {fileID: 893545310}
     - target: {fileID: 7772150231005727032, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -56669,6 +56764,10 @@ PrefabInstance:
       propertyPath: food_manager
       value: 
       objectReference: {fileID: 19805172}
+    - target: {fileID: 7772150231005727031, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
+      propertyPath: bag_count_manager
+      value: 
+      objectReference: {fileID: 893545310}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
 --- !u!1 &7522010746170940230

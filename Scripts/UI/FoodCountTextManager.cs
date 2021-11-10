@@ -6,6 +6,7 @@ public class FoodCountTextManager : MonoBehaviour
 {
     public Text text;
     public FoodCountManager food_ma;
+    public BagCountManager bag_ma;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,15 +18,15 @@ public class FoodCountTextManager : MonoBehaviour
     {
         if (gameObject.name == "CheeseCount")
         {
-            text.text = food_ma.get_count(0).ToString();
+            text.text = food_ma.get_count(0).ToString() + " Remain / " + bag_ma.get_bag_count(0).ToString() + " in bag";
         }
         else if (gameObject.name == "AppleCount")
         {
-            text.text = food_ma.get_count(1).ToString();
+            text.text = food_ma.get_count(1).ToString()+ " Remain / " + bag_ma.get_bag_count(1).ToString() + " in bag";
         }
         else if (gameObject.name == "BananaCount")
         {
-            text.text = food_ma.get_count(2).ToString();
+            text.text = food_ma.get_count(2).ToString()+ " Remain / " + bag_ma.get_bag_count(2).ToString() + " in bag";
         }
 
         if ((food_ma.get_count(0) + food_ma.get_count(1) + food_ma.get_count(2)) == 0)

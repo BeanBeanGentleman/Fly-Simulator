@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4554772757350780461}
   - component: {fileID: 4554772757350780434}
   - component: {fileID: 4554772757350780435}
-  - component: {fileID: 4554772757350780460}
+  - component: {fileID: 1015372793}
   m_Layer: 5
   m_Name: AppleCount
   m_TagString: Untagged
@@ -80,7 +80,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Apple Count
---- !u!114 &4554772757350780460
+--- !u!114 &1015372793
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,7 +89,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4554772757350780462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9937c502911bd40bfa535a8705dd5882, type: 3}
+  m_Script: {fileID: 11500000, guid: f71f5bca5d4186842adfd6c4d6d1a5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 4554772757350780435}
+  food_ma: {fileID: 0}
+  bag_ma: {fileID: 0}
