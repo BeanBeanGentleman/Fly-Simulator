@@ -19,6 +19,8 @@ public class BagCountManager : MonoBehaviour
         return in_speed_up;
     }
 
+    
+
     public void alter_speed_up()
     {
         in_speed_up = !in_speed_up;
@@ -32,6 +34,11 @@ public class BagCountManager : MonoBehaviour
     public void decrease_food_count(int index, int val)
     {
         food_bag_count[index] = Mathf.Max(0 , food_bag_count[index] - val);
+    }
+
+    public void resetFoodCount(int index)
+    {
+        food_bag_count[index] = 0;
     }
 
     public void increase_food_count(int index){

@@ -35,12 +35,12 @@ public class Basket : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision other)
+    private void OnCollisionEnter(Collision other)
     {
         BaseFlyController BFC;
         if (other.gameObject.TryGetComponent<BaseFlyController>(out BFC))
         {
-            if (timer > 594)
+            /* if (timer > 594)
             {
                 if(bag_manager.get_total_food_count() > 0)
                 {
@@ -48,15 +48,27 @@ public class Basket : MonoBehaviour
                     {
                         if (bag_manager.get_bag_count(i) > 0)
                         {
-                            fill_Basket(i);
+                            //fill_Basket(i);
                             bag_manager.decrease_food_count(i, 1);
                             break;
                         }
                     }
                 }
+            } */
+            if (bag_manager.get_total_food_count() > 0)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    if (bag_manager.get_bag_count(i) > 0)
+                    {
+                        //fill_Basket(i);
+                        count_manager.decrease_food_count(i, bag_manager.get_bag_count(i));
+                        bag_manager.resetFoodCount(i);
+                    }
+                }
             }
         }
-        if (other.gameObject.tag == "Apple")
+        /*if (other.gameObject.tag == "Apple")
         {
             count_manager.decrease_food_count(1, 1);
             Destroy(other.gameObject);
@@ -70,26 +82,7 @@ public class Basket : MonoBehaviour
         {
             count_manager.decrease_food_count(0, 1);
             Destroy(other.gameObject);
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Apple")
-        {
-            count_manager.decrease_food_count(1, 1);
-            Destroy(other.gameObject);
-        }
-        if (other.tag == "Banana")
-        {
-            count_manager.decrease_food_count(2, 1);
-            Destroy(other.gameObject);
-        }
-        if (other.tag == "Cheese")
-        {
-            count_manager.decrease_food_count(0, 1);
-            Destroy(other.gameObject);
-        }
+        }*/
     }
 
     void fill_Basket(int num)

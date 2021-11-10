@@ -64,11 +64,10 @@ namespace In_Level.Level_Item_Behaviours.Ingestable
             {
                 ElimateThis();
             }
-            if (other.gameObject.name == "Mouse")
+            /* if (other.gameObject.name == "Mouse")
             {
                 ElimateThisByMouse();
-            }
-            print(other.gameObject.name);
+            } */ 
         }
 
 
