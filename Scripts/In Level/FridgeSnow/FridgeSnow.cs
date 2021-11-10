@@ -8,6 +8,9 @@ public class FridgeSnow : MonoBehaviour
     private bool is_counting = false;
     private int freeze_amount = 0;
     private float last_time_stamp = 0;
+
+    public HealthBar hp_bar;
+    private float[] hp_loss_amt = new float[] {0.001f, 0.002f, 0.003f, 0.004f, 0.005f};
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +22,6 @@ public class FridgeSnow : MonoBehaviour
     {
         if (collision.gameObject.name == "Fly")
         {
-            Debug.Log("ENTER!");
             inside_fridge = true;
         }
 
@@ -28,7 +30,6 @@ public class FridgeSnow : MonoBehaviour
     {
         if (collision.gameObject.name == "Fly")
         {
-            Debug.Log("Exit!");
             inside_fridge = false;
         }
     }
@@ -63,15 +64,15 @@ public class FridgeSnow : MonoBehaviour
             else
             {
                 // If the fly is no longer inside the fridge
-                if (freeze_amount <= 0)
-                {
-                    return;
-                }
-                else
-                {
-                    freeze_amount += -1;
-                }
+                freeze_amount = 0;
             }
+        }
+
+        if (freeze_amount > 0)
+        {
+            float cur_hp = hp_bar.getValue();
+            cur_hp -= hp_loss_amt[freeze_amount - 1];
+            hp_bar.setValue(cur_hp);
         }
     }
 }

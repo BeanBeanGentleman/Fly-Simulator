@@ -34,6 +34,11 @@ public partial class BaseFlyController : MonoBehaviour
     /// The air drag the fly will suffer from. 
     /// </summary>
     public ValueContainer AirDragVal = new ValueContainer(3);
+
+
+    private Modifier[] SlowDownModifer = new Modifier[]{ new Modifier(false, 3.5f, "0"), new Modifier(false, 4f, "0"), new Modifier(false, 4.5f, "0"), new Modifier(false, 5f, "0"), new Modifier(false, 5.5f, "0")};
+    public Modifier SpeedUpModifier = new Modifier(false, 20, "0");
+    public Modifier normalSpeedModifier = new Modifier(false, 3, "0");
     /// <summary>
     /// The noise multiplier toward the fly's buzz. Also affect the effective range of the noise.
     /// </summary>
@@ -115,7 +120,6 @@ public partial class BaseFlyController : MonoBehaviour
         HPCounter = new AutoResetCounter(MaxHP.FinalVal(), true);
         TakeDamage(0f);
         ClearIngestion();
-
     }
     protected void FixedUpdate()
     {
@@ -124,8 +128,24 @@ public partial class BaseFlyController : MonoBehaviour
 
     }
 
+
+    public void slow_down_fly(int index)
+    {
+        AirDragVal.SetModifier(myGuid, SlowDownModifer[index]);
+    }
+
+    public void speed_up_fly()
+    {
+        movementAccel.SetModifier(myGuid, SpeedUpModifier);
+    }
+
+    public void normal_fly_speed()
+    {
+        AirDragVal.SetModifier(myGuid, normalSpeedModifier);
+    }
+
     int FlightAction()
-    {   
+    {
         AirDragVal.SetNoBonusModifier(myGuid);
         thisRigidbody.drag = AirDragVal.FinalVal();
         thisRigidbody.AddRelativeForce(movementAccel.FinalVal() * CurrentMovingDirection);
