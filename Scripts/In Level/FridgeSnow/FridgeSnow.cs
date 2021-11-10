@@ -10,7 +10,7 @@ public class FridgeSnow : MonoBehaviour
     private float last_time_stamp = 0;
 
     public HealthBar hp_bar;
-    private float[] hp_loss_amt = new float[] {0.001f, 0.002f, 0.003f, 0.004f, 0.005f};
+    private float[] hp_loss_amt = new float[] {0.001f, 0.001f, 0.001f, 0.002f, 0.002f};
     // Start is called before the first frame update
     void Start()
     {

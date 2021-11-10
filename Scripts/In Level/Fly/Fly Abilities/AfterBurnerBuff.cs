@@ -10,6 +10,8 @@ namespace In_Level.Fly.Fly_Abilities
     /// </summary>
     public class AfterBurnerBuff : BaseManeuverabilityBuff
     {
+
+        public BagCountManager bag_c;
         protected override void Active()
         {
             thisFlyController.movementAccel.SetModifier(this.guid, BuffValue[0]);
@@ -17,13 +19,20 @@ namespace In_Level.Fly.Fly_Abilities
 
         protected override void Deactive()
         {
+            bag_c.alter_speed_up();
             thisFlyController.movementAccel.SetNoBonusModifier(this.guid);
         }
 
 
-        private void Update()
+        private void OnCollisionEnter(UnityEngine.Collision collision)
         {
-            
+            if (collision.gameObject.name == "Fly")
+            {
+                this.gameObject.SetActive(false);
+                Active();
+                bag_c.alter_speed_up();
+                Invoke(nameof(Deactive), 20);
+            }
         }
     }
 }
