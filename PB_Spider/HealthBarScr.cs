@@ -49,6 +49,11 @@ public class HealthBarScr : MonoBehaviour
         ColorChange();
     }
 
+    public float cur_p()
+    {
+        return health;
+    }
+
     void HealthBarFiller()
     {
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, health / maxHealth, lerpSpeed);

@@ -6,11 +6,21 @@ namespace In_Level.Level_Item_Behaviours.Trap
     {
         public AutoResetCounter HP = new AutoResetCounter(10);
         public HealthBar hp_bar;
+        public HealthBarScr escape_progressbar;
         public bool playerOnWeb = false;
         protected override void Start()
         {
             base.Start();
             HP.MaxmizeTemp();
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            BaseFlyController BFC;
+            if (other.gameObject.TryGetComponent<BaseFlyController>(out BFC))
+            {
+                // Instantiate Escape Progress Bar here
+            }
         }
 
         protected override void OnTriggerStay(Collider other)
@@ -19,17 +29,8 @@ namespace In_Level.Level_Item_Behaviours.Trap
             if (other.gameObject.TryGetComponent<BaseFlyController>(out BFC))
             {
                 playerOnWeb = true;
-                //if (HP.IsZeroReached(Time.fixedDeltaTime, false))
-                //{
-                //    playerOnWeb = false;
-                //    BFC.AirDragVal.SetNoBonusModifier(thisGuid);
-                //    Destroy(this.gameObject);
-                //}
-                //else
-                //{
-                    BFC.AirDragVal.SetModifier(thisGuid, Webifier);
-                //}
-                
+                BFC.AirDragVal.SetModifier(thisGuid, Webifier);
+
             }
         }
 
@@ -54,6 +55,13 @@ namespace In_Level.Level_Item_Behaviours.Trap
                 float cur_hp = hp_bar.getValue();
                 cur_hp += -0.01f;
                 hp_bar.setValue(cur_hp);
+
+
+                if (escape_progressbar.cur_p() >= 92f)
+                {
+                    Destroy(this.gameObject);
+                }
+
             }
         }
     }

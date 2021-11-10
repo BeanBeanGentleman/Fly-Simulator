@@ -10328,6 +10328,14 @@ PrefabInstance:
       propertyPath: hp_bar
       value: 
       objectReference: {fileID: 274925225}
+    - target: {fileID: 7258184357215701461, guid: 9e128c54f8a91384d847fef0e21c03e8, type: 3}
+      propertyPath: hp_bar
+      value: 
+      objectReference: {fileID: 274925225}
+    - target: {fileID: 7258184357215701461, guid: 9e128c54f8a91384d847fef0e21c03e8, type: 3}
+      propertyPath: escape_progressbar
+      value: 
+      objectReference: {fileID: 1796487763}
     - target: {fileID: 7258184358360951148, guid: 9e128c54f8a91384d847fef0e21c03e8, type: 3}
       propertyPath: m_Name
       value: DemoWebifier
