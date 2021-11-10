@@ -1,4 +1,8 @@
-﻿namespace In_Level.Fly.Fly_Abilities
+﻿using UnityEngine;
+using System;
+using System.Collections;
+
+namespace In_Level.Fly.Fly_Abilities
 {
     /// <summary>
     /// This is for the After Burner ability for the normal fly.
@@ -9,13 +13,22 @@
         protected override void Active()
         {
             thisFlyController.movementAccel.SetModifier(this.guid, BuffValue[0]);
-            thisFlyController.Agility.SetModifier(this.guid, DebuffValue[0]);
         }
 
         protected override void Deactive()
         {
             thisFlyController.movementAccel.SetNoBonusModifier(this.guid);
-            thisFlyController.Agility.SetNoBonusModifier(this.guid);
+        }
+
+
+        private void OnCollisionEnter(UnityEngine.Collision collision)
+        {
+            if (collision.gameObject.name == "Fly")
+            {
+                this.gameObject.SetActive(false);
+                Active();
+                Invoke(nameof(Deactive), 20);
+            }
         }
     }
 }

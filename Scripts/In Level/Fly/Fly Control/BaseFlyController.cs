@@ -37,7 +37,7 @@ public partial class BaseFlyController : MonoBehaviour
 
 
     private Modifier[] SlowDownModifer = new Modifier[]{ new Modifier(false, 3.5f, "0"), new Modifier(false, 4f, "0"), new Modifier(false, 4.5f, "0"), new Modifier(false, 5f, "0"), new Modifier(false, 5.5f, "0")};
-    public Modifier SpeedUpModifier = new Modifier(false, 1, "0");
+    public Modifier SpeedUpModifier = new Modifier(false, 20, "0");
     public Modifier normalSpeedModifier = new Modifier(false, 3, "0");
     /// <summary>
     /// The noise multiplier toward the fly's buzz. Also affect the effective range of the noise.
@@ -136,7 +136,7 @@ public partial class BaseFlyController : MonoBehaviour
 
     public void speed_up_fly()
     {
-        AirDragVal.SetModifier(myGuid, SpeedUpModifier);
+        movementAccel.SetModifier(myGuid, SpeedUpModifier);
     }
 
     public void normal_fly_speed()
