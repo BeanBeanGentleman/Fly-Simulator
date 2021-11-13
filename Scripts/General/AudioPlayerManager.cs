@@ -5,6 +5,7 @@ using UnityEngine;
 public class AudioPlayerManager : MonoBehaviour
 {
     private static AudioPlayerManager instance = null;
+    private bool musicpause;
       private AudioSource audio;
 
       private void Awake()
@@ -22,6 +23,19 @@ public class AudioPlayerManager : MonoBehaviour
       void Start()
       {
          audio = GetComponent<AudioSource>();
+         musicpause = false;
          audio.Play();
+      }
+
+      void Update()
+      {
+        audio = GetComponent<AudioSource>();
+        if (PauseMenu.IsPaused){
+             audio.Pause();
+             musicpause = true;
+        }else if(musicpause){
+            audio.Play();
+            musicpause = false;
+        }
       }
 }
