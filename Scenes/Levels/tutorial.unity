@@ -276,6 +276,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2112167673}
     m_Modifications:
+    - target: {fileID: 5622375251980421081, guid: 537e06ff01fcd384dbdeee0250464098, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 964b1af216d30de4da98fb3a87bb76ba, type: 3}
     - target: {fileID: 5622375251980421086, guid: 537e06ff01fcd384dbdeee0250464098, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5311,6 +5315,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5162987051846026649, guid: 712969b145efa414db4c69a5899c03de, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 82a2b814068d08e45bae0156e69b0f81, type: 3}
     - target: {fileID: 5162987051846026651, guid: 712969b145efa414db4c69a5899c03de, type: 3}
       propertyPath: m_Name
       value: Apple
@@ -17728,6 +17736,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Banana
       objectReference: {fileID: 0}
+    - target: {fileID: 906242503203800223, guid: 2913abd690710c24db1e90ee544a7dee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e064602f085e3e44da22776b02afd624, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2913abd690710c24db1e90ee544a7dee, type: 3}
 --- !u!4 &846496919 stripped
