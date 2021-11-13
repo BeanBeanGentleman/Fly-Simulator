@@ -9,12 +9,29 @@ public class TurotialManager : MonoBehaviour
     public GameObject[] popUps;
     private int popupIndex;
     public BagCountManager bagcountmanager;
-    private int food_total;
+    private int food_total,leftcount, rightcount, dpadcount, triggercount;
+    private bool ll, lr, lu, ld, rl, rr, ru, rd, du, dd, lt, rt;
 
     // Start is called before the first frame update
     void Start()
     {
         popupIndex = 0;
+        leftcount = 0;
+        rightcount = 0;
+        dpadcount = 0;
+        triggercount = 0;
+        ll = false;
+        lu = false;
+        lr = false;
+        ld = false;
+        rl = false;
+        rr = false;
+        ru = false;
+        rd = false;
+        du = false;
+        dd = false;
+        lt = false;
+        rt = false;
     }
 
     // Update is called once per frame
@@ -30,70 +47,78 @@ public class TurotialManager : MonoBehaviour
         }
         if (popupIndex == 0){
             var lsupValue = gamepad.leftStick.up.ReadValue();
-            if (lsupValue == 1){
+            var lsdownValue = gamepad.leftStick.down.ReadValue();
+            var lsrightValue = gamepad.leftStick.right.ReadValue();
+            var lsleftValue = gamepad.leftStick.left.ReadValue();
+            if (lsupValue == 1 && lu == false){
+                leftcount ++;
+                lu = true;
+            }else if (lsdownValue == 1 && ld == false){
+                leftcount ++;
+                ld = true;
+            }else if (lsrightValue == 1 && lr == false){
+                leftcount ++;
+                lr = true;
+            }else if (lsleftValue == 1 && ll == false){
+                leftcount ++;
+                ll = true;
+            }
+            if (leftcount == 4){
                 popupIndex ++;
             }
         }else if (popupIndex == 1){
-            var lsdownValue = gamepad.leftStick.down.ReadValue();
-            if (lsdownValue == 1){
-                popupIndex ++;
+            var rsdownValue = gamepad.rightStick.down.ReadValue();
+            var rsleftValue = gamepad.rightStick.left.ReadValue();
+            var rsrightValue = gamepad.rightStick.right.ReadValue();
+            var rsupValue = gamepad.rightStick.up.ReadValue();
+            if (rsupValue == 1 && ru == false){
+                rightcount ++;
+                ru = true;
+            }else if (rsdownValue == 1 && rd == false){
+                rightcount ++;
+                rd = true;
+            }else if (rsrightValue == 1 && rr == false){
+                rightcount ++;
+                rr = true;
+            }else if (rsleftValue == 1 && rl == false){
+                rightcount ++;
+                rl = true;
             }
+            if (rightcount == 4){
+                popupIndex ++;
+            }         
         }else if (popupIndex == 2){
-            var lsleftValue = gamepad.leftStick.left.ReadValue();
-            if (lsleftValue == 1){
+            var dpadup = gamepad.dpad.up.ReadValue();
+            var dpaddown = gamepad.dpad.down.ReadValue();
+            if (dpadup == 1 && du == false){
+                dpadcount ++;
+                du = true;
+            }else if (dpaddown == 1 && dd == false){
+                dpadcount ++;
+                dd = true;
+            }
+            if (dpadcount == 2){
                 popupIndex ++;
             }
         }else if (popupIndex == 3){
-            var lsrightValue = gamepad.leftStick.right.ReadValue();
-            if (lsrightValue == 1){
+            var lefttrigger = gamepad.leftTrigger.ReadValue();
+            var righttrigger = gamepad.rightTrigger.ReadValue();
+            if (lefttrigger == 1 && lt == false){
+                triggercount ++;
+                lt = true;
+            }else if (righttrigger == 1 && rt == false){
+                triggercount ++;
+                rt = true;    
+            }
+            if (triggercount == 2){
                 popupIndex ++;
             }
         }else if (popupIndex == 4){
-            var rsupValue = gamepad.rightStick.up.ReadValue();
-            if (rsupValue == 1){
-                popupIndex ++;
-            }
-        }else if (popupIndex == 5){
-            var rsdownValue = gamepad.rightStick.down.ReadValue();
-            if (rsdownValue == 1){
-                popupIndex ++;
-            }           
-        }else if (popupIndex == 6){
-            var rsleftValue = gamepad.rightStick.left.ReadValue();
-            if (rsleftValue == 1){
-                popupIndex ++;
-            }  
-        }else if (popupIndex == 7){
-            var rsrightValue = gamepad.rightStick.right.ReadValue();
-            if (rsrightValue == 1){
-                popupIndex ++;
-            }
-        }else if (popupIndex == 8){
-            var dpadup = gamepad.dpad.up.ReadValue();
-            if (dpadup == 1){
-                popupIndex ++;
-            }
-        }else if (popupIndex == 9){
-            var dpaddown = gamepad.dpad.down.ReadValue();
-            if (dpaddown == 1){
-                popupIndex ++;
-            }
-        }else if (popupIndex == 10){
-            var lefttrigger = gamepad.leftTrigger.ReadValue();
-            if (lefttrigger == 1){
-                popupIndex ++;
-            }           
-        }else if (popupIndex == 11){
-            var righttrigger = gamepad.rightTrigger.ReadValue();
-            if (righttrigger == 1){
-                popupIndex ++;
-            }
-        }else if (popupIndex == 12){
             var food_count_current = bagcountmanager.get_bag_count(0) + bagcountmanager.get_bag_count(1) + bagcountmanager.get_bag_count(2);
             if (food_count_current >= 1){
                 popupIndex ++;
             }
-        }else if (popupIndex == 13){
+        }else if (popupIndex == 5){
             var food_count_current = bagcountmanager.get_bag_count(0) + bagcountmanager.get_bag_count(1) + bagcountmanager.get_bag_count(2);
             if (food_count_current == 0){
                 popupIndex ++;
