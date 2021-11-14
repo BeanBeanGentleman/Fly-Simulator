@@ -2294,6 +2294,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PR_Chair_01_low (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3551350723549352719, guid: 3822093f939484045903349d211105d8, type: 3}
+      propertyPath: m_TagString
+      value: Climbable
+      objectReference: {fileID: 0}
     - target: {fileID: 4180253076085279157, guid: 3822093f939484045903349d211105d8, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -5367,6 +5371,10 @@ PrefabInstance:
     - target: {fileID: 5700575488660826257, guid: af32956d293d34845b86db2cf1ca28ea, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700575488660826257, guid: af32956d293d34845b86db2cf1ca28ea, type: 3}
+      propertyPath: m_TagString
+      value: Climbable
       objectReference: {fileID: 0}
     - target: {fileID: 5700575488660826257, guid: af32956d293d34845b86db2cf1ca28ea, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -17510,6 +17518,10 @@ PrefabInstance:
       value: ChuangTouGui
       objectReference: {fileID: 0}
     - target: {fileID: 4714827649485406026, guid: 7bf7084472040644f9b4042525602a1a, type: 3}
+      propertyPath: m_TagString
+      value: Climbable
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714827649485406026, guid: 7bf7084472040644f9b4042525602a1a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -18166,6 +18178,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3018774923084413030, guid: a1901326b3cc8a84697b8ae23e5f98c6, type: 3}
+      propertyPath: m_TagString
+      value: Climbable
+      objectReference: {fileID: 0}
+    - target: {fileID: 3018774923084413030, guid: a1901326b3cc8a84697b8ae23e5f98c6, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -18726,6 +18742,10 @@ PrefabInstance:
     - target: {fileID: 1494222522353088, guid: cb5e9f2708b22104097bd8edfc0c98e0, type: 3}
       propertyPath: m_Name
       value: Pref_Sofa2_Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 1494222522353088, guid: cb5e9f2708b22104097bd8edfc0c98e0, type: 3}
+      propertyPath: m_TagString
+      value: Climbable
       objectReference: {fileID: 0}
     - target: {fileID: 4436401648360488, guid: cb5e9f2708b22104097bd8edfc0c98e0, type: 3}
       propertyPath: m_RootOrder
@@ -22120,6 +22140,10 @@ PrefabInstance:
     - target: {fileID: 1191184313807650, guid: 17c5e90e6dbe11347b5ae1a987425384, type: 3}
       propertyPath: m_Name
       value: Pref_Pillow3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191184313807650, guid: 17c5e90e6dbe11347b5ae1a987425384, type: 3}
+      propertyPath: m_TagString
+      value: Climbable
       objectReference: {fileID: 0}
     - target: {fileID: 4671225152986126, guid: 17c5e90e6dbe11347b5ae1a987425384, type: 3}
       propertyPath: m_RootOrder
@@ -26951,6 +26975,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PR_Chair_01_low (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3551350723549352719, guid: 3822093f939484045903349d211105d8, type: 3}
+      propertyPath: m_TagString
+      value: Climbable
+      objectReference: {fileID: 0}
     - target: {fileID: 4180253076085279157, guid: 3822093f939484045903349d211105d8, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -27831,6 +27859,10 @@ PrefabInstance:
     - target: {fileID: 6778122390536951864, guid: 0b6f64b5a7aa7e340846f0d5a00fb30f, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778122390536951864, guid: 0b6f64b5a7aa7e340846f0d5a00fb30f, type: 3}
+      propertyPath: m_TagString
+      value: Climbable
       objectReference: {fileID: 0}
     - target: {fileID: 6778122390536951864, guid: 0b6f64b5a7aa7e340846f0d5a00fb30f, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -28846,6 +28878,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PR_Chair_01_low (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3551350723549352719, guid: 3822093f939484045903349d211105d8, type: 3}
+      propertyPath: m_TagString
+      value: Climbable
+      objectReference: {fileID: 0}
     - target: {fileID: 4180253076085279157, guid: 3822093f939484045903349d211105d8, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -29127,6 +29163,10 @@ PrefabInstance:
     - target: {fileID: 5700575488660826257, guid: 0829b93a0a4a87c48adc34683243b204, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5700575488660826257, guid: 0829b93a0a4a87c48adc34683243b204, type: 3}
+      propertyPath: m_TagString
+      value: Climbable
       objectReference: {fileID: 0}
     - target: {fileID: 5700575488660826257, guid: 0829b93a0a4a87c48adc34683243b204, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -31547,6 +31587,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6778122390536951864, guid: 0b6f64b5a7aa7e340846f0d5a00fb30f, type: 3}
+      propertyPath: m_TagString
+      value: Climbable
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778122390536951864, guid: 0b6f64b5a7aa7e340846f0d5a00fb30f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -32141,6 +32185,10 @@ PrefabInstance:
     - target: {fileID: 1163607304826732226, guid: 6d12390d4137f0349854c66045d83cad, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163607304826732226, guid: 6d12390d4137f0349854c66045d83cad, type: 3}
+      propertyPath: m_TagString
+      value: Climbable
       objectReference: {fileID: 0}
     - target: {fileID: 1163607304826732226, guid: 6d12390d4137f0349854c66045d83cad, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -37247,6 +37295,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: facee757a98c3154c83c22c6299ef380, type: 3}
       propertyPath: m_Name
       value: bed1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: facee757a98c3154c83c22c6299ef380, type: 3}
+      propertyPath: m_TagString
+      value: Climbable
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: facee757a98c3154c83c22c6299ef380, type: 3}
       propertyPath: m_RootOrder
@@ -50793,6 +50845,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PR_Chair_01_low
       objectReference: {fileID: 0}
+    - target: {fileID: 3551350723549352719, guid: 3822093f939484045903349d211105d8, type: 3}
+      propertyPath: m_TagString
+      value: Climbable
+      objectReference: {fileID: 0}
     - target: {fileID: 4180253076085279157, guid: 3822093f939484045903349d211105d8, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -59656,15 +59712,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 286793406431523678, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.22
+      value: -15.37
       objectReference: {fileID: 0}
     - target: {fileID: 286793406431523678, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.15
+      value: 5.16
       objectReference: {fileID: 0}
     - target: {fileID: 286793406431523678, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -24.56
+      value: -26.82
       objectReference: {fileID: 0}
     - target: {fileID: 286793406431523678, guid: 7f476bc5c6d344249b629acf2551b05c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -62446,6 +62502,10 @@ PrefabInstance:
     - target: {fileID: 8897256823434943387, guid: 8a9051c7ef858ea4ca10e57d539dcebc, type: 3}
       propertyPath: m_Name
       value: PR_Table_01_low (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897256823434943387, guid: 8a9051c7ef858ea4ca10e57d539dcebc, type: 3}
+      propertyPath: m_TagString
+      value: Climbable
       objectReference: {fileID: 0}
     - target: {fileID: 8897256823434943387, guid: 8a9051c7ef858ea4ca10e57d539dcebc, type: 3}
       propertyPath: m_NavMeshLayer
