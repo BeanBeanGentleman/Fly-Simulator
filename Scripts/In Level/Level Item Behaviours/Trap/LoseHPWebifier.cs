@@ -8,7 +8,7 @@ namespace In_Level.Level_Item_Behaviours.Trap
         public AutoResetCounter HP = new AutoResetCounter(10);
         public HealthBar hp_bar;
         public HealthBarScr escape_progressbar;
-        public Text text;
+        public GameObject popup;
         public bool playerOnWeb = false;
         BaseFlyController BFC;
         protected override void Start()
@@ -24,7 +24,7 @@ namespace In_Level.Level_Item_Behaviours.Trap
             {
                 // Instantiate Escape Progress Bar here
                 escape_progressbar.gameObject.SetActive(true);
-                text.gameObject.SetActive(true);
+                popup.SetActive(true);
             }
         }
 
@@ -63,7 +63,7 @@ namespace In_Level.Level_Item_Behaviours.Trap
                     Destroy(this.gameObject);
                     restore_speed();
                     escape_progressbar.gameObject.SetActive(false);
-                    text.gameObject.SetActive(false);
+                    popup.SetActive(false);
                 }
 
             }
