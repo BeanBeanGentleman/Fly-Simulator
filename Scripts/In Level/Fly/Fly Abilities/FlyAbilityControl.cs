@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/In Level/Fly/Fly Abilities/FlyAbilityControl.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Fly-Simulator/Scripts/In Level/Fly/Fly Abilities/FlyAbilityControl.inputactions'
 
 using System;
 using System.Collections;
