@@ -54,6 +54,11 @@ public class HealthBarScr : MonoBehaviour
         return health;
     }
 
+    public void reset()
+    {
+        health = min_health;
+    }
+
     void HealthBarFiller()
     {
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, health / maxHealth, lerpSpeed);

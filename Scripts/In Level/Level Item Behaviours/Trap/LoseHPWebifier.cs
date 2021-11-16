@@ -62,6 +62,7 @@ namespace In_Level.Level_Item_Behaviours.Trap
                 {
                     Destroy(this.gameObject);
                     restore_speed();
+                    escape_progressbar.reset();
                     escape_progressbar.gameObject.SetActive(false);
                     popup.SetActive(false);
                 }
