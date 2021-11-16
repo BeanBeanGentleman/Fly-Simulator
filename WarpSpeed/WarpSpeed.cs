@@ -29,6 +29,7 @@ public class WarpSpeed : MonoBehaviour {
 		if(!isWarping && !atNormalSpeed())
 		{
 			particles.startSize = 0;
+			particles.Clear();
 			rend.velocityScale = 0;
 		}
 	}
