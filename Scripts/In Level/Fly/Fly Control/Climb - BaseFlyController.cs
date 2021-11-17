@@ -127,7 +127,10 @@ public partial class BaseFlyController
         }
 
         this.transform.rotation = Quaternion.Lerp(thisRigidbody.rotation, nextRot, 0.14f);
-
+        //this.GetComponent<Collider>().material.dynamicFriction = 0;
+        //this.GetComponent<Collider>().material.staticFriction = 0;
+        
+        //thisRigidbody.freezeRotation = true;
         thisRigidbody.AddRelativeForce(movementAccel.FinalVal() * CurrentMovingDirection);
         return 0;
     }
@@ -170,12 +173,24 @@ public partial class BaseFlyController
         return new Vector3(Mathf.Cos(elevation) * Mathf.Sin(heading), Mathf.Sin(elevation), Mathf.Cos(elevation) * Mathf.Cos(heading));
     }
 
+    
+
     private void OnCollisionStay(Collision other)
     {
         if (other.collider.gameObject.CompareTag("Climbable"))
         {
+            
             ClimbCounter.MaxmizeTemp();
-            IsClimbing = true;
+            //IsClimbing = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.collider.gameObject.CompareTag("Climbable"))
+        {
+            thisRigidbody.freezeRotation = false;
+            IsClimbing = false;
         }
     }
 

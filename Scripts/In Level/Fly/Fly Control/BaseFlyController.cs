@@ -126,7 +126,7 @@ public partial class BaseFlyController : MonoBehaviour
     {
         _ = IsClimbing ? ClimbAction() : FlightAction();
         if (ClimbCounter.IsZeroReached(1, false)) IsClimbing = false;
-
+        
         //IsClimbing = false;
         //FlightAction();
 
@@ -266,6 +266,10 @@ public partial class BaseFlyController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        //if (other.collider.gameObject.CompareTag("Climbable"))
+        //{
+        //    this.transform.up = this.transform.position-other.contacts[0].point;
+        //}
         // if (other.gameObject.GetComponent<FoodHit>() != null)
         // {
         //     IngestSound.volume = 1;
