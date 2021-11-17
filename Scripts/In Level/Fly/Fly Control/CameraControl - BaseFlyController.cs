@@ -79,7 +79,7 @@ public partial class BaseFlyController
         
         this.Looking.SetActive(Mathf.Min(Dist, CamFlightDist) > 0.5f);
         
-        // CamFollower.transform.localPosition = CamFolwFlightPos;
+        //CamFollower.transform.localPosition = CamFolwFlightPos;
         return 0;
     }
 }

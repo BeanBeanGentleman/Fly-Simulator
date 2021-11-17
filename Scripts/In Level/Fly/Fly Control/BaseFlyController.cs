@@ -205,6 +205,10 @@ public partial class BaseFlyController : MonoBehaviour
     {
         float UpDown = _takeOff ? 1 : (_landDown ? -1 : 0);
         UpDown += Mathf.Clamp01(_alignment.y);
+        if (_foreBack < 0)
+        {
+            _foreBack = 0;
+        }
         Vector3 AccelDirection = new Vector3(_leftRight, UpDown, _foreBack);
         CurrentMovingDirection = AccelDirection;
         AccelStrength.Value = Mathf.Clamp01(AccelDirection.magnitude) * AccelStrengthMax;
