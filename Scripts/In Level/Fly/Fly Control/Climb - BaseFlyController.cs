@@ -43,7 +43,7 @@ public partial class BaseFlyController
     {
         //AirDragVal.SetModifier(myGuid, OnClimbingExtraDrag);
         thisRigidbody.drag = 10;
-
+        
         Vector2 KnownAlignment = _useFreeCam ? Vector2.zero : _alignment;
         float Yaw = Mathf.Clamp(KnownAlignment.x, -1, 1);
         Yaw = Mathf.Abs(Yaw) < DeadZoneYaw ? 0 : Yaw;
@@ -90,14 +90,31 @@ public partial class BaseFlyController
                     break;
                 }
             }
-
             List<RaycastHit> regularSphereScan = RegularSphereScan(this.transform.position, 15, 15, RayLength * (_landDown ? 5 : 1));
             List<float> normalsX = new List<float>();
             List<float> normalsY = new List<float>();
             List<float> normalsZ = new List<float>();
-            DownHasHit = false;
+            if (DownHasHit){
+                if (timeElapsed < lerpDuration){
+                this.transform.rotation = Quaternion.Lerp(thisRigidbody.rotation, nextRot, timeElapsed / lerpDuration);
+                timeElapsed += Time.deltaTime;
+                }
+                else 
+                {
+                    this.transform.rotation = nextRot;
+                }
+                //this.transform.rotation = Quaternion.Lerp(thisRigidbody.rotation, nextRot, t);
+        
+                //this.GetComponent<Collider>().material.dynamicFriction = 0;
+                //this.GetComponent<Collider>().material.staticFriction = 0;
+        
+                //thisRigidbody.freezeRotation = true;
+                this.transform.Translate (CurrentMovingDirection * Time.deltaTime * 2);
+            }
+            //thisRigidbody.AddRelativeForce(movementAccel.FinalVal() * CurrentMovingDirection);
             if (!DownHasHit)
             {
+                IsClimbing = false;
                 foreach (var hit in regularSphereScan)
                 {
                     normalsX.Add(hit.normal.x);
@@ -109,12 +126,13 @@ public partial class BaseFlyController
                 avg = new Vector3(normalsX.Sum(), normalsY.Sum(), normalsZ.Sum()) / normalsX.Count;
                 if (normalsX.Count > 0)
                 {
+                    
                     nextRot = Quaternion.LookRotation(Vector3.Cross(avg, Vector3.Cross(thisRigidbody.transform.forward, avg)) * Mathf.Sign(Vector3.Dot(avg, 
                     this.transform.up)), avg);
                 }
             }
 
-            thisRigidbody.AddForce(avg.normalized * ArtificialGravity * -2);
+            //thisRigidbody.AddForce(avg.normalized * ArtificialGravity * -2);
             if (DrawDebug)
             {
                 // DebugShowingLines(lr, regularSphereScan);
@@ -125,13 +143,7 @@ public partial class BaseFlyController
                 DrawDebug = !DrawDebug;
             }
         }
-
-        this.transform.rotation = Quaternion.Lerp(thisRigidbody.rotation, nextRot, 0.14f);
-        //this.GetComponent<Collider>().material.dynamicFriction = 0;
-        //this.GetComponent<Collider>().material.staticFriction = 0;
         
-        //thisRigidbody.freezeRotation = true;
-        thisRigidbody.AddRelativeForce(movementAccel.FinalVal() * CurrentMovingDirection);
         return 0;
     }
 
@@ -179,20 +191,22 @@ public partial class BaseFlyController
     {
         if (other.collider.gameObject.CompareTag("Climbable"))
         {
-            
-            ClimbCounter.MaxmizeTemp();
-            //IsClimbing = true;
+            if(climbDetector()){
+                IsClimbing = true;
+            }
+            //ClimbCounter.MaxmizeTemp();
         }
     }
 
-    private void OnCollisionExit(Collision other)
+    /*private void OnCollisionExit(Collision other)
     {
         if (other.collider.gameObject.CompareTag("Climbable"))
         {
-            thisRigidbody.freezeRotation = false;
+            print("exit");
+            //thisRigidbody.freezeRotation = false;
             IsClimbing = false;
         }
-    }
+    }*/
 
     void DebugShowingLines(LineRenderer LR, List<RaycastHit> hits)
     {
