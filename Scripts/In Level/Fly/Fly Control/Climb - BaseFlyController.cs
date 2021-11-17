@@ -42,7 +42,7 @@ public partial class BaseFlyController
     int ClimbAction()
     {
         //AirDragVal.SetModifier(myGuid, OnClimbingExtraDrag);
-        thisRigidbody.drag = 1;
+        thisRigidbody.drag = 10;
 
         Vector2 KnownAlignment = _useFreeCam ? Vector2.zero : _alignment;
         float Yaw = Mathf.Clamp(KnownAlignment.x, -1, 1);
