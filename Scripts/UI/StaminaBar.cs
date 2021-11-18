@@ -86,7 +86,7 @@ namespace In_Level.Fly.Fly_Abilities
         void SpeedUp()
         {
             sp_man.set_speed_up();
-            Damage(0.06f);
+            Damage(1f);
             Active();
         }
 
@@ -94,7 +94,7 @@ namespace In_Level.Fly.Fly_Abilities
         {
             sp_man.unset_speed_up();
             Deactive();
-            Heal(0.02f);
+            Heal(0.06f);
         }
 
     }
