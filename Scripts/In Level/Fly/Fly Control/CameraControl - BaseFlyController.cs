@@ -41,6 +41,14 @@ public partial class BaseFlyController
         {
             Dist = hitt.distance;
         }
+        /*if (timeElapsed < lerpDuration){
+            TargetAngle = Vector3.Lerp(TargetAngle, ResultEuler, timeElapsed / lerpDuration);
+            timeElapsed += Time.deltaTime;
+        }
+        else 
+        {
+            TargetAngle = ResultEuler;
+        }*/
         TargetAngle = Vector3.Lerp(TargetAngle, ResultEuler, CamMultiplier);
         CamFollower.transform.localPosition = Mathf.Min(Dist, CamClimbDist) * EulerToDirection(-TargetAngle.x, TargetAngle.y);
         // CamFollower.transform.localPosition = CamFolwClimbPos;
@@ -75,6 +83,9 @@ public partial class BaseFlyController
         
         TargetAngle = Vector3.Lerp(TargetAngle, ResultEuler, CamMultiplier);
         CamFollower.transform.localPosition = Mathf.Min(Dist, CamFlightDist) * EulerToDirection(-TargetAngle.x, TargetAngle.y);
+        //print(CamFollower.transform.localPosition);
+        //print(Mathf.Min(Dist, CamFlightDist) * EulerToDirection(-TargetAngle.x, TargetAngle.y) + this.transform.position);
+        //CamFollower.transform.position = Mathf.Min(Dist, CamFlightDist) * EulerToDirection(-TargetAngle.x, TargetAngle.y) + this.transform.position;
         CamFollower.transform.localEulerAngles = new Vector3(-TargetAngle.x, (TargetAngle.y - 180) , 0);
         
         this.Looking.SetActive(Mathf.Min(Dist, CamFlightDist) > 0.5f);

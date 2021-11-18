@@ -36,7 +36,8 @@ public partial class BaseFlyController : MonoBehaviour
     /// </summary>
     public ValueContainer AirDragVal = new ValueContainer(3);
 
-
+    private float timeElapsed = 0.0f;
+    private float lerpDuration = 3f;
     private Modifier[] SlowDownModifer = new Modifier[]{ new Modifier(false, 3.5f, "0"), new Modifier(false, 4f, "0"), new Modifier(false, 4.5f, "0"), new Modifier(false, 5f, "0"), new Modifier(false, 5.5f, "0")};
     public Modifier SpeedUpModifier = new Modifier(false, 20, "0");
     public Modifier normalSpeedModifier = new Modifier(false, 3, "0");
@@ -124,11 +125,13 @@ public partial class BaseFlyController : MonoBehaviour
     }
     protected void FixedUpdate()
     {
-       /* _ = IsClimbing ? ClimbAction() : FlightAction();
-        if (ClimbCounter.IsZeroReached(1, false)) IsClimbing = false;*/
-
-        IsClimbing = false;
-        FlightAction();
+        _ = IsClimbing ? ClimbAction() : FlightAction();
+        if (ClimbCounter.IsZeroReached(1, false)){
+            //IsClimbing = false;
+        } 
+        
+        //IsClimbing = false;
+        //FlightAction();
 
     }
 
@@ -141,6 +144,20 @@ public partial class BaseFlyController : MonoBehaviour
     public void speed_up_fly()
     {
         movementAccel.SetModifier(myGuid, SpeedUpModifier);
+    }
+
+    private bool climbDetector(){
+        Vector3 avg = this.transform.up * -1;
+        foreach (var hit in Physics.RaycastAll(thisRigidbody.transform.position,
+            this.transform.up * -1,
+            RayLength * 10))
+            {
+                if (hit.collider.CompareTag("Climbable"))
+                {
+                    return true;
+                }
+            }
+        return false;
     }
 
     public void normal_fly_speed()
@@ -187,6 +204,7 @@ public partial class BaseFlyController : MonoBehaviour
                         Vector3.up)),
                 Vector3.up);
         }
+        
         this.transform.rotation = Quaternion.Lerp(thisRigidbody.rotation, nextRot, 0.08f);
 
         return 0;
@@ -266,6 +284,16 @@ public partial class BaseFlyController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        if (other.collider.gameObject.CompareTag("Climbable")){
+            if(climbDetector()){
+                IsClimbing = true;
+            }
+            timeElapsed = 0;
+        }
+        //if (other.collider.gameObject.CompareTag("Climbable"))
+        //{
+        //    this.transform.up = this.transform.position-other.contacts[0].point;
+        //}
         // if (other.gameObject.GetComponent<FoodHit>() != null)
         // {
         //     IngestSound.volume = 1;
