@@ -30,6 +30,7 @@ public class EnemyAI : MonoBehaviour
     bool in_transit = false;
     private int dest_index = 0;
     Animator anim;
+    int dir;
     Rigidbody rig;
 
     private void Awake()
@@ -87,7 +88,16 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            dest_index = (dest_index + 1) % navPt.Length;
+            if (dest_index == navPt.Length - 1)
+            {
+                // Walk Back
+                dir = -1;
+            }
+            else if (dest_index == 0)
+            {
+                dir = 1;
+            }
+            dest_index = (dest_index + dir);
             in_transit = false;
         }
     }

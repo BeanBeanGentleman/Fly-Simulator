@@ -10,7 +10,7 @@ public class TurotialManager : MonoBehaviour
     private int popupIndex;
     public BagCountManager bagcountmanager;
     private int food_total,leftcount, rightcount, dpadcount, triggercount;
-    private bool ll, lr, lu, ld, rl, rr, ru, rd, du, dd, lt, rt;
+    private bool ll, lr, lu, ld, rl, rr, ru, rd, du, dd, lt, rt, speed_up;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +32,7 @@ public class TurotialManager : MonoBehaviour
         dd = false;
         lt = false;
         rt = false;
+        speed_up = false;
     }
 
     // Update is called once per frame
@@ -113,12 +114,22 @@ public class TurotialManager : MonoBehaviour
             if (triggercount == 2){
                 popupIndex ++;
             }
-        }else if (popupIndex == 4){
+        }
+        else if (popupIndex == 4)
+        {
+            var y_pressed = gamepad.buttonNorth.ReadValue();
+            if (y_pressed == 1)
+            {
+                popupIndex++;
+            }
+        }
+ 
+        else if (popupIndex == 5){
             var food_count_current = bagcountmanager.get_bag_count(0) + bagcountmanager.get_bag_count(1) + bagcountmanager.get_bag_count(2);
             if (food_count_current >= 1){
                 popupIndex ++;
             }
-        }else if (popupIndex == 5){
+        }else if (popupIndex == 6){
             var food_count_current = bagcountmanager.get_bag_count(0) + bagcountmanager.get_bag_count(1) + bagcountmanager.get_bag_count(2);
             if (food_count_current == 0){
                 popupIndex ++;
