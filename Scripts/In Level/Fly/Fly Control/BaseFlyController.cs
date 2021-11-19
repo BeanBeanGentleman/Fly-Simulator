@@ -126,12 +126,13 @@ public partial class BaseFlyController : MonoBehaviour
     protected void FixedUpdate()
     {
         _ = IsClimbing ? ClimbAction() : FlightAction();
-        if (ClimbCounter.IsZeroReached(1, false)){
-            //IsClimbing = false;
-        } 
-        
-        //IsClimbing = false;
-        //FlightAction();
+        /*
+        if (climbcounter.iszeroreached(1, false)){
+            isclimbing = false;
+        }*/
+
+        cc.CamLookingEulerOffset = new Vector3(-_alignment.y, _alignment.x, 0) * 180;
+        _ = IsClimbing ? Climb() + ClimbCamControl() : Flight() + FlightCamControl();
 
     }
 
@@ -209,11 +210,11 @@ public partial class BaseFlyController : MonoBehaviour
 
         return 0;
     }
+    
+   
 
     private void Update()
     {
-        cc.CamLookingEulerOffset = new Vector3(-_alignment.y, _alignment.x,  0) * 180;
-        _ = IsClimbing ? Climb() + ClimbCamControl() : Flight() + FlightCamControl();
 
     }
 
@@ -223,6 +224,7 @@ public partial class BaseFlyController : MonoBehaviour
     {
         float UpDown = _takeOff ? 1 : (_landDown ? -1 : 0);
         UpDown += Mathf.Clamp01(_alignment.y);
+
         if (_foreBack < 0)
         {
             _foreBack = 0;
@@ -284,20 +286,16 @@ public partial class BaseFlyController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        if (IsClimbing)
+        {
+            return;
+        }
+
         if (other.collider.gameObject.CompareTag("Climbable")){
             if(climbDetector()){
                 IsClimbing = true;
             }
             timeElapsed = 0;
         }
-        //if (other.collider.gameObject.CompareTag("Climbable"))
-        //{
-        //    this.transform.up = this.transform.position-other.contacts[0].point;
-        //}
-        // if (other.gameObject.GetComponent<FoodHit>() != null)
-        // {
-        //     IngestSound.volume = 1;
-        //     IngestSound.Play();
-        // }
     }
 }
