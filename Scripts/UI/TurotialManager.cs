@@ -11,6 +11,7 @@ public class TurotialManager : MonoBehaviour
     public BagCountManager bagcountmanager;
     private int food_total,leftcount, rightcount, dpadcount, triggercount;
     private bool ll, lr, lu, ld, rl, rr, ru, rd, du, dd, lt, rt, speed_up;
+    public float timer = 3.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,7 @@ public class TurotialManager : MonoBehaviour
             }
         }
         if (popupIndex == 0){
+            timer -= Time.deltaTime;
             var lsupValue = gamepad.leftStick.up.ReadValue();
             var lsdownValue = gamepad.leftStick.down.ReadValue();
             var lsrightValue = gamepad.leftStick.right.ReadValue();
@@ -64,10 +66,14 @@ public class TurotialManager : MonoBehaviour
                 leftcount ++;
                 ll = true;
             }
-            if (leftcount == 4){
+            if (leftcount == 4 || (timer < 0 && leftcount >=1)){
                 popupIndex ++;
+                timer = 3.0f;
+            }else if (leftcount == 0){
+                timer = 3.0f;
             }
         }else if (popupIndex == 1){
+            timer -= Time.deltaTime;
             var rsdownValue = gamepad.rightStick.down.ReadValue();
             var rsleftValue = gamepad.rightStick.left.ReadValue();
             var rsrightValue = gamepad.rightStick.right.ReadValue();
@@ -85,9 +91,12 @@ public class TurotialManager : MonoBehaviour
                 rightcount ++;
                 rl = true;
             }
-            if (rightcount == 4){
+            if (rightcount == 4 || (timer < 0 && rightcount >=1)){
                 popupIndex ++;
-            }         
+                timer = 3.0f;
+            }else if (rightcount == 0){
+                timer = 3.0f;
+            }        
         }else if (popupIndex == 2){
             var dpadup = gamepad.dpad.up.ReadValue();
             var dpaddown = gamepad.dpad.down.ReadValue();
@@ -111,7 +120,7 @@ public class TurotialManager : MonoBehaviour
                 triggercount ++;
                 rt = true;    
             }
-            if (triggercount == 2){
+            if (triggercount == 1){
                 popupIndex ++;
             }
         }
