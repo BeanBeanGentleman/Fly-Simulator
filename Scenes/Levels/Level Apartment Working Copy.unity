@@ -5868,25 +5868,6 @@ Transform:
   m_Father: {fileID: 1842175376}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &246806477 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4153438736472031643, guid: 1612ec0a54d957d4ab06c33a7a826517, type: 3}
-  m_PrefabInstance: {fileID: 1947203390}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &246806481
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246806477}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4385490430313938626, guid: 1612ec0a54d957d4ab06c33a7a826517, type: 3}
 --- !u!4 &252639234 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013583802458, guid: 1ab6ed6db0b83984bb512a33711b213f, type: 3}
@@ -34268,11 +34249,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676874174}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0ab62cbbda68ab48a0dce56f9e6f154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_distanceAway: 4.5
+  m_distanceUp: 1.5
+  m_player: {fileID: 0}
 --- !u!224 &1678935461 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5162987051846026648, guid: 712969b145efa414db4c69a5899c03de, type: 3}
@@ -36642,6 +36626,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1487780917392196848, guid: da71b0136ee4f034e88b61e53dff7e6b, type: 3}
   m_PrefabInstance: {fileID: 1011517559}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1833300267
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833300266}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f11dc0d6da92f6d43b70eac8033f3da0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1833300270
 MonoBehaviour:
   m_ObjectHideFlags: 0
