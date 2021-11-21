@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: dress_girl
-    second: {fileID: 2100000, guid: 9da121a91d0abd4438d59395bc9e1183, type: 2}
+    second: {instanceID: 0}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -23,12 +23,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: eye_right
-    second: {fileID: 2100000, guid: e7b651a950a4be445a2a79f902dba84e, type: 2}
+    second: {instanceID: 0}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: eyebrown
-    second: {fileID: 2100000, guid: 664e35767aa09e34d9aa0ae28014ddda, type: 2}
+    second: {instanceID: 0}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -38,7 +38,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: girls_skin
-    second: {fileID: 2100000, guid: bfdc1c9944b931b46a2f31e586613118, type: 2}
+    second: {instanceID: 0}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -48,12 +48,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: headband
-    second: {fileID: 2100000, guid: cb6ebe0543dce4040b5b3038d001d0e0, type: 2}
+    second: {instanceID: 0}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lashes
-    second: {fileID: 2100000, guid: e180184bd3d2a044c8f3f19e577ca894, type: 2}
+    second: {instanceID: 0}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -63,12 +63,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: swatter_rig_swatter_rig_swagger
-    second: {fileID: 2100000, guid: a09c7ab9bcc70ca4b8a585d89021f281, type: 2}
+    second: {instanceID: 0}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: swatter_rig_swatter_rig_swagger_stick
-    second: {fileID: 2100000, guid: 4a7c8240a37d621458619f6fba928b7e, type: 2}
+    second: {instanceID: 0}
   materials:
     materialImportMode: 2
     materialName: 0

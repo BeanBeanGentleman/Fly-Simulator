@@ -37,7 +37,7 @@ public partial class BaseFlyController
         if (_manualSwitchToggle) AutoAlignEnabled = !AutoAlignEnabled;
         var injestPressed = _ingest;
         this.Ingesting = injestPressed;
-        IngestSound.volume = injestPressed ? 1 : 0;
+        //IngestSound.volume = injestPressed ? 1 : 0;
         return 0;
     }
 
@@ -62,8 +62,8 @@ public partial class BaseFlyController
         YawingSpeed = 0;
         PitchingSpeed = 0;
 
-        Buzz.pitch = 0;
-        Buzz.volume = 0;
+        //Buzz.pitch = 0;
+        //Buzz.volume = 0;
 
         int flipped = 1;
         Quaternion nextRot = this.transform.rotation;

@@ -26,7 +26,7 @@ public partial class BaseFlyController : MonoBehaviour
     /// The force strength for pushing the fly at the given direction.
     /// </summary>
     ///
-    [FormerlySerializedAs("ForwardAccel")] public ValueContainer movementAccel = new ValueContainer(2);
+    [FormerlySerializedAs("ForwardAccel")] public ValueContainer movementAccel = new ValueContainer(3);
     /// <summary>
     /// The agility for fly to maneuver. The less value the harder to turn.
     /// </summary>
@@ -63,8 +63,8 @@ public partial class BaseFlyController : MonoBehaviour
     /// The modifer for when left stick is pressed. For Air Drag.
     /// </summary>
     public Modifier AirbrakeDragBonus = new Modifier(false, 15, "0");
-    public AudioSource Buzz;
-    public AudioSource IngestSound;
+    //public AudioSource Buzz;
+    //public AudioSource IngestSound;
     /// <summary>
     /// The apparel of the fly
     /// </summary>
@@ -82,7 +82,7 @@ public partial class BaseFlyController : MonoBehaviour
 
     public Vector3 CurrentMovingDirection = Vector3.zero;
 
-    private float RollMultiplier = 0.02f;
+    private float RollMultiplier = 0.05f;
     private float YawMultiplier = 0.2f;
     private float PitchMultiplier = 0.1f;
     
@@ -195,8 +195,8 @@ public partial class BaseFlyController : MonoBehaviour
 
         /* Buzz.pitch = NoiseLevel.FinalVal() * (movementAccel.FinalVal() / AccelStrengthMax);
         Buzz.volume = NoiseLevel.FinalVal() * Buzz.pitch; */
-        Buzz.volume = 1;
-        Buzz.pitch = 1;
+        //Buzz.volume = 1;
+        //Buzz.pitch = 1;
 
         Quaternion nextRot = this.transform.rotation;
         if (_useFreeCam)
@@ -270,7 +270,7 @@ public partial class BaseFlyController : MonoBehaviour
         
         var injestPressed = _ingest;
         this.Ingesting = injestPressed;
-        IngestSound.volume = injestPressed?1:0;
+        //IngestSound.volume = injestPressed?1:0;
         
         return 0;
     }
