@@ -33954,7 +33954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FollowUp: {fileID: 345348516}
   Multipler: 1
-  MultiplerAngle: 1
+  MultiplerAngle: 6
   MultiplerFreeCam: 1
   TheRing: {fileID: 542696573}
   Freecam: 0
