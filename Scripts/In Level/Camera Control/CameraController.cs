@@ -35,17 +35,20 @@ public class CameraController : MonoBehaviour
     private Vector3 LockDownLookingDirection = Vector3.zero;
 
 
+    private void Start(){
+        transform.position = FollowUp.transform.position;
+    }
     // Update is called once per frame
     private void Update()
     {
         if (!Freecam)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, FollowUp.transform.rotation, MultiplerAngle);
+            transform.rotation = Quaternion.Lerp(transform.rotation, FollowUp.transform.rotation, MultiplerAngle * Time.deltaTime);
             LockDownLookingDirection = transform.localEulerAngles;
         }
         else
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(LockDownLookingDirection + CamLookingEulerOffset), MultiplerFreeCam);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(LockDownLookingDirection + CamLookingEulerOffset), MultiplerFreeCam * Time.deltaTime);
         }
         transform.position = Vector3.Lerp(transform.position, FollowUp.transform.position, Multipler);
         TheRing.position = new Vector3(CamLookingEulerOffset.y, -CamLookingEulerOffset.x, 5) + Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0));

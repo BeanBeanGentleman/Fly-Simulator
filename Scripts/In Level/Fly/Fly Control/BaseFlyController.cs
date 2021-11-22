@@ -110,9 +110,11 @@ public partial class BaseFlyController : MonoBehaviour
     /// If Auto Alignment is enabled
     /// </summary>
     public bool AutoAlignEnabled = true;
-    
+    public Quaternion[] rotTrack = new Quaternion[5];
     private void Start()
     {
+        rotTrack[3] = new Quaternion(0.0f,0.0f,0.0f,0.0f);
+        rotTrack[4] = new Quaternion(0.0f,0.0f,0.0f,0.0f);
         myGuid = Guid.NewGuid();
         movementAccel.SetNoBonusModifier(myGuid);
         Agility.SetNoBonusModifier(myGuid);

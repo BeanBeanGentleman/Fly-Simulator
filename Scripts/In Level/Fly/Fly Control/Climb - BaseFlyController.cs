@@ -19,7 +19,9 @@ public partial class BaseFlyController
     public float RayLength = 1;
 
 
+    
     public bool DrawDebug = false;
+    
     int Climb()
     {
         float UpDown = _takeOff ? 1 : (_landDown ? -1 : 0);
@@ -87,6 +89,20 @@ public partial class BaseFlyController
                                 hit.normal)),
                         hit.normal);
                     DownHasHit = true;
+
+                    if(nextRot == rotTrack[3] && rotTrack[2] == rotTrack[4]){
+                        nextRot = rotTrack[4];
+                    }
+                    else if(nextRot == rotTrack[2] && rotTrack[0] == rotTrack[3] && rotTrack[1] == rotTrack[4]){
+                        nextRot = rotTrack[4];
+                    }
+                    else{
+                        rotTrack[0] = rotTrack[1];
+                        rotTrack[1] = rotTrack[2];
+                        rotTrack[2] = rotTrack[3];
+                        rotTrack[3] = rotTrack[4];
+                        rotTrack[4] = nextRot;
+                    }
                     break;
                 }
             }
@@ -96,7 +112,7 @@ public partial class BaseFlyController
             List<float> normalsZ = new List<float>();
             if (DownHasHit){
                 if (timeElapsed < lerpDuration){
-                this.transform.rotation = Quaternion.Lerp(thisRigidbody.rotation, nextRot, timeElapsed / lerpDuration);
+                    this.transform.rotation = Quaternion.Lerp(thisRigidbody.rotation, nextRot, timeElapsed / lerpDuration);
                 timeElapsed += Time.deltaTime;
                 }
                 else 
@@ -126,7 +142,6 @@ public partial class BaseFlyController
                 avg = new Vector3(normalsX.Sum(), normalsY.Sum(), normalsZ.Sum()) / normalsX.Count;
                 if (normalsX.Count > 0)
                 {
-                    
                     nextRot = Quaternion.LookRotation(Vector3.Cross(avg, Vector3.Cross(thisRigidbody.transform.forward, avg)) * Mathf.Sign(Vector3.Dot(avg, 
                     this.transform.up)), avg);
                 }
