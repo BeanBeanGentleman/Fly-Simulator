@@ -50,10 +50,9 @@ public class EnemyAI : MonoBehaviour
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-        Patroling();
-        //if (!playerInSightRange && !playerInAttackRange) Patroling();
+        if (!playerInAttackRange) Patroling();
         //if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        //if (playerInAttackRange && playerInSightRange) AttackPlayer();
+        if (playerInAttackRange) AttackPlayer();
     }
 
     public bool is_in_sight_range()
@@ -64,7 +63,8 @@ public class EnemyAI : MonoBehaviour
 
     private void Patroling()
     {
-        anim.SetTrigger("Walk");
+        anim.ResetTrigger("attack");    
+        anim.SetTrigger("walk");
         if (navPt.Length == 0)
         {
             return;
@@ -104,29 +104,25 @@ public class EnemyAI : MonoBehaviour
 
     private void ChasePlayer()
     {
-        anim.SetTrigger("Walk");
-        anim.ResetTrigger("Attack");
+        anim.SetTrigger("walk");
+        anim.ResetTrigger("attack");
         Vector3 dest = new Vector3(player.position.x, transform.position.y, player.position.z);
         agent.SetDestination(dest);
     }
 
     private void AttackPlayer()
     {
+        in_transit = false;
         //Make sure enemy doesn't move
         Vector3 targetPostition = new Vector3(player.position.x,
                                        transform.position.y,
                                        player.position.z);
         transform.LookAt(targetPostition);
         agent.SetDestination(transform.position);
-        anim.ResetTrigger("Walk");
-        if (!anim.GetBool("Attack"))
+        anim.ResetTrigger("walk");
+        if (!anim.GetBool("attack"))
         {
-            anim.SetTrigger("Attack");
-        }
-        else
-        {
-            int attack_type = Random.Range(0, 2);
-            anim.SetInteger("Attack_type", attack_type);
+            anim.SetTrigger("attack");
         }
         if (!alreadyAttacked)
         {

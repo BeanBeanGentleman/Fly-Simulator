@@ -24,6 +24,7 @@ public class SwatterCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("HIT!!");
         if (other.gameObject.name == "Fly")
         {
             if (!got_hit)
