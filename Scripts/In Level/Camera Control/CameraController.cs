@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
     /// </summary>
     [Obsolete]
     public float MultiplerFreeCam = 0.05f;
-
+    public float changingmultiplier;
     /// <summary>
     /// GUI Indication 
     /// </summary>
@@ -35,22 +35,28 @@ public class CameraController : MonoBehaviour
     private Vector3 LockDownLookingDirection = Vector3.zero;
 
 
+
     private void Start(){
         transform.position = FollowUp.transform.position;
+        changingmultiplier = Multipler;
     }
     // Update is called once per frame
     private void Update()
     {
         if (!Freecam)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, FollowUp.transform.rotation, MultiplerAngle * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, FollowUp.transform.rotation, Mathf.Clamp(MultiplerAngle * Time.deltaTime, 0.0f, 999.0f));
             LockDownLookingDirection = transform.localEulerAngles;
         }
         else
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(LockDownLookingDirection + CamLookingEulerOffset), MultiplerFreeCam * Time.deltaTime);
         }
-        transform.position = Vector3.Lerp(transform.position, FollowUp.transform.position, Multipler);
+        if(Vector3.Distance (FollowUp.transform.position, transform.position) > 0.0f){
+            //changingmultiplier = Mathf.Pow(Vector3.Distance (FollowUp.transform.position, transform.position),5) * Multipler;
+            
+        }
+        transform.position = Vector3.Lerp(transform.position, FollowUp.transform.position, Mathf.Clamp(changingmultiplier * Time.deltaTime, 0.0f , 999.0f));
         TheRing.position = new Vector3(CamLookingEulerOffset.y, -CamLookingEulerOffset.x, 5) + Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0));
     }
 
