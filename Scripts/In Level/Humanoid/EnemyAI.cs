@@ -124,6 +124,11 @@ public class EnemyAI : MonoBehaviour
         {
             anim.SetTrigger("attack");
         }
+        else
+        {
+            int attack_type = Random.Range(0, 2);
+            anim.SetInteger("Attack_type", attack_type);
+        }
         if (!alreadyAttacked)
         {
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
