@@ -37500,9 +37500,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FollowUp: {fileID: 345348516}
-  Multipler: 1
-  MultiplerAngle: 6
+  Multipler: 999
+  MultiplerAngle: 999
   MultiplerFreeCam: 1
+  changingmultiplier: 0
   TheRing: {fileID: 542696573}
   Freecam: 0
   CamLookingEulerOffset: {x: 0, y: 0, z: 0}

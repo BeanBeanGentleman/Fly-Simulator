@@ -114,7 +114,7 @@ public partial class BaseFlyController
             List<float> normalsY = new List<float>();
             List<float> normalsZ = new List<float>();
             if (DownHasHit){
-                if (timeElapsed < lerpDuration){
+                if (timeElapsed < lerpDuration *4){
                     this.transform.rotation = Quaternion.Lerp(thisRigidbody.rotation, nextRot, timeElapsed / lerpDuration);
                 timeElapsed += Time.deltaTime;
                 }
