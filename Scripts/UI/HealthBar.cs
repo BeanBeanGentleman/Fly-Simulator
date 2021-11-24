@@ -12,10 +12,14 @@ public class HealthBar : MonoBehaviour
 
     public Image fill;
 
+    public Image damage_screen;
+
     // Default diffculty is 1
     private int difficulty = 1;
     float elapsed = 0f;
     private Dictionary<int, float> difficulty_to_hp_loss = new Dictionary<int, float>();
+
+    Color initial_color;
 
     private void Start()
     {
@@ -23,6 +27,8 @@ public class HealthBar : MonoBehaviour
         difficulty_to_hp_loss[2] = 1f;
         difficulty_to_hp_loss[3] = 2f;
         setMaxValue(50f);
+
+        damage_screen.enabled = false;
     }
 
     public void set_diff(int diff)
@@ -76,5 +82,20 @@ public class HealthBar : MonoBehaviour
     public void setValue(float value){
         hp_bar.value = value;
         fill.color = gradient.Evaluate(hp_bar.normalizedValue);
+    }
+
+
+    IEnumerator FadeDamage()
+    {
+        yield return new WaitForSeconds(1.5f);
+        damage_screen.enabled = false;
+    }
+
+    public void setValueFromHit(float value)
+    {
+        hp_bar.value = value;
+        fill.color = gradient.Evaluate(hp_bar.normalizedValue);
+        damage_screen.enabled = true;
+        StartCoroutine(FadeDamage());
     }
 }

@@ -31,7 +31,7 @@ public class SwatterCollider : MonoBehaviour
             {
                 float cur_hp = hp_bar_manager.getValue();
                 cur_hp += -2;
-                hp_bar_manager.setValue(cur_hp);
+                hp_bar_manager.setValueFromHit(cur_hp);
                 StartCoroutine(SwatterDamageCoro());
                 got_hit = true;
             }
