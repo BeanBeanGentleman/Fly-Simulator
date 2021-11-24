@@ -7104,6 +7104,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4417516535921645309, guid: ee5d5f429f6d7674e9105596d6e7b8f4, type: 3}
+      propertyPath: m_TagString
+      value: Climbable
+      objectReference: {fileID: 0}
+    - target: {fileID: -2280960354380379557, guid: ee5d5f429f6d7674e9105596d6e7b8f4, type: 3}
+      propertyPath: m_TagString
+      value: Climbable
+      objectReference: {fileID: 0}
     - target: {fileID: 58645445952906054, guid: ee5d5f429f6d7674e9105596d6e7b8f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.84
@@ -7146,7 +7154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ee5d5f429f6d7674e9105596d6e7b8f4, type: 3}
       propertyPath: m_TagString
-      value: Climbable
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4693010654670295836, guid: ee5d5f429f6d7674e9105596d6e7b8f4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7191,6 +7199,10 @@ PrefabInstance:
     - target: {fileID: 5824410417814803376, guid: ee5d5f429f6d7674e9105596d6e7b8f4, type: 3}
       propertyPath: m_LocalPosition.z
       value: 8.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 8379116890804146215, guid: ee5d5f429f6d7674e9105596d6e7b8f4, type: 3}
+      propertyPath: m_TagString
+      value: Climbable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee5d5f429f6d7674e9105596d6e7b8f4, type: 3}

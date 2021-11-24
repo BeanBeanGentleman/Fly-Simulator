@@ -84,13 +84,16 @@ public partial class BaseFlyController
             {
                 if (hit.collider.CompareTag("Climbable"))
                 {
-                    nextRot = Quaternion.LookRotation(Vector3.Cross(hit.normal,
+                    
+                        nextRot = Quaternion.LookRotation(Vector3.Cross(climbnormal,
                             Vector3.Cross(thisRigidbody.transform.forward,
-                                hit.normal)),
-                        hit.normal);
+                                climbnormal)),
+                        climbnormal);
+                    
+                    
                     DownHasHit = true;
 
-                    if(nextRot == rotTrack[3] && rotTrack[2] == rotTrack[4]){
+                    /*if(nextRot == rotTrack[3] && rotTrack[2] == rotTrack[4]){
                         nextRot = rotTrack[4];
                     }
                     else if(nextRot == rotTrack[2] && rotTrack[0] == rotTrack[3] && rotTrack[1] == rotTrack[4]){
@@ -102,7 +105,7 @@ public partial class BaseFlyController
                         rotTrack[2] = rotTrack[3];
                         rotTrack[3] = rotTrack[4];
                         rotTrack[4] = nextRot;
-                    }
+                    }*/
                     break;
                 }
             }

@@ -86,7 +86,7 @@ public partial class BaseFlyController : MonoBehaviour
     private float YawMultiplier = 0.2f;
     private float PitchMultiplier = 0.1f;
     
-    
+    public float timer = 0.0f;
     /// <summary>
     /// The deadzone for controlling yaw
     /// </summary>
@@ -111,6 +111,10 @@ public partial class BaseFlyController : MonoBehaviour
     /// </summary>
     public bool AutoAlignEnabled = true;
     public Quaternion[] rotTrack = new Quaternion[5];
+    public bool DownHasHit = false;
+    public Vector3 avg;
+    public Quaternion nextRot;
+    public Vector3 climbnormal;
     private void Start()
     {
         rotTrack[3] = new Quaternion(0.0f,0.0f,0.0f,0.0f);
@@ -216,7 +220,8 @@ public partial class BaseFlyController : MonoBehaviour
     {
         cc.CamLookingEulerOffset = new Vector3(-_alignment.y, _alignment.x,  0) * 180;
         _ = IsClimbing ? Climb() + ClimbCamControl() : Flight() + FlightCamControl();
-
+        timer += Time.deltaTime;
+        
     }
 
 
@@ -286,9 +291,43 @@ public partial class BaseFlyController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        DownHasHit = false;
+        avg = this.transform.up * -1;
         if (other.collider.gameObject.CompareTag("Climbable")){
             if(climbDetector()){
                 IsClimbing = true;
+                nextRot = this.transform.rotation;
+                foreach (var hit in Physics.RaycastAll(thisRigidbody.transform.position,
+                this.transform.up * -1,
+                RayLength * 10))
+            {
+                if (hit.collider.CompareTag("Climbable"))
+                {
+                    
+                        nextRot = Quaternion.LookRotation(Vector3.Cross(hit.normal,
+                            Vector3.Cross(thisRigidbody.transform.forward,
+                                hit.normal)),
+                        hit.normal);
+                    
+                    climbnormal = hit.normal;
+                    DownHasHit = true;
+
+                    /*if(nextRot == rotTrack[3] && rotTrack[2] == rotTrack[4]){
+                        nextRot = rotTrack[4];
+                    }
+                    else if(nextRot == rotTrack[2] && rotTrack[0] == rotTrack[3] && rotTrack[1] == rotTrack[4]){
+                        nextRot = rotTrack[4];
+                    }
+                    else{
+                        rotTrack[0] = rotTrack[1];
+                        rotTrack[1] = rotTrack[2];
+                        rotTrack[2] = rotTrack[3];
+                        rotTrack[3] = rotTrack[4];
+                        rotTrack[4] = nextRot;
+                    }*/
+                    break;
+                }
+            }
             }
             timeElapsed = 0;
         }
