@@ -91,13 +91,14 @@ public class TurotialManager : MonoBehaviour
                 rightcount ++;
                 rl = true;
             }
-            if (rightcount == 4 || (timer < 0 && rightcount >=1)){
+            if (rightcount == 4 || (timer <= 0 && rightcount >=1)){
                 popupIndex ++;
                 timer = 3.0f;
             }else if (rightcount == 0){
                 timer = 3.0f;
             }        
         }else if (popupIndex == 2){
+            timer -= Time.deltaTime;
             var dpadup = gamepad.dpad.up.ReadValue();
             var dpaddown = gamepad.dpad.down.ReadValue();
             if (dpadup == 1 && du == false){
@@ -107,10 +108,13 @@ public class TurotialManager : MonoBehaviour
                 dpadcount ++;
                 dd = true;
             }
-            if (dpadcount == 2){
+            if (dpadcount == 2 || (timer < 0 && dpadcount >= 1))
+            {
+                timer = 3.0f;
                 popupIndex ++;
             }
-        }else if (popupIndex == 3){
+        } else if (popupIndex == 3){
+            timer -= Time.deltaTime;
             var lefttrigger = gamepad.leftTrigger.ReadValue();
             var righttrigger = gamepad.rightTrigger.ReadValue();
             if (lefttrigger == 1 && lt == false){
@@ -120,7 +124,8 @@ public class TurotialManager : MonoBehaviour
                 triggercount ++;
                 rt = true;    
             }
-            if (triggercount == 1){
+            if (triggercount == 1 || (timer < 0 && triggercount >= 1))
+            {
                 popupIndex ++;
             }
         }
@@ -141,7 +146,16 @@ public class TurotialManager : MonoBehaviour
         }else if (popupIndex == 6){
             var food_count_current = bagcountmanager.get_bag_count(0) + bagcountmanager.get_bag_count(1) + bagcountmanager.get_bag_count(2);
             if (food_count_current == 0){
+                timer = 5.0f;
                 popupIndex ++;
+            }
+        }
+        else
+        {
+            timer -= 0.1f;
+            if (timer <= 0)
+            {
+                popupIndex++;
             }
         }
     }
