@@ -24,7 +24,7 @@ public class HP_POT : MonoBehaviour
         if (collision.gameObject.name == "Fly")
         {
             float cur_hp = hp_bar_manager.getValue();
-            cur_hp += 15;
+            cur_hp = 100;
             hp_bar_manager.setValue(cur_hp);
             Destroy(this.gameObject);
         }
