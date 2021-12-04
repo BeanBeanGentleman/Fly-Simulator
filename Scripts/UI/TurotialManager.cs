@@ -9,6 +9,7 @@ public class TurotialManager : MonoBehaviour
     public GameObject[] popUps;
     private int popupIndex;
     public BagCountManager bagcountmanager;
+    public HealthBar hp_bar;
     private int food_total,leftcount, rightcount, dpadcount, triggercount;
     private bool ll, lr, lu, ld, rl, rr, ru, rd, du, dd, lt, rt, speed_up;
     public float timer = 3.0f;
@@ -39,6 +40,7 @@ public class TurotialManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        hp_bar.setValue(100);
         var gamepad = Gamepad.current;
         for (int i = 0; i < popUps.Length; i++){
             if (i == popupIndex){
