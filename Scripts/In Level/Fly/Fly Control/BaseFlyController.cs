@@ -115,6 +115,8 @@ public partial class BaseFlyController : MonoBehaviour
     public Vector3 avg;
     public Quaternion nextRot;
     public Vector3 climbnormal;
+    public bool EulerCheck = false;
+    public bool islanding = false;
     private void Start()
     {
         rotTrack[3] = new Quaternion(0.0f,0.0f,0.0f,0.0f);

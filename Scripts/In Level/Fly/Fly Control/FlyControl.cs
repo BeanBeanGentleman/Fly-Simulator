@@ -499,9 +499,12 @@ public class @FlyControl : IInputActionCollection, IDisposable
         return GetEnumerator();
     }
 
+
+
     public void Enable()
     {
         asset.Enable();
+    
     }
 
     public void Disable()
