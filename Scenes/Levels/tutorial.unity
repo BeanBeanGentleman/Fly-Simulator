@@ -7424,6 +7424,7 @@ MonoBehaviour:
   - {fileID: 1170631453}
   - {fileID: 1885222995}
   bagcountmanager: {fileID: 893545310}
+  hp_bar: {fileID: 274925225}
   timer: 3
 --- !u!4 &397050452 stripped
 Transform:
@@ -19304,6 +19305,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1990625172}
+    - target: {fileID: 1223194614250421401, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
+      propertyPath: m_Radius
+      value: 0.36800945
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223194614250421401, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
+      propertyPath: m_Center.x
+      value: -0.028384408
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223194614250421401, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
+      propertyPath: m_Center.y
+      value: -0.008359115
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223194614250421401, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
+      propertyPath: m_Center.z
+      value: 0.14585558
+      objectReference: {fileID: 0}
     - target: {fileID: 8560822043716428893, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
       propertyPath: m_Name
       value: PS_Parent (1)
@@ -26307,6 +26324,7 @@ PrefabInstance:
     - {fileID: 725180349712792564, guid: da71b0136ee4f034e88b61e53dff7e6b, type: 3}
     - {fileID: 4010046416405747108, guid: da71b0136ee4f034e88b61e53dff7e6b, type: 3}
     - {fileID: 8896561752555511201, guid: da71b0136ee4f034e88b61e53dff7e6b, type: 3}
+    - {fileID: 1833300270, guid: da71b0136ee4f034e88b61e53dff7e6b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: da71b0136ee4f034e88b61e53dff7e6b, type: 3}
 --- !u!1 &1011517560 stripped
 GameObject:
@@ -26421,6 +26439,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1990625172}
+    - target: {fileID: 1223194614250421401, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
+      propertyPath: m_Radius
+      value: 0.344768
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223194614250421401, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
+      propertyPath: m_Center.y
+      value: -0.06764642
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223194614250421401, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
+      propertyPath: m_Center.z
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8560822043716428893, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
       propertyPath: m_Name
       value: PS_Parent (3)
@@ -27427,6 +27457,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1990625172}
+    - target: {fileID: 1223194614250421401, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
+      propertyPath: m_Radius
+      value: 0.34865898
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223194614250421401, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
+      propertyPath: m_Center.x
+      value: -0.017683944
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223194614250421401, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
+      propertyPath: m_Center.y
+      value: -8.1082483e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223194614250421401, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
+      propertyPath: m_Center.z
+      value: 0.14614654
+      objectReference: {fileID: 0}
     - target: {fileID: 8560822043716428893, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
       propertyPath: m_Name
       value: PS_Parent
@@ -33507,6 +33553,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1990625172}
+    - target: {fileID: 1223194614250421401, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
+      propertyPath: m_Radius
+      value: 0.37461638
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223194614250421401, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
+      propertyPath: m_Center.y
+      value: -0.09749484
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223194614250421401, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
+      propertyPath: m_Center.z
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8560822043716428893, guid: db264eb640c34c2498199a37c3ef1fd0, type: 3}
       propertyPath: m_Name
       value: PS_Parent (2)

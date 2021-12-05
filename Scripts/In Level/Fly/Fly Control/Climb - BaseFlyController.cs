@@ -31,6 +31,7 @@ public partial class BaseFlyController
         movementAccel.SetModifier(myGuid, AccelStrength);
         if (_takeOff)
         {
+            EulerCheck = true;
             IsClimbing = false;
         }
 
@@ -114,7 +115,7 @@ public partial class BaseFlyController
             List<float> normalsY = new List<float>();
             List<float> normalsZ = new List<float>();
             if (DownHasHit){
-                if (timeElapsed < lerpDuration *4){
+                if (timeElapsed < lerpDuration * 4){
                     this.transform.rotation = Quaternion.Lerp(thisRigidbody.rotation, nextRot, timeElapsed / lerpDuration);
                 timeElapsed += Time.deltaTime;
                 }
@@ -210,7 +211,7 @@ public partial class BaseFlyController
         if (other.collider.gameObject.CompareTag("Climbable"))
         {
             if(climbDetector()){
-                IsClimbing = true;
+                //IsClimbing = true;
             }
             //ClimbCounter.MaxmizeTemp();
         }
