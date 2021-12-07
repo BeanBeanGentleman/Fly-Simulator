@@ -58,6 +58,7 @@ public class CameraController : MonoBehaviour
         }
         transform.position = Vector3.Lerp(transform.position, FollowUp.transform.position, Mathf.Clamp(changingmultiplier * Time.deltaTime, 0.0f , 999.0f));
         TheRing.position = new Vector3(CamLookingEulerOffset.y, -CamLookingEulerOffset.x, 5) + Camera.main.ViewportToScreenPoint(new Vector3(0.5f, 0.5f, 0));
+        
     }
 
 }
