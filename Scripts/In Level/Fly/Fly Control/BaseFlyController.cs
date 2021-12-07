@@ -85,7 +85,7 @@ public partial class BaseFlyController : MonoBehaviour
     private float RollMultiplier = 0.05f;
     private float YawMultiplier = 0.2f;
     private float PitchMultiplier = 0.1f;
-    
+
     public float timer = 0.0f;
     /// <summary>
     /// The deadzone for controlling yaw
@@ -112,6 +112,7 @@ public partial class BaseFlyController : MonoBehaviour
     public bool AutoAlignEnabled = true;
     public Quaternion[] rotTrack = new Quaternion[5];
     public bool DownHasHit = false;
+    public AudioSource Buzz;
     public Vector3 avg;
     public Quaternion nextRot;
     public Vector3 climbnormal;
@@ -175,6 +176,7 @@ public partial class BaseFlyController : MonoBehaviour
 
     int FlightAction()
     {
+        var gamepad = Gamepad.current;
         AirDragVal.SetNoBonusModifier(myGuid);
         thisRigidbody.drag = AirDragVal.FinalVal();
         thisRigidbody.AddRelativeForce(movementAccel.FinalVal() * CurrentMovingDirection);
@@ -199,10 +201,14 @@ public partial class BaseFlyController : MonoBehaviour
         YawingSpeed = 0;
         PitchingSpeed = 0;
 
-        /* Buzz.pitch = NoiseLevel.FinalVal() * (movementAccel.FinalVal() / AccelStrengthMax);
-        Buzz.volume = NoiseLevel.FinalVal() * Buzz.pitch; */
-        //Buzz.volume = 1;
-        //Buzz.pitch = 1;
+        if (gamepad.buttonNorth.ReadValue() == 1)
+        {
+            Buzz.volume = 6;
+        }
+        else
+        {
+            Buzz.volume = 3f;
+        }
 
         Quaternion nextRot = this.transform.rotation;
         if (_useFreeCam)
