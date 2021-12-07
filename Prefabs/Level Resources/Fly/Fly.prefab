@@ -16,8 +16,10 @@ GameObject:
   - component: {fileID: 9168476913150612604}
   - component: {fileID: 6387990755498271635}
   - component: {fileID: 1833300273}
-  - component: {fileID: 1833300267}
   - component: {fileID: 1833300270}
+  - component: {fileID: 3745989212331789584}
+  - component: {fileID: 1833300267}
+  - component: {fileID: 7372608987277953825}
   m_Layer: 3
   m_Name: Fly
   m_TagString: Player
@@ -129,9 +131,12 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0, w: 0}
   - {x: 0, y: 0, z: 0, w: 0}
   DownHasHit: 0
+  Buzz: {fileID: 1487780917392196852}
   avg: {x: 0, y: 0, z: 0}
   nextRot: {x: 0, y: 0, z: 0, w: 0}
   climbnormal: {x: 0, y: 0, z: 0}
+  EulerCheck: 0
+  islanding: 0
   CamFollower: {fileID: 1487780917969726249}
   CamFolwOrigPos: {x: 0, y: 0.31, z: -1.05}
   CamFolwClimbPos: {x: 0, y: 1.3, z: -1.2}
@@ -142,6 +147,8 @@ MonoBehaviour:
   CamClimbDist: 2
   TargetAngle: {x: 0, y: 0, z: 0}
   CamMultiplier: 0.1
+  cur_destination: {x: 0, y: 0, z: 0}
+  cur_startpoint: {x: 0, y: 0, z: 0}
   lr: {fileID: 6387990755498271635}
   RayLength: 0.05
   DrawDebug: 0
@@ -153,7 +160,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487780917392196848}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 40ac97ddc20aff34d9a625c22a8f2dc6, type: 3}
@@ -368,6 +375,40 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &1833300270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487780917392196848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c55e39768726499428771650e4a0463f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShouldAct: 0
+  BuffValue: []
+  DebuffValue: []
+  BaseActivationTime: 3
+  BaseCDTime: 6
+  thisFlyController: {fileID: 5779968146687596947}
+  Indicator: {fileID: 0}
+  bag_count_manager: {fileID: 0}
+--- !u!64 &3745989212331789584
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487780917392196848}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!95 &1833300267
 Animator:
   serializedVersion: 3
@@ -387,7 +428,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1833300270
+--- !u!114 &7372608987277953825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
